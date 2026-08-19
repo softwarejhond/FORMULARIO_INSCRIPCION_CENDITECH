@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html body {
+    background-color: #F5F5F9;
+}
+.bg-form {
+    width: 100vw;
+    margin-top: 50px;
+}
+.form {
+    margin-bottom: 30px;
+}
+.content-form {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid gainsboro;
+    margin-top: 10px;
+}
+.content-form h6, .content-form strong {
+    display: inline-block;
+    margin-bottom: 0;
+}
