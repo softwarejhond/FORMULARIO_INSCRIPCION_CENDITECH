@@ -10,120 +10,29 @@ require 'vendor/phpmailer/phpmailer/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Obtener el ID de la sede desde la URL
-$sede_id = isset($_GET['sede']) ? intval($_GET['sede']) : null;
-$institucion_param = isset($_GET['institucion']) ? $_GET['institucion'] : null;
+// La modalidad siempre es virtual y la sede es "No aplica"
+$sede_id = null;
+$institucion_param = null;
+$instituciones_especiales = [];
 
-$instituciones_especiales = ['Instituto Triangulo'];
+$selectedHeadquarter = [
+    'id' => null,
+    'name' => 'No aplica',
+    'mode' => 'Virtual'
+];
+$headquarterPassword = null;
+$selectedMode = 'Virtual';
 
-if (in_array($institucion_param, $instituciones_especiales)) {
-    // Mostrar todas las sedes
-    $queryAllHeadquarters = "SELECT * FROM headquarters WHERE mode != 'Virtual'";
-    $resultAllHeadquarters = $conn->query($queryAllHeadquarters);
-    $allHeadquarters = [];
-    if ($resultAllHeadquarters && $resultAllHeadquarters->num_rows > 0) {
-        while ($row = $resultAllHeadquarters->fetch_assoc()) {
-            $allHeadquarters[] = $row;
-        }
-    }
+// Los programas se cargan desde la configuración estática (process_form_register.php).
+// Los horarios ya no son necesarios, se guardan como cadena vacía.
 
-    // Mostrar todos los programas
-    $queryAllPrograms = "SELECT DISTINCT program FROM schedules WHERE available = 1 ORDER BY program";
-    $resultAllPrograms = $conn->query($queryAllPrograms);
-    $availablePrograms = [];
-    if ($resultAllPrograms && $resultAllPrograms->num_rows > 0) {
-        while ($row = $resultAllPrograms->fetch_assoc()) {
-            $availablePrograms[] = $row['program'];
-        }
-    }
-
-    // Cargar TODOS los horarios para la institución especial
-    $queryAllSchedules = "SELECT DISTINCT schedule, mode, headquarters, program FROM schedules WHERE available = 1 ORDER BY schedule";
-    $resultAllSchedules = $conn->query($queryAllSchedules);
-    $schedules = [];
-    if ($resultAllSchedules && $resultAllSchedules->num_rows > 0) {
-        while ($row = $resultAllSchedules->fetch_assoc()) {
-            $schedules[] = [
-                'schedule' => $row['schedule'],
-                'mode' => $row['mode'],
-                'headquarters' => $row['headquarters'],
-                'program' => $row['program']
-            ];
-        }
-    }
-}
-
-// Consultar la sede específica por ID
-$selectedHeadquarter = null;
-$headquarterPassword = null; // Nueva variable para la contraseña
-if ($sede_id) {
-    $querySelectedHeadquarter = "SELECT * FROM headquarters WHERE id = $sede_id";
-    $resultSelectedHeadquarter = $conn->query($querySelectedHeadquarter);
-
-    if ($resultSelectedHeadquarter && $resultSelectedHeadquarter->num_rows > 0) {
-        $selectedHeadquarter = $resultSelectedHeadquarter->fetch_assoc();
-        $headquarterPassword = $selectedHeadquarter['password'] ?? null; // Guardar la contraseña
-    }
-}
-
-// Si no se encuentra la sede, mostrar error o redirigir
-if (!$selectedHeadquarter && !in_array($institucion_param, $instituciones_especiales)) {
-    echo "<div class='alert alert-danger mt-4'>Sede no encontrada o no especificada.</div>";
-    exit;
-}
-
-// Determinar la modalidad basada en la sede
-if (in_array($institucion_param, $instituciones_especiales)) {
-    $selectedMode = '';
-} else {
-    $selectedMode = ($selectedHeadquarter['name'] === 'No aplica') ? 'Virtual' : $selectedHeadquarter['mode'];
-}
-
-// Consultar programas disponibles para esta sede específica
-if (!in_array($institucion_param, $instituciones_especiales)) {
-    $queryPrograms = "SELECT DISTINCT program FROM schedules WHERE headquarters = '" . $selectedHeadquarter['name'] . "' AND available = 1 ORDER BY program";
-    $resultPrograms = $conn->query($queryPrograms);
-
-    $availablePrograms = [];
-    if ($resultPrograms && $resultPrograms->num_rows > 0) {
-        while ($row = $resultPrograms->fetch_assoc()) {
-            $availablePrograms[] = $row['program'];
-        }
-    }
-
-    // Consultar los horarios desde la base de datos para la sede específica
-    $querySchedules = "SELECT DISTINCT schedule, mode, headquarters, program FROM schedules WHERE headquarters = '" . $selectedHeadquarter['name'] . "' AND available = 1 ORDER BY schedule";
-    $resultSchedules = $conn->query($querySchedules);
-
-    // Crear un array para almacenar los horarios
-    $schedules = [];
-    if ($resultSchedules && $resultSchedules->num_rows > 0) {
-        while ($row = $resultSchedules->fetch_assoc()) {
-            $schedules[] = [
-                'schedule' => $row['schedule'],
-                'mode' => $row['mode'],
-                'headquarters' => $row['headquarters'],
-                'program' => $row['program']
-            ];
-        }
-    }
-}
-
-$antioquiaId = null;
-$antioquiaNombre = '';
-$antioquiaMunicipios = [];
-$queryAntioquia = "SELECT id_departamento, departamento FROM departamentos WHERE departamento = 'ANTIOQUIA' LIMIT 1";
-$resultAntioquia = $conn->query($queryAntioquia);
-if ($resultAntioquia && $resultAntioquia->num_rows > 0) {
-    $antioquia = $resultAntioquia->fetch_assoc();
-    $antioquiaId = $antioquia['id_departamento'];
-    $antioquiaNombre = $antioquia['departamento'];
-    $queryMunicipios = "SELECT id_municipio, municipio FROM municipios WHERE departamento_id = $antioquiaId ORDER BY municipio";
-    $resultMunicipios = $conn->query($queryMunicipios);
-    if ($resultMunicipios && $resultMunicipios->num_rows > 0) {
-        while ($row = $resultMunicipios->fetch_assoc()) {
-            $antioquiaMunicipios[] = $row;
-        }
+// Cargar todos los departamentos
+$departamentos = [];
+$queryDepartamentos = "SELECT id_departamento, departamento FROM departamentos ORDER BY departamento";
+$resultDepartamentos = $conn->query($queryDepartamentos);
+if ($resultDepartamentos && $resultDepartamentos->num_rows > 0) {
+    while ($row = $resultDepartamentos->fetch_assoc()) {
+        $departamentos[] = $row;
     }
 }
 
@@ -220,21 +129,9 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
         $institution = $_POST['institution'] ?? '';
         $lote = 0;
 
-        // Subir documento frontal
+        // Ya no se suben documentos de identidad
         $idFront = '';
-        if (isset($_FILES['file_front_id']) && $_FILES['file_front_id']['error'] == 0) {
-            $extension = pathinfo($_FILES['file_front_id']['name'], PATHINFO_EXTENSION);
-            $idFront = $number_id . '_Front.' . $extension;
-            move_uploaded_file($_FILES['file_front_id']['tmp_name'], 'files/idFilesFront/' . $idFront);
-        }
-
-        // Subir documento trasero
         $idBack = '';
-        if (isset($_FILES['file_back_id']) && $_FILES['file_back_id']['error'] == 0) {
-            $extension = pathinfo($_FILES['file_back_id']['name'], PATHINFO_EXTENSION);
-            $idBack = $number_id . '_Back.' . $extension;
-            move_uploaded_file($_FILES['file_back_id']['tmp_name'], 'files/idFilesBack/' . $idBack);
-        }
 
         // Verificar si el aspirante ya existe
         $queryCheck = "SELECT * FROM user_register WHERE number_id = '$number_id'";
@@ -534,14 +431,16 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
             function generateField($fieldName)
             {
-                global $formConfig, $selectedHeadquarter, $selectedMode, $availablePrograms, $institucion_param, $allHeadquarters, $antioquiaId, $antioquiaNombre, $antioquiaMunicipios;
+                global $formConfig, $selectedHeadquarter, $selectedMode, $institucion_param, $departamentos;
                 $field = $formConfig[$fieldName] ?? [];
                 $type = $field['type'] ?? 'text';
                 $label = $field['label'] ?? ucfirst($fieldName);
                 $attributes = generateAttributes($field['attributes'] ?? []);
 
                 echo "<div class='form-group'>";
-                echo "<label class='bold-label'>$label</label>";
+                if (!in_array($fieldName, ['mode', 'headquarters'])) {
+                    echo "<label class='bold-label'>$label</label>";
+                }
 
                 if ($fieldName === 'birthdate') {
                     echo "<div class='row'>";
@@ -581,65 +480,32 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                     echo "</div>";
                 } elseif ($fieldName === 'mode') {
-                    if ($institucion_param === 'Instituto Triangulo' || $institucion_param === 'Lorena Rojas') {
-                        // Campo de modalidad habilitado con todas las modalidades disponibles
-                        echo "<select class='form-control mb-3' name='mode' id='mode' required>";
-                        echo "<option value=''>Seleccione una modalidad</option>";
-                        echo "<option value='Presencial'>Presencial</option>";
-                        echo "</select>";
-                    } else {
-                        // Campo de modalidad deshabilitado con el valor de la sede seleccionada
-                        echo "<select class='form-control mb-3' disabled>";
-                        echo "<option value='$selectedMode' selected>$selectedMode</option>";
-                        echo "</select>";
-                        // Campo oculto para enviar el valor en el formulario
-                        echo "<input type='hidden' name='mode' value='$selectedMode'>";
-                    }
+                    // Modalidad siempre virtual
+                    echo "<input type='hidden' name='mode' id='mode' value='$selectedMode'>";
                 } elseif ($fieldName === 'headquarters') {
-                    if ($institucion_param === 'Instituto Triangulo' || $institucion_param === 'Lorena Rojas') {
-                        // Selector con todas las sedes disponibles
-                        echo "<select class='form-control mb-3' name='headquarters' id='headquarters' required>";
-                        echo "<option value=''>Seleccione una sede</option>";
-                        foreach ($allHeadquarters as $hq) {
-                            echo "<option value='" . $hq['name'] . "'>" . $hq['name'] . "</option>";
-                        }
-                        echo "</select>";
-                        // Campo oculto para institution
-                        echo "<input type='hidden' name='institution' value='" . $institucion_param . "'>";
-                    } else {
-                        // Campo de sede deshabilitado con la sede seleccionada desde la URL
-                        echo "<select class='form-control mb-3' disabled>";
-                        echo "<option value='" . $selectedHeadquarter['name'] . "' selected>" . $selectedHeadquarter['name'] . "</option>";
-                        echo "</select>";
-                        // Campo oculto para enviar el valor en el formulario
-                        echo "<input type='hidden' name='headquarters' value='" . $selectedHeadquarter['name'] . "'>";
-                        // Campo oculto para institution
-                        echo "<input type='hidden' name='institution' value='" . $selectedHeadquarter['name'] . "'>";
-                    }
+                    // Sede siempre "No aplica"
+                    echo "<input type='hidden' name='headquarters' id='headquarters' value='" . $selectedHeadquarter['name'] . "'>";
+                    echo "<input type='hidden' name='institution' value='" . $selectedHeadquarter['name'] . "'>";
                 } elseif ($fieldName === 'program') {
-                    // Campo de programa filtrado por la sede
+                    // Campo de programa con listado estático
                     $options = $field['options'] ?? [];
                     echo "<select class='form-control mb-3' name='program' id='program' required>";
                     echo "<option value=''>Seleccione un programa</option>";
 
-                    // Solo mostrar programas disponibles para esta sede
-                    foreach ($availablePrograms as $program) {
-                        echo "<option value='$program'>$program</option>";
+                    foreach ($options as $value => $optionLabel) {
+                        if ($value === '') {
+                            continue;
+                        }
+                        echo "<option value='$value'>$optionLabel</option>";
                     }
                     echo "</select>";
-
-                    // Si no hay programas disponibles, mostrar mensaje
-                    if (empty($availablePrograms)) {
-                        echo "<small class='text-muted'>No hay programas disponibles para esta sede.</small>";
-                    }
                 } else if ($fieldName == 'department') {
                     echo "<div class='form-group'>";
                     echo "<label class='form-label text-magenta-dark'>Departamento</label>";
                     echo "<select class='form-control' name='department' id='lista_departamento' data-populated='true' required>";
-                    if ($antioquiaId) {
-                        echo "<option value='" . $antioquiaId . "' selected>" . htmlspecialchars($antioquiaNombre) . "</option>";
-                    } else {
-                        echo "<option value=''>Seleccionar</option>";
+                    echo "<option value=''>Seleccione un departamento</option>";
+                    foreach ($departamentos as $dep) {
+                        echo "<option value='" . $dep['id_departamento'] . "'>" . htmlspecialchars($dep['departamento']) . "</option>";
                     }
                     echo "</select>";
                     echo "</div>";
@@ -647,12 +513,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                     echo "<div class='form-group'>";
                     echo "<label class='form-label text-magenta-dark'>Municipio</label>";
                     echo "<select name='municipality' id='municipios' class='form-control' data-populated='true' required>";
-                    echo "<option value=''>Seleccionar</option>";
-                    if (!empty($antioquiaMunicipios)) {
-                        foreach ($antioquiaMunicipios as $mun) {
-                            echo "<option value='" . $mun['id_municipio'] . "'>" . htmlspecialchars($mun['municipio']) . "</option>";
-                        }
-                    }
+                    echo "<option value=''>Seleccione un departamento primero</option>";
                     echo "</select>";
                     echo "</div>";
                 } elseif ($type === 'select') {
@@ -874,40 +735,6 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                     // Enlace con los requisitos
                     echo "<p><a href='https://talentotech.utinnova.co/politica-de-tratamiento-de-datos/' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
                     echo "</div>";
-                } elseif ($fieldName == 'file_front_id') {
-                    echo "<div class='form-group'>";
-                    // Área de carga de archivo con arrastrar y soltar
-                    echo "
-                <div class='file-drop-area' id='file_front_drop_area'>
-                    <div class='file-drop-icon'>
-                        <i class='bi bi-cloud-upload'></i>
-                    </div>
-                    <span class='file-drop-text'>Arrastra y suelta tu archivo aquí o haz clic para seleccionarlo</span>
-                    <input type='file' name='file_front_id' id='file_front_drag' class='file-input' accept='.jpg, .jpeg, .png' required onchange='validateImageFile(this)' />
-                    <div class='file-preview' id='file_front_preview'></div>
-                </div>";
-                    // Texto de ayuda
-                    echo "<small>El archivo debe ser  JPG, JPEG o PNG y no superar los 2MB.</small>";
-
-                    echo "</div>";
-                } elseif ($fieldName == 'file_back_id') {
-                    echo "<div class='form-group'>";
-
-                    // Área de carga de archivo con arrastrar y soltar
-                    echo "
-                <div class='file-drop-area' id='file_back_drop_area'>
-                    <div class='file-drop-icon'>
-                        <i class='bi bi-cloud-upload'></i>
-                    </div>
-                    <span class='file-drop-text'>Arrastra y suelta tu archivo aquí o haz clic para seleccionarlo</span>
-                    <input type='file' name='file_back_id' id='file_back_drag' class='file-input' accept='.jpg, .jpeg, .png' required />
-                    <div class='file-preview' id='file_back_preview'></div>
-                </div>";
-
-                    // Texto de ayuda
-                    echo "<small>El archivo debe ser JPG, JPEG o PNG y no superar los 2MB.</small>";
-
-                    echo "</div>";
                 } else {
                     echo "<input type='$type' $attributes>";
                 }
@@ -927,24 +754,6 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
             </div>
 
         </form>
-    </div>
-    <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="infoModalLabel">Información de Horario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p id="modalMessage">
-                        Estimado usuario, los cursos se habilitarán de manera gradual considerando la cantidad de usuarios matriculados. Le invitamos cordialmente a seleccionar el horario que mejor se adapte a su disponibilidad, tomando en cuenta la oferta actual. Agradecemos su comprensión y colaboración.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" style="background-color:#066aab ; color:white" data-bs-dismiss="modal">Entendido</button>
-                </div>
-            </div>
-        </div>
     </div>
     <script>
         let currentStep = 1;
@@ -1064,35 +873,6 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
         // Inicializar el primer paso
         showStep();
     </script>
-    <script>
-        // Referencias a los elementos
-        const modeSelect = document.getElementById('mode');
-        const headquartersSelect = document.getElementById('headquarters');
-
-        // Ya no necesitamos la lógica de actualización de sedes porque están fijas
-        // Los campos están deshabilitados y pre-seleccionados
-
-        // Obtener los datos de las sedes desde PHP (para compatibilidad con scripts existentes)
-        const headquarters = <?php echo json_encode([['id' => $selectedHeadquarter['id'], 'name' => $selectedHeadquarter['name'], 'mode' => $selectedMode]]); ?>;
-
-        // Los programas disponibles para esta sede
-        const availablePrograms = <?php echo json_encode($availablePrograms); ?>;
-
-        // Función para mostrar información sobre la sede seleccionada
-        function showHeadquarterInfo() {
-            const headquarterName = "<?php echo $selectedHeadquarter['name']; ?>";
-            const mode = "<?php echo $selectedMode; ?>";
-
-            console.log(`Sede seleccionada: ${headquarterName}`);
-            console.log(`Modalidad: ${mode}`);
-            console.log('Programas disponibles:', availablePrograms);
-        }
-
-        // Inicializar información al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            showHeadquarterInfo();
-        });
-    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -1161,187 +941,6 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
         });
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Referencias a los elementos
-            const modeSelect = document.getElementById('mode');
-            const headquartersSelect = document.getElementById('headquarters');
-            const programSelect = document.getElementById('program');
-            const schedulesSelect = document.getElementById('schedules');
-            const schedulesAlternativeSelect = document.getElementById('schedules_alternative');
-
-            // Verificar si estamos en modo "Instituto Triangulo"
-            const isInstitutoTriangulo = <?php echo ($institucion_param === 'Instituto Triangulo' || $institucion_param === 'Lorena Rojas') ? 'true' : 'false'; ?>;
-
-            // Obtener los datos de los horarios desde PHP
-            const schedules = <?php echo json_encode($schedules ?? []); ?>;
-
-            // Valores para el modo normal (sede específica)
-            const selectedMode = "<?php echo $selectedMode ?? ''; ?>";
-            const selectedHeadquarters = "<?php echo isset($selectedHeadquarter['name']) ? $selectedHeadquarter['name'] : ''; ?>";
-
-            // Función para actualizar las opciones de horarios
-            function updateScheduleOptions() {
-                const selectedProgram = programSelect.value;
-                let currentMode = '';
-                let currentHeadquarters = '';
-
-                if (isInstitutoTriangulo) {
-                    currentMode = modeSelect.value;
-                    currentHeadquarters = headquartersSelect.value;
-                } else {
-                    currentMode = selectedMode;
-                    currentHeadquarters = selectedHeadquarters;
-                }
-
-                // Limpiar los select de horarios
-                schedulesSelect.innerHTML = '';
-                schedulesAlternativeSelect.innerHTML = '';
-
-                // Si no se ha seleccionado programa
-                if (!selectedProgram) {
-                    const message = 'Primero seleccione un programa';
-                    schedulesSelect.innerHTML = `<option value="">${message}</option>`;
-                    schedulesAlternativeSelect.innerHTML = `<option value="">${message}</option>`;
-                    return;
-                }
-
-                // Para Instituto Triangulo, también verificar modalidad y sede
-                if (isInstitutoTriangulo && (!currentMode || !currentHeadquarters)) {
-                    const message = 'Seleccione modalidad y sede primero';
-                    schedulesSelect.innerHTML = `<option value="">${message}</option>`;
-                    schedulesAlternativeSelect.innerHTML = `<option value="">${message}</option>`;
-                    return;
-                }
-
-                // Filtrar horarios según el modo
-                let filteredSchedules;
-                if (isInstitutoTriangulo) {
-                    filteredSchedules = schedules.filter(sch =>
-                        sch.program === selectedProgram &&
-                        sch.mode === currentMode &&
-                        sch.headquarters === currentHeadquarters
-                    );
-                } else {
-                    filteredSchedules = schedules.filter(sch =>
-                        sch.program === selectedProgram
-                    );
-                }
-
-                // Si no hay horarios disponibles
-                if (filteredSchedules.length === 0) {
-                    let alertMessage = '';
-                    if (isInstitutoTriangulo) {
-                        alertMessage = `No hay horarios disponibles para ${selectedProgram} en modalidad ${currentMode} en la sede ${currentHeadquarters}`;
-                    } else {
-                        alertMessage = `No hay horarios disponibles para ${selectedProgram} en la sede ${currentHeadquarters}`;
-                    }
-
-                    // Mostrar mensaje de alerta con SweetAlert
-                    Swal.fire({
-                        title: '¡Atención!',
-                        text: alertMessage,
-                        icon: 'warning',
-                        confirmButtonColor: '#066aab',
-                    });
-
-                    // Actualizar selects con mensaje informativo
-                    const message = 'No hay horarios disponibles para este programa';
-                    schedulesSelect.innerHTML = `<option value="">${message}</option>`;
-                    schedulesAlternativeSelect.innerHTML = `<option value="">${message}</option>`;
-                    return;
-                }
-
-                // Agregar opciones
-                schedulesSelect.innerHTML = '<option value="">Seleccione horario principal</option>';
-                schedulesAlternativeSelect.innerHTML = '<option value="">Seleccione horario alternativo</option>';
-
-                filteredSchedules.forEach(sch => {
-                    const opt = document.createElement('option');
-                    opt.value = sch.schedule;
-                    opt.textContent = sch.schedule;
-                    schedulesSelect.appendChild(opt);
-                });
-            }
-
-            // Función para actualizar las opciones del horario alternativo
-            function updateAlternativeSchedules() {
-                const selectedProgram = programSelect.value;
-                const selectedSchedule = schedulesSelect.value;
-                let currentMode = '';
-                let currentHeadquarters = '';
-
-                if (isInstitutoTriangulo) {
-                    currentMode = modeSelect.value;
-                    currentHeadquarters = headquartersSelect.value;
-                } else {
-                    currentMode = selectedMode;
-                    currentHeadquarters = selectedHeadquarters;
-                }
-
-                schedulesAlternativeSelect.innerHTML = '';
-
-                if (!selectedSchedule) {
-                    schedulesAlternativeSelect.innerHTML = '<option value="">Primero seleccione un horario principal</option>';
-                    return;
-                }
-
-                schedulesAlternativeSelect.innerHTML = '<option value="">Seleccione horario alternativo</option>';
-
-                // Filtrar horarios excluyendo el principal seleccionado
-                let filteredSchedules;
-                if (isInstitutoTriangulo) {
-                    filteredSchedules = schedules.filter(sch =>
-                        sch.program === selectedProgram &&
-                        sch.mode === currentMode &&
-                        sch.headquarters === currentHeadquarters &&
-                        sch.schedule !== selectedSchedule
-                    );
-                } else {
-                    filteredSchedules = schedules.filter(sch =>
-                        sch.program === selectedProgram &&
-                        sch.schedule !== selectedSchedule
-                    );
-                }
-
-                // Si no hay horarios alternativos, mostrar el mismo horario principal como opción
-                if (filteredSchedules.length === 0) {
-                    // Solo hay un horario disponible, permitir seleccionarlo como alternativo
-                    schedulesAlternativeSelect.innerHTML += `<option value="${selectedSchedule}">${selectedSchedule}</option>`;
-                    return;
-                }
-
-                // Si hay más de un horario, mostrar los alternativos
-                filteredSchedules.forEach(sch => {
-                    const opt = document.createElement('option');
-                    opt.value = sch.schedule;
-                    opt.textContent = sch.schedule;
-                    schedulesAlternativeSelect.appendChild(opt);
-                });
-            }
-
-            // Eventos para detectar cambios
-            programSelect.addEventListener('change', updateScheduleOptions);
-            schedulesSelect.addEventListener('change', updateAlternativeSchedules);
-
-            // Para Instituto Triangulo, también escuchar cambios en modalidad y sede
-            if (isInstitutoTriangulo && modeSelect && headquartersSelect) {
-                modeSelect.addEventListener('change', updateScheduleOptions);
-                headquartersSelect.addEventListener('change', updateScheduleOptions);
-            }
-
-            // Inicializar los select de horarios
-            updateScheduleOptions();
-        });
-    </script>
-    <script>
-        document.getElementById('schedules').addEventListener('change', function() {
-            if (this.value !== "") {
-                var modal = new bootstrap.Modal(document.getElementById('scheduleModal'));
-                modal.show();
-            }
-        });
-    </script>
     <script>
         // Referencias a los elementos
         const priorKnowledgeSelect = document.getElementById('prior_knowledge');
@@ -1493,7 +1092,6 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 'mode': document.querySelector('[name="mode"]'),
                 'headquarters': document.querySelector('[name="headquarters"]'),
                 'program': document.querySelector('[name="program"]'),
-                'schedules': document.querySelector('[name="schedules"]'),
                 'prior_knowledge': document.querySelector('[name="prior_knowledge"]'),
                 'level': document.querySelector('[name="level"]'),
                 'languages': document.querySelector('[name="languages"]'),
@@ -1555,7 +1153,6 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 'mode': 'de modalidad de estudio',
                 'headquarters': 'Sede',
                 'program': 'Programa',
-                'schedules': 'Horarios',
                 'prior_knowledge': 'Conocimientos previos',
                 'level': 'Nivel',
                 'languages': 'que inidica si habla otro idioma',
@@ -1629,125 +1226,35 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Configuración para el frente del documento
-            setupFileUpload('file_front_drag', 'file_front_preview', 'file_front_drop_area');
+            const departamentoSelect = document.getElementById('lista_departamento');
+            const municipioSelect = document.getElementById('municipios');
+            if (!departamentoSelect || !municipioSelect) return;
 
-            // Configuración para el reverso del documento
-            setupFileUpload('file_back_drag', 'file_back_preview', 'file_back_drop_area');
-
-            function setupFileUpload(inputId, previewId, dropAreaId) {
-                const fileInput = document.getElementById(inputId);
-                const previewContainer = document.getElementById(previewId);
-                const dropArea = document.getElementById(dropAreaId);
-
-                // Evitar comportamiento por defecto cuando se arrastra un archivo
-                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                    dropArea.addEventListener(eventName, preventDefaults, false);
-                });
-
-                function preventDefaults(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
+            function cargarMunicipios(codDepartamento) {
+                municipioSelect.innerHTML = '<option value="">Cargando...</option>';
+                if (!codDepartamento) {
+                    municipioSelect.innerHTML = '<option value="">Seleccione un departamento primero</option>';
+                    return;
                 }
-
-                // Añadir clase de resaltado cuando se arrastra sobre el área
-                ['dragenter', 'dragover'].forEach(eventName => {
-                    dropArea.addEventListener(eventName, () => {
-                        dropArea.classList.add('highlight');
-                    });
-                });
-
-                // Quitar clase de resaltado cuando se sale del área
-                ['dragleave', 'drop'].forEach(eventName => {
-                    dropArea.addEventListener(eventName, () => {
-                        dropArea.classList.remove('highlight');
-                    });
-                });
-
-                // Manejar cuando se suelta un archivo
-                dropArea.addEventListener('drop', function(e) {
-                    const dt = e.dataTransfer;
-                    const files = dt.files;
-
-                    if (files.length) {
-                        fileInput.files = files;
-                        updateFilePreview(files[0]);
-                    }
-                });
-
-                // Manejar cuando se selecciona un archivo con el selector
-                fileInput.addEventListener('change', function() {
-                    if (this.files && this.files[0]) {
-                        updateFilePreview(this.files[0]);
-                    }
-                });
-
-                // Función para actualizar la vista previa
-                function updateFilePreview(file) {
-                    // Validar el tipo de archivo
-                    if (!file.type.startsWith('image/')) {
-                        Swal.fire({
-                            title: '¡Ojo!',
-                            text: 'Solo se permiten archivos de tipo imagen',
-                            icon: 'warning',
-                            showConfirmButton: false,
-                            timer: 5000,
+                fetch('APIS/register_student/get_municipios.php?departamento=' + encodeURIComponent(codDepartamento))
+                    .then(function(response) { return response.json(); })
+                    .then(function(data) {
+                        municipioSelect.innerHTML = '<option value="">Seleccione un municipio</option>';
+                        data.forEach(function(mun) {
+                            const option = document.createElement('option');
+                            option.value = mun.cod_municipio;
+                            option.textContent = mun.nom_municipio;
+                            municipioSelect.appendChild(option);
                         });
-                        fileInput.value = '';
-                        previewContainer.innerHTML = '';
-                        return;
-                    }
-
-                    // Validar tamaño de archivo (20MB máximo)
-                    if (file.size > 20 * 1024 * 1024) {
-                        Swal.fire({
-                            title: '¡Ojo!',
-                            text: 'El archivo es demasiado grande. El tamaño máximo permitido es 20MB.',
-                            icon: 'warning',
-                            showConfirmButton: false,
-                            timer: 5000,
-                        });
-                        fileInput.value = '';
-                        previewContainer.innerHTML = '';
-                        return;
-                    }
-
-                    // Crear vista previa
-                    const reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        previewContainer.innerHTML = `
-                            <div class="preview-image-container">
-                                <img src="${e.target.result}" class="preview-image" />
-                                <button type="button" class="btn btn-sm btn-danger remove-preview">
-                                    <i class="bi bi-x"></i>
-                                </button>
-                            </div>
-                        `;
-
-                        // Cambiar estilo del área de drop
-                        dropArea.classList.add('has-preview');
-
-                        // Añadir funcionalidad para eliminar la vista previa
-                        const removeButton = previewContainer.querySelector('.remove-preview');
-                        if (removeButton) {
-                            removeButton.addEventListener('click', function() {
-                                fileInput.value = '';
-                                previewContainer.innerHTML = '';
-                                dropArea.classList.remove('has-preview');
-                            });
-                        }
-                    };
-
-                    // Para solucionar problemas con iOS
-                    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
-                        // En iOS, usamos readAsDataURL por compatibilidad
-                        reader.readAsDataURL(file);
-                    } else {
-                        reader.readAsDataURL(file);
-                    }
-                }
+                    })
+                    .catch(function() {
+                        municipioSelect.innerHTML = '<option value="">Error al cargar municipios</option>';
+                    });
             }
+
+            departamentoSelect.addEventListener('change', function() {
+                cargarMunicipios(this.value);
+            });
         });
     </script>
 

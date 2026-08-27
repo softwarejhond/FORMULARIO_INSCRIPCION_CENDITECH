@@ -164,54 +164,6 @@
 </script>
 
 <script>
-    // Función para manejar el evento de arrastrar y soltar
-    function handleFileDragAndDrop(event, dropAreaId, inputId, previewId) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        const dropArea = document.getElementById(dropAreaId);
-        const inputFile = document.getElementById(inputId);
-        const filePreview = document.getElementById(previewId);
-
-        // Si se ha soltado un archivo
-        if (event.type === 'drop') {
-            const file = event.dataTransfer.files[0];
-            inputFile.files = event.dataTransfer.files;
-            previewFile(file, filePreview);
-        }
-
-        // Si estamos en el área de arrastre
-        dropArea.classList.add('dragging');
-    }
-
-    // Función para mostrar la vista previa del archivo
-    function previewFile(file, previewElement) {
-        const reader = new FileReader();
-
-        reader.onload = function(event) {
-            const fileType = file.type.split('/')[0];
-            if (fileType === 'image') {
-                previewElement.innerHTML = `<img src="${event.target.result}" alt="Vista previa" class="img-thumbnail" />`;
-            } else {
-                previewElement.innerHTML = `<span>${file.name}</span>`;
-            }
-        };
-
-        reader.readAsDataURL(file);
-    }
-
-    // Agregar los eventos a las áreas de carga
-    document.getElementById('file_front_drop_area').addEventListener('dragover', (event) => event.preventDefault());
-    document.getElementById('file_front_drop_area').addEventListener('drop', (event) => handleFileDragAndDrop(event, 'file_front_drop_area', 'file_front_drag', 'file_front_preview'));
-
-    document.getElementById('file_back_drop_area').addEventListener('dragover', (event) => event.preventDefault());
-    document.getElementById('file_back_drop_area').addEventListener('drop', (event) => handleFileDragAndDrop(event, 'file_back_drop_area', 'file_back_drag', 'file_back_preview'));
-
-    // Hacer clic en el área de carga de archivos para abrir el selector de archivos
-    document.getElementById('file_front_drop_area').addEventListener('click', () => document.getElementById('file_front_drag').click());
-    document.getElementById('file_back_drop_area').addEventListener('click', () => document.getElementById('file_back_drag').click());
-</script>
-<script>
     function showToast(type, message) {
         // Crear el elemento del toast
         const toast = document.createElement('div');

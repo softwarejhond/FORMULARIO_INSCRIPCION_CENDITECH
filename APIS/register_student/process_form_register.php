@@ -38,8 +38,6 @@ return [
         'mode',
         'headquarters',
         'program',
-        'schedules',
-        'schedules_alternative',
         'prior_knowledge',
         'level',
         'languages',
@@ -54,8 +52,8 @@ return [
         'accept_requirements',
         'accepts_tech_talent',
         'accept_data_policies',
-        'file_front_id',
-        'file_back_id',
+        // 'file_front_id',
+        // 'file_back_id',
         // 'has_certification',
         // 'program_certified',
     ],
@@ -667,7 +665,9 @@ return [
             'Inteligencia Artificial' => 'Inteligencia Artificial',
             'Programación' => 'Programación',
             'BlockChain' => 'BlockChain',
-            'Arquitectura en la nube' => 'Arquitectura en la nube'
+            'Arquitectura en la nube' => 'Arquitectura en la nube',
+            'Robótica y automatización' => 'Robótica y automatización',
+            'Internet de las cosas - IoT' => 'Internet de las cosas - IoT'
         ],
         'attributes' => [
             'class' => 'form-control mb-3',
