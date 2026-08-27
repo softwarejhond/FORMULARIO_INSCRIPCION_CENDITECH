@@ -77,7 +77,9 @@ return [
             'class' => 'form-control mb-3',
             'required' => true,
             'name' => 'number_id',
-            'id' => 'number_id'
+            'id' => 'number_id',
+            'inputmode' => 'numeric',
+            'oninput' => "this.value=this.value.replace(/[^0-9]/g, '')"
         ]
     ],
     'number_id_very' => [
@@ -87,7 +89,9 @@ return [
             'class' => 'form-control mb-3',
             'required' => true,
             'name' => 'number_id_very',
-            'id' => 'number_id_very'
+            'id' => 'number_id_very',
+            'inputmode' => 'numeric',
+            'oninput' => "this.value=this.value.replace(/[^0-9]/g, '')"
         ]
     ],
     'first_name' => [

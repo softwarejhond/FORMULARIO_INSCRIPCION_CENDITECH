@@ -55,6 +55,16 @@ function generateAttributes($attributes)
     return $html;
 }
 
+function normalizarTexto($texto)
+{
+    $texto = trim($texto);
+    $texto = strtr($texto, [
+        'á' => 'A', 'é' => 'E', 'í' => 'I', 'ó' => 'O', 'ú' => 'U', 'ü' => 'U',
+        'Á' => 'A', 'É' => 'E', 'Í' => 'I', 'Ó' => 'O', 'Ú' => 'U', 'Ü' => 'U'
+    ]);
+    return mb_strtoupper($texto, 'UTF-8');
+}
+
 $includeFields = $formConfig['include_fields'] ?? [];
 $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 ?>
@@ -67,10 +77,10 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
         $typeID = $_POST['typeID'] ?? '';
         $number_id = $_POST['number_id'] ?? '';
         $number_id_very = $_POST['number_id_very'] ?? '';
-        $first_name = $_POST['first_name'] ?? '';
-        $second_name = $_POST['second_name'] ?? '';
-        $first_last = $_POST['first_last'] ?? '';
-        $second_last = $_POST['second_last'] ?? '';
+        $first_name = normalizarTexto($_POST['first_name'] ?? '');
+        $second_name = normalizarTexto($_POST['second_name'] ?? '');
+        $first_last = normalizarTexto($_POST['first_last'] ?? '');
+        $second_last = normalizarTexto($_POST['second_last'] ?? '');
         $birthdate = $_POST['birthdateFormate'] ?? '';
         $expedition_date = $_POST['expedition_date_formate'] ?? '';
         $gender = $_POST['gender'] ?? '';
@@ -167,10 +177,20 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 </div>
             ";
         } else {
+            // Generar token único para verificación de correo
+            $token = bin2hex(random_bytes(32));
+
+            // Construir la URL de verificación dinámicamente
+            $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+            $host = $_SERVER['HTTP_HOST'];
+            $scriptDir = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
+            $baseUrl = $protocol . '://' . $host . $scriptDir;
+            $verificationUrl = $baseUrl . '/verificacion.php?token=' . urlencode($token) . '&email=' . urlencode($email);
+
             // Insertar los datos en la base de datos
             $queryInsert = "INSERT INTO user_register (
                 typeID, number_id, number_id_very, first_name, second_name, first_last, second_last, birthdate, expedition_date, gender, marital_status, email, 
-                email_very, first_phone, second_phone, password, emergency_contact_name, emergency_contact_number, nationality, department, 
+                email_very, first_phone, second_phone, token, email_verified, emergency_contact_name, emergency_contact_number, nationality, department, 
                 municipality, address, latitud, longitud, people_charge, vulnerable_population, vulnerable_type, ethnic_group, stratum, 
                 residence_area, country_person, lote, directed_base, training_level, occupation, time_obligations, motivations_belong_program, current_situation, 
                 impediment_complete_course, availability, mode, headquarters, institution, program, schedules, schedules_alternative, prior_knowledge,level, languages, languages_level, 
@@ -178,7 +198,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 accept_data_policies, file_front_id, file_back_id, status, statusAdmin, idCourse, contactMedium, creationDate, dayUpdate
             ) VALUES (
                 '$typeID', '$number_id', '$number_id_very', '$first_name', '$second_name', '$first_last', '$second_last', '$birthdate', '$expedition_date', 
-                '$gender', '$marital_status', '$email', '$email_very', '$first_phone', '$second_phone', '', '$emergency_contact_name', 
+                '$gender', '$marital_status', '$email', '$email_very', '$first_phone', '$second_phone', '$token', 0, '$emergency_contact_name', 
                 '$country_code3 $emergency_contact_number', '$nationality', '$department', '$municipality', '$address', '$latitud', '$longitud', '$people_charge', 
                 '$vulnerable_population', '$vulnerable_type', '$ethnic_group', '$stratum', '$residence_area', '$country_person', 0, 0, '$training_level', '$occupation', 
                 '$time_obligations', '$motivations_belong_program', '$current_situation', '$impediment_complete_course', '$availability', 
@@ -193,17 +213,19 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                 // Continuar con el flujo normal (envío de correo, etc.)
                 echo "<script>
-                    Swal.fire({
-                        title: '¡Exitoso!',
-                        text: 'Datos registrados con éxito, recuerda revisar tu correo electrónico',
-                        icon: 'success',
-                        showConfirmButton: false,
-                        timer: 2000,
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            title: '¡Exitoso!',
+                            text: 'Datos registrados con éxito, recuerda revisar tu correo electrónico',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
                     });
                 </script>";
 
                 // Define la consulta que quieres ejecutar
-                $query = "SELECT * FROM smtpConfig WHERE id=3"; // Asegúrate de que esta consulta tenga sentido en tu lógica
+                $query = "SELECT * FROM smtpConfig WHERE id=1"; // Asegúrate de que esta consulta tenga sentido en tu lógica
 
                 if (mysqli_query($conn, $query)) {
                     // Continúa con el envío de correo...
@@ -222,7 +244,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                         $mail->SMTPAuth = true; // Habilita la autenticación SMTP
                         $mail->Username = $emailSmtp; // Usuario SMTP
                         $mail->Password = $password; // Contraseña SMTP
-                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Habilita SSL (seguridad)
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL implícito (puerto 465)
                         $mail->Port = $port; // Puerto SSL
 
                         $mail->SMTPOptions = array(
@@ -239,18 +261,6 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                         $mail->isHTML(true);
                         $mail->Subject = '¡Bienvenido al Bootcamp de ' . $program . ' de CENDI Tech!';
-
-                        // Definir las URLs para cada programa
-                        $programKey = mb_strtolower(trim($program));
-                        $programUrls = [
-                            'análisis de datos' => 'https://dashboard.utinnova.co/preKnowAnalysis.php',
-                            'ciberseguridad' => 'https://dashboard.utinnova.co/preKnowCybersecurity.php',
-                            'inteligencia artificial' => 'https://dashboard.utinnova.co/preKnowIntelligence.php',
-                            'programación' => 'https://dashboard.utinnova.co/preKnowPrograming.php',
-                            'blockchain' => 'https://dashboard.utinnova.co/preKnowBlockchain.php',
-                            'arquitectura en la nube' => 'https://dashboard.utinnova.co/preKnowArchitecture.php'
-                        ];
-                        $programUrl = isset($programUrls[$programKey]) ? $programUrls[$programKey] : '#';
 
                         $mensaje = "
                             <!DOCTYPE html>
@@ -321,6 +331,18 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                                         color: #181E93;
                                         word-break: break-all;
                                     }
+                                    .verification-box {
+                                        margin: 20px 0;
+                                        padding: 20px;
+                                        border: 2px solid #181E93;
+                                        border-radius: 8px;
+                                        background: #f8f9ff;
+                                        text-align: center;
+                                    }
+                                    .verification-box h3 {
+                                        margin-top: 0;
+                                        color: #181E93;
+                                    }
                                 </style>
                             </head>
                             <body>
@@ -332,21 +354,21 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                                         <p>Hola <b>$first_name</b>,</p>
                                         <p>¡Felicitaciones! Nos emociona darte la bienvenida al <b>Bootcamp de $program</b> de CENDI Tech.</p>
                                         <p>Este Bootcamp es el primer paso hacia un futuro lleno de posibilidades en una de las áreas más demandadas del mercado. Aprenderás habilidades clave, trabajarás en proyectos prácticos y te prepararás para enfrentar los desafíos del mundo digital.</p>
+                                        <div class='verification-box'>
+                                            <h3>Verifica tu correo electrónico</h3>
+                                            <p>Para confirmar tu registro y activar tu cuenta, haz clic en el siguiente botón:</p>
+                                            <a class='button' href='$verificationUrl' target='_blank'>Verificar mi correo</a>
+                                            <div class='link-fallback'>
+                                                <b>Si el botón no funciona, copia y pega este enlace en tu navegador:</b><br>
+                                                <a href='$verificationUrl' target='_blank'>$verificationUrl</a>
+                                            </div>
+                                        </div>
                                         <h3>Próximos Pasos:</h3>
                                         <ol>
-                                            <li><b>Realiza tu Prueba de Saberes:</b><br>
-                                                Antes de iniciar el Bootcamp, necesitamos que completes una Prueba de Saberes. Esta evaluación nos ayudará a reconocer tus conocimientos previos y asignarte al nivel que mejor se adapte a tus necesidades de aprendizaje.<br>
-                                                <a class='button w-100' href='$programUrl' target='_blank'>¡Diligencia aquí el formulario de presaberes haciendo click aquí!</a>
-                                                <div class='link-fallback'>
-                                                    <b>Si el botón no funciona, copia y pega este enlace en tu navegador:</b><br>
-                                                    <a href='$programUrl' target='_blank'>$programUrl</a>
-                                                </div>
-                                            </li>
                                             <li><b>Revisa tu correo:</b><br>
-                                                Después de la prueba, te enviaremos toda la información necesaria para comenzar tu formación: horarios, plataforma y recursos.</li>
+                                                Te enviaremos toda la información necesaria para comenzar tu formación: horarios, plataforma y recursos.</li>
                                             <li><b>Prepárate para el inicio:</b><br>
                                                 Asegúrate de contar con un dispositivo adecuado y una conexión estable a internet para sacar el máximo provecho del programa.</li>
-                                            <li>Esta prueba no es eliminatoria, y su único objetivo es validar tú nivel de conocimientos para ubicarte correctamente dentro del programa.</li>
                                         </ol>
                                         <p>Si tienes alguna duda o necesitas apoyo, no dudes en contactarnos a través de este correo. ¡Estamos aquí para ayudarte en cada etapa de tu formación!</p>
                                         <p>Gracias por confiar en nosotros y ser parte de esta gran comunidad. ¡Nos vemos pronto futuro campista! 🚀</p>
@@ -362,20 +384,6 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                         //$mail->addEmbeddedImage($urlpicture, 'cuerpo');
 
                         $mail->send();
-
-                        echo "
-<script>
-    // Esto asegura que el código se ejecute después de que el DOM esté cargado
-    document.addEventListener('DOMContentLoaded', function () {
-        Swal.fire({
-            title: '¡Exitoso! 🎉',
-            text: 'Datos registrados con éxito, recuerda revisar tu correo electrónico en la carpeta de spam en caso de que no este en la bandeja de entrada',
-            icon: 'success',
-            showConfirmButton: false,
-            timer: 7000,
-        });
-    });
-</script>";
                     } catch (Exception $e) {
                         echo '<div class="jumbotron alert-danger text-center">
                                 <h1 class="display-4"><b>Error al enviar el correo</b></h1>
@@ -500,22 +508,16 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                     }
                     echo "</select>";
                 } else if ($fieldName == 'department') {
-                    echo "<div class='form-group'>";
-                    echo "<label class='form-label text-magenta-dark'>Departamento</label>";
                     echo "<select class='form-control' name='department' id='lista_departamento' data-populated='true' required>";
                     echo "<option value=''>Seleccione un departamento</option>";
                     foreach ($departamentos as $dep) {
                         echo "<option value='" . $dep['id_departamento'] . "'>" . htmlspecialchars($dep['departamento']) . "</option>";
                     }
                     echo "</select>";
-                    echo "</div>";
                 } else if ($fieldName == 'municipality') {
-                    echo "<div class='form-group'>";
-                    echo "<label class='form-label text-magenta-dark'>Municipio</label>";
                     echo "<select name='municipality' id='municipios' class='form-control' data-populated='true' required>";
                     echo "<option value=''>Seleccione un departamento primero</option>";
                     echo "</select>";
-                    echo "</div>";
                 } elseif ($type === 'select') {
                     $options = $field['options'] ?? [];
                     echo "<select $attributes>";
@@ -1370,6 +1372,66 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
             // Inicializar el estado al cargar la página
             updateHeadquartersBasedOnMode();
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const numberIdInput = document.getElementById('number_id');
+        const emailInput = document.getElementById('email');
+
+        function debounce(fn, delay) {
+            let timer;
+            return function () {
+                clearTimeout(timer);
+                const ctx = this;
+                const args = arguments;
+                timer = setTimeout(function () { fn.apply(ctx, args); }, delay);
+            };
+        }
+
+        function checkDuplicate(field, value) {
+            if (!value) return;
+            fetch('APIS/register_student/check_duplicate.php?' + field + '=' + encodeURIComponent(value))
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data.exists) {
+                        const msg = field === 'number_id'
+                            ? 'Este número de documento ya se encuentra registrado.'
+                            : 'Este correo electrónico ya se encuentra registrado.';
+                        Swal.fire({
+                            title: '¡Atención!',
+                            text: msg,
+                            icon: 'warning',
+                            confirmButtonText: 'Entendido'
+                        });
+                        if (field === 'number_id') {
+                            const very = document.getElementById('number_id_very');
+                            if (numberIdInput) numberIdInput.value = '';
+                            if (very) very.value = '';
+                        } else {
+                            const very = document.getElementById('email_very');
+                            if (emailInput) emailInput.value = '';
+                            if (very) very.value = '';
+                        }
+                    }
+                })
+                .catch(function () {});
+        }
+
+        if (numberIdInput) {
+            numberIdInput.addEventListener('input', debounce(function () {
+                const v = this.value.trim();
+                if (v.length >= 7) checkDuplicate('number_id', v);
+            }, 600));
+        }
+
+        if (emailInput) {
+            emailInput.addEventListener('input', debounce(function () {
+                const v = this.value.trim();
+                if (v.indexOf('@') !== -1) checkDuplicate('email', v);
+            }, 600));
         }
     });
 </script>
