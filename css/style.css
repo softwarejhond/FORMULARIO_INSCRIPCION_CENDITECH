@@ -55,20 +55,26 @@ select[name="country_code"] {
     margin-right: 5px;
   }
   .nextBtn{
-    background-color: #066aab;
+    background-color: #FA7F1D;
     color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(250, 127, 29, 0.45);
   }
   .nextBtn:hover{
-    background-color: #0669abde;
+    background-color: #e06f14;
     color: white;
+    box-shadow: 0 6px 16px rgba(250, 127, 29, 0.6);
   }
   .prevBtn{
-    background-color: #ff9900;
-    color: black;
+    background-color: transparent;
+    color: #FA7F1D;
+    border: 1px solid #FA7F1D;
+    box-shadow: 0 4px 12px rgba(250, 127, 29, 0.3);
   }
   .prevBtn:hover{
-    background-color: #ff9900e6;
-    color: black;
+    background-color: rgba(250, 127, 29, 0.2);
+    color: #FA7F1D;
+    box-shadow: 0 6px 16px rgba(250, 127, 29, 0.45);
   }
      /* Personalización del checkbox */
      .custom-checkbox {
@@ -124,6 +130,64 @@ select[name="country_code"] {
     margin-left: auto;
     margin-right: auto;
 }
+    /* Glass form - dark theme */
+    .glass-form{
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 2px solid rgba(200, 200, 200, 0.45);
+        color: #fff;
+    }
+    .glass-form label,
+    .glass-form .tittle,
+    .glass-form small,
+    .glass-form .form-check-label{
+        color: #fff;
+    }
+    .glass-form .form-control{
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+    }
+    .glass-form .form-control::placeholder{
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .glass-form .form-control:focus{
+        background: rgba(0, 0, 0, 0.55);
+        border-color: #FA7F1D;
+        box-shadow: 0 0 0 0.2rem rgba(250, 127, 29, 0.25);
+        color: #fff;
+    }
+    .glass-form .form-select{
+        background-color: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+    }
+    .glass-form .form-select option{
+        background-color: #1b1b1b;
+        color: #fff;
+    }
+    .glass-form .progress{
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+    .glass-form .progress-bar{
+        background-color: #FA7F1D;
+    }
+    .glass-form .custom-checkbox{
+        border: 2px solid #FA7F1D;
+        background-color: transparent;
+    }
+    .glass-form .custom-checkbox:checked{
+        background-color: #FA7F1D;
+    }
+    .glass-form .file-drop-area{
+        background-color: rgba(0, 0, 0, 0.35);
+        border-color: rgba(255, 255, 255, 0.35);
+    }
+    .glass-form a{
+        color: #FA7F1D;
+    }
+
     @keyframes fade-in-out {
         0% {
             opacity: 0;

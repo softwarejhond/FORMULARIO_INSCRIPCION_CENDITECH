@@ -404,7 +404,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
         }
     }
     ?>
-    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+    <div class="glass-form p-3 mb-5 rounded">
         <form id="multi-step-form" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
             <div class="progress m-1">
                 <div id="progress" class="progress-bar"></div>
