@@ -1,0 +1,155 @@
+/* ==========================================================================
+   SweetAlert2 — Tema CENDITECH claro (azul #193A70) con marco glow animado
+   Aplica globalmente a todos los Swal.fire(), solo con CSS.
+   ========================================================================== */
+
+/* --- Fondo oscurecido (suave) --- */
+.swal2-backdrop-show {
+  background: rgba(15, 23, 42, 0.45) !important;
+}
+
+/* --- Ventana: vidrio claro con marco azul glow --- */
+.swal2-popup {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  border: 1px solid rgba(25, 58, 112, 0.45) !important;
+  border-radius: 18px !important;
+  color: #1a1a1a !important;
+  box-shadow: 0 0 24px rgba(25, 58, 112, 0.22), 0 18px 48px rgba(15, 23, 42, 0.2) !important;
+}
+
+/* Anillo de glow animado alrededor del marco */
+.swal2-popup::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 22px;
+  border: 2px solid #193a70;
+  pointer-events: none;
+  z-index: -1;
+  animation: swal-glow 2.6s ease-in-out infinite;
+}
+
+@keyframes swal-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(25, 58, 112, 0.35), 0 0 22px rgba(25, 58, 112, 0.16);
+    opacity: 0.75;
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(25, 58, 112, 0.65), 0 0 48px rgba(25, 58, 112, 0.32);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swal2-popup::before {
+    animation: none;
+  }
+}
+
+/* --- Texto --- */
+.swal2-title {
+  color: #193a70 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6) !important;
+}
+.swal2-html-container {
+  color: rgba(26, 26, 26, 0.85) !important;
+}
+.swal2-footer {
+  color: rgba(26, 26, 26, 0.65) !important;
+  border-top: 1px solid rgba(25, 58, 112, 0.15) !important;
+}
+
+/* --- Iconos personalizados (Bootstrap Icons, azul) --- */
+.swal2-icon {
+  width: auto !important;
+  height: auto !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  margin: 1.25em auto 0.75em auto !important;
+  line-height: 1 !important;
+}
+.swal2-icon .bi {
+  display: block !important;
+  color: #193a70 !important;
+  font-size: 5.25rem !important;
+  line-height: 1 !important;
+  filter: drop-shadow(0 0 10px rgba(25, 58, 112, 0.35));
+}
+
+/* --- Botón confirmar (azul) --- */
+.swal2-confirm {
+  background-color: #193a70 !important;
+  border: 1px solid #193a70 !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(25, 58, 112, 0.35) !important;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+.swal2-confirm:hover {
+  background-color: #15305c !important;
+  box-shadow: 0 6px 16px rgba(25, 58, 112, 0.45) !important;
+}
+.swal2-confirm:focus,
+.swal2-confirm:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(25, 58, 112, 0.3) !important;
+}
+
+/* --- Botón cancelar / denegar (outline azul) --- */
+.swal2-cancel,
+.swal2-deny {
+  background-color: transparent !important;
+  border: 1px solid #193a70 !important;
+  color: #193a70 !important;
+  border-radius: 10px !important;
+  transition: background-color 0.2s ease !important;
+}
+.swal2-cancel:hover,
+.swal2-deny:hover {
+  background-color: rgba(25, 58, 112, 0.1) !important;
+  color: #193a70 !important;
+}
+.swal2-cancel:focus,
+.swal2-deny:focus,
+.swal2-cancel:focus-visible,
+.swal2-deny:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(25, 58, 112, 0.3) !important;
+}
+
+/* --- Inputs / selects / textarea --- */
+.swal2-input,
+.swal2-textarea,
+.swal2-select {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(25, 58, 112, 0.3) !important;
+  color: #1a1a1a !important;
+  border-radius: 10px !important;
+}
+.swal2-input:focus,
+.swal2-textarea:focus,
+.swal2-select:focus {
+  border-color: #193a70 !important;
+  box-shadow: 0 0 0 3px rgba(25, 58, 112, 0.18) !important;
+}
+.swal2-input::placeholder,
+.swal2-textarea::placeholder {
+  color: rgba(26, 26, 26, 0.45) !important;
+}
+
+/* --- Mensaje de validación --- */
+.swal2-validation-message {
+  background: rgba(25, 58, 112, 0.08) !important;
+  color: #193a70 !important;
+}
+
+/* --- Barra de progreso del temporizador --- */
+.swal2-timer-progress-bar {
+  background: rgba(25, 58, 112, 0.5) !important;
+}

@@ -32,6 +32,25 @@ html{
     font-weight: bold;
 }
 
+/* Selectores de comuna y barrio: altura 42px y labels con más padding vertical */
+.select2-container--default .select2-selection--single {
+    height: 42px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 42px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 42px !important;
+}
+
+.label-comuna_corregimiento,
+.label-barrio {
+    display: block;
+    padding: 10px 0 6px;
+}
+
 .required {
     color: red;
 }
@@ -55,26 +74,26 @@ select[name="country_code"] {
     margin-right: 5px;
   }
   .nextBtn{
-    background-color: #FA7F1D;
+    background-color: #193A70;
     color: white;
     border: none;
-    box-shadow: 0 4px 12px rgba(250, 127, 29, 0.45);
+    box-shadow: 0 4px 12px rgba(25, 58, 112, 0.45);
   }
   .nextBtn:hover{
-    background-color: #e06f14;
+    background-color: #15305c;
     color: white;
-    box-shadow: 0 6px 16px rgba(250, 127, 29, 0.6);
+    box-shadow: 0 6px 16px rgba(25, 58, 112, 0.6);
   }
   .prevBtn{
     background-color: transparent;
-    color: #FA7F1D;
-    border: 1px solid #FA7F1D;
-    box-shadow: 0 4px 12px rgba(250, 127, 29, 0.3);
+    color: #193A70;
+    border: 1px solid #193A70;
+    box-shadow: 0 4px 12px rgba(25, 58, 112, 0.3);
   }
   .prevBtn:hover{
-    background-color: rgba(250, 127, 29, 0.2);
-    color: #FA7F1D;
-    box-shadow: 0 6px 16px rgba(250, 127, 29, 0.45);
+    background-color: rgba(25, 58, 112, 0.2);
+    color: #193A70;
+    box-shadow: 0 6px 16px rgba(25, 58, 112, 0.45);
   }
      /* Personalización del checkbox */
      .custom-checkbox {
@@ -130,62 +149,62 @@ select[name="country_code"] {
     margin-left: auto;
     margin-right: auto;
 }
-    /* Glass form - dark theme */
+    /* Glass form - light theme */
     .glass-form{
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 2px solid rgba(200, 200, 200, 0.45);
-        color: #fff;
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 2px solid rgba(25, 58, 112, 0.15);
+        color: #193A70;
     }
     .glass-form label,
     .glass-form .tittle,
     .glass-form small,
     .glass-form .form-check-label{
-        color: #fff;
+        color: #193A70;
     }
     .glass-form .form-control{
-        background: rgba(0, 0, 0, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        color: #fff;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(25, 58, 112, 0.25);
+        color: #1a1a1a;
     }
     .glass-form .form-control::placeholder{
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(26, 26, 26, 0.45);
     }
     .glass-form .form-control:focus{
-        background: rgba(0, 0, 0, 0.55);
-        border-color: #FA7F1D;
-        box-shadow: 0 0 0 0.2rem rgba(250, 127, 29, 0.25);
-        color: #fff;
+        background: #ffffff;
+        border-color: #193A70;
+        box-shadow: 0 0 0 0.2rem rgba(25, 58, 112, 0.2);
+        color: #1a1a1a;
     }
     .glass-form .form-select{
-        background-color: rgba(0, 0, 0, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        color: #fff;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(25, 58, 112, 0.25);
+        color: #1a1a1a;
     }
     .glass-form .form-select option{
-        background-color: #1b1b1b;
-        color: #fff;
+        background-color: #ffffff;
+        color: #1a1a1a;
     }
     .glass-form .progress{
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: rgba(25, 58, 112, 0.1);
     }
     .glass-form .progress-bar{
-        background-color: #FA7F1D;
+        background-color: #193A70;
     }
     .glass-form .custom-checkbox{
-        border: 2px solid #FA7F1D;
+        border: 2px solid #193A70;
         background-color: transparent;
     }
     .glass-form .custom-checkbox:checked{
-        background-color: #FA7F1D;
+        background-color: #193A70;
     }
     .glass-form .file-drop-area{
-        background-color: rgba(0, 0, 0, 0.35);
-        border-color: rgba(255, 255, 255, 0.35);
+        background-color: rgba(25, 58, 112, 0.04);
+        border-color: rgba(25, 58, 112, 0.2);
     }
     .glass-form a{
-        color: #FA7F1D;
+        color: #193A70;
     }
 
     @keyframes fade-in-out {

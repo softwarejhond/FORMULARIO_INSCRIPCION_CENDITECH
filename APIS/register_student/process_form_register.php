@@ -20,6 +20,8 @@ return [
         'nationality',
         'department',
         'municipality',
+        'comuna_corregimiento',
+        'barrio',
         'address',
         'people_charge',
         'vulnerable_population',
@@ -34,12 +36,9 @@ return [
         'motivations_belong_program',
         'current_situation',
         'impediment_complete_course',
-        'availability',
         'mode',
         'headquarters',
         'program',
-        'prior_knowledge',
-        'level',
         'languages',
         'languages_level',
         'medical_condition',
@@ -361,6 +360,26 @@ return [
             'required' => true,
             'name' => 'municipality',
             'id' => 'municipios'
+        ]
+    ],
+    'comuna_corregimiento' => [
+        'type' => 'select',
+        'label' => '<label class="form-label mb-2">Comuna / Corregimiento <span class="required">*</span></label>',
+        'attributes' => [
+            'class' => 'form-control mb-3',
+            'required' => true,
+            'name' => 'comuna_corregimiento',
+            'id' => 'comuna_corregimiento'
+        ]
+    ],
+    'barrio' => [
+        'type' => 'select',
+        'label' => '<label class="form-label mb-2">Barrio <span class="required">*</span></label>',
+        'attributes' => [
+            'class' => 'form-control mb-3',
+            'required' => true,
+            'name' => 'barrio',
+            'id' => 'barrio'
         ]
     ],
     'address' => [

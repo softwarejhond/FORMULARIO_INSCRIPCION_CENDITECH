@@ -1,0 +1,315 @@
+/* ==========================================================================
+   Widget de Accesibilidad — WCAG 2.1 (AA)
+   Botón flotante + panel de ajustes
+   ========================================================================== */
+
+:root {
+  --acc-brand: #193A70;
+  --acc-brand-dark: #15305c;
+  --acc-panel-bg: #101822;
+  --acc-panel-text: #ffffff;
+  --acc-border: rgba(255, 255, 255, 0.28);
+}
+
+/* --------------------------------------------------------------------------
+   Enlace "saltar al contenido" (WCAG 2.4.1 Bypass Blocks)
+   -------------------------------------------------------------------------- */
+.acc-skip-link {
+  position: fixed;
+  left: -9999px;
+  top: 8px;
+  z-index: 100002;
+  background: #000000;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 0 8px 8px 0;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.acc-skip-link:focus {
+  left: 8px;
+  color: #ffffff;
+}
+.acc-skip-link:focus-visible {
+  outline: 3px solid #193A70;
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Botón flotante
+   -------------------------------------------------------------------------- */
+.acc-trigger {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100000;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background-color: var(--acc-brand);
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(25, 58, 112, 0.6);
+  animation: acc-pulse 2.4s infinite;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.acc-trigger:hover {
+  background-color: var(--acc-brand-dark);
+  transform: scale(1.07);
+}
+.acc-trigger:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+.acc-trigger[aria-expanded="true"] {
+  animation: none;
+  background-color: var(--acc-brand-dark);
+}
+
+@keyframes acc-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(25, 58, 112, 0.6), 0 4px 16px rgba(0, 0, 0, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(25, 58, 112, 0), 0 4px 16px rgba(0, 0, 0, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(25, 58, 112, 0), 0 4px 16px rgba(0, 0, 0, 0.45);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .acc-trigger {
+    animation: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Panel de accesibilidad
+   -------------------------------------------------------------------------- */
+.acc-panel {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  z-index: 100001;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
+  background: var(--acc-panel-bg);
+  color: var(--acc-panel-text);
+  border: 2px solid var(--acc-brand);
+  border-radius: 14px;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55);
+  padding: 16px;
+  font-size: 16px;
+}
+.acc-panel[hidden] {
+  display: none;
+}
+
+.acc-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.acc-panel__title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+}
+.acc-close {
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid var(--acc-border);
+  color: #ffffff;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+.acc-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.acc-close:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* --- Grupo de tamaño de texto --- */
+.acc-font-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--acc-border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.acc-font-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.acc-font-actions {
+  display: inline-flex;
+  gap: 6px;
+}
+.acc-font-actions button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--acc-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.acc-font-actions button:hover {
+  background: rgba(25, 58, 112, 0.25);
+  border-color: var(--acc-brand);
+}
+.acc-font-actions button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* --- Rejilla de controles --- */
+.acc-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.acc-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--acc-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.acc-btn i {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.acc-btn:hover {
+  background: rgba(25, 58, 112, 0.22);
+  border-color: var(--acc-brand);
+}
+.acc-btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+.acc-btn[aria-pressed="true"] {
+  background: var(--acc-brand);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.acc-btn--full {
+  grid-column: 1 / -1;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Modos aplicados al documento (clases sobre <html>)
+   Nota: el widget se mueve fuera de <body> vía JS para que el filtro
+   `grayscale` de <body> no afecte su posicionamiento fijo.
+   ========================================================================== */
+
+/* --- Escala de grises --- */
+html.acc-grayscale body {
+  filter: grayscale(100%) !important;
+}
+
+/* --- Fuente legible (dislexia) --- */
+html.acc-readable-font body {
+  font-family: "Comic Sans MS", "Comic Sans", "Trebuchet MS", Verdana, sans-serif !important;
+  letter-spacing: 0.02em;
+  word-spacing: 0.08em;
+  line-height: 1.8;
+}
+
+/* --- Espaciado de texto --- */
+html.acc-text-spacing body {
+  line-height: 1.9 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+html.acc-text-spacing p,
+html.acc-text-spacing .form-group,
+html.acc-text-spacing .step {
+  margin-bottom: 1.5em;
+}
+
+/* --- Resaltar enlaces --- */
+html.acc-highlight-links a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* --- Alto contraste --- */
+html.acc-high-contrast body {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+html.acc-high-contrast body * {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html.acc-high-contrast a {
+  color: #ffff00 !important;
+  text-decoration: underline !important;
+}
+html.acc-high-contrast img {
+  filter: grayscale(100%) contrast(1.25) !important;
+}
+html.acc-high-contrast #vanta-bg {
+  display: none !important;
+}
+html.acc-high-contrast .glass-form {
+  background: #000000 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html.acc-high-contrast :focus,
+html.acc-high-contrast :focus-visible {
+  outline: 3px solid #ffff00 !important;
+  outline-offset: 2px !important;
+}
+
+/* --- Cursor grande (estilo inyectado dinámicamente desde JS) --- */

@@ -1,0 +1,4723 @@
+{
+  "displayFieldName": "CODIGO",
+  "fieldAliases": {
+    "objectid": "OBJECTID",
+    "codigo": "CODIGO",
+    "nombre": "Barrio",
+    "identificacion": "IDENTIFICACION",
+    "limitecomunacorregimientoid": "LIMITECOMUNACORREGIMIENTOID",
+    "limitemunicipioid": "LIMITEMUNICIPIOID",
+    "subtipo_barriovereda": "Barrio o Vereda",
+    "fecha_actualizacion": "fecha_actualizacion",
+    "st_area(shape)": "st_area(shape)",
+    "st_perimeter(shape)": "st_perimeter(shape)"
+  },
+  "fields": [
+    {
+      "name": "objectid",
+      "type": "esriFieldTypeOID",
+      "alias": "OBJECTID"
+    },
+    {
+      "name": "codigo",
+      "type": "esriFieldTypeString",
+      "alias": "CODIGO",
+      "length": 20
+    },
+    {
+      "name": "nombre",
+      "type": "esriFieldTypeString",
+      "alias": "Barrio",
+      "length": 200
+    },
+    {
+      "name": "identificacion",
+      "type": "esriFieldTypeString",
+      "alias": "IDENTIFICACION",
+      "length": 100
+    },
+    {
+      "name": "limitecomunacorregimientoid",
+      "type": "esriFieldTypeString",
+      "alias": "LIMITECOMUNACORREGIMIENTOID",
+      "length": 20
+    },
+    {
+      "name": "limitemunicipioid",
+      "type": "esriFieldTypeString",
+      "alias": "LIMITEMUNICIPIOID",
+      "length": 20
+    },
+    {
+      "name": "subtipo_barriovereda",
+      "type": "esriFieldTypeInteger",
+      "alias": "Barrio o Vereda"
+    },
+    {
+      "name": "fecha_actualizacion",
+      "type": "esriFieldTypeDate",
+      "alias": "fecha_actualizacion",
+      "length": 8
+    },
+    {
+      "name": "st_area(shape)",
+      "type": "esriFieldTypeDouble",
+      "alias": "st_area(shape)"
+    },
+    {
+      "name": "st_perimeter(shape)",
+      "type": "esriFieldTypeDouble",
+      "alias": "st_perimeter(shape)"
+    }
+  ],
+  "features": [
+    {
+      "attributes": {
+        "objectid": 978,
+        "codigo": "0612",
+        "nombre": "El Triunfo",
+        "identificacion": "0612",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 117069.306574168,
+        "st_perimeter(shape)": 1730.00196148519
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 979,
+        "codigo": "0808",
+        "nombre": "Enciso",
+        "identificacion": "0808",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 335239.097575628,
+        "st_perimeter(shape)": 3355.48993090682
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 988,
+        "codigo": "0716",
+        "nombre": "Palenque",
+        "identificacion": "0716",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 382401.188695656,
+        "st_perimeter(shape)": 4154.88199149566
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 995,
+        "codigo": "0810",
+        "nombre": "El Pinal",
+        "identificacion": "0810",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 413371.290890031,
+        "st_perimeter(shape)": 3271.39455029409
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 996,
+        "codigo": "0719",
+        "nombre": "Fuente Clara",
+        "identificacion": "0719",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 236436.989619788,
+        "st_perimeter(shape)": 3022.30992663407
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1006,
+        "codigo": "1212",
+        "nombre": "Santa Teresita",
+        "identificacion": "1212",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 317656.936823369,
+        "st_perimeter(shape)": 3340.7188461111
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1009,
+        "codigo": "1609",
+        "nombre": "La Hondonada",
+        "identificacion": "1609",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 462109.988522098,
+        "st_perimeter(shape)": 4476.3316380756
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1091,
+        "codigo": "1017",
+        "nombre": "Los Ángeles",
+        "identificacion": "1017",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 237084.781571314,
+        "st_perimeter(shape)": 2424.44696177533
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1034,
+        "codigo": "0109",
+        "nombre": "Aldea Pablo VI",
+        "identificacion": "0109",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 71655.4739652825,
+        "st_perimeter(shape)": 1581.07293581942
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1150,
+        "codigo": "1619",
+        "nombre": "Miravalle",
+        "identificacion": "1619",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 164409.558696953,
+        "st_perimeter(shape)": 1867.01224805458
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1058,
+        "codigo": "0814",
+        "nombre": "San Antonio",
+        "identificacion": "0814",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 152103.901203626,
+        "st_perimeter(shape)": 2969.15601006656
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1059,
+        "codigo": "1610",
+        "nombre": "El Rincón",
+        "identificacion": "1610",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 662324.989882166,
+        "st_perimeter(shape)": 5063.33668480987
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1060,
+        "codigo": "SN01",
+        "nombre": "Sin Nombre",
+        "identificacion": "SN01",
+        "limitecomunacorregimientoid": "SN01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 526123.76127065,
+        "st_perimeter(shape)": 13331.5798644788
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1064,
+        "codigo": "0917",
+        "nombre": "Ocho de Marzo",
+        "identificacion": "0917",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 58061.4546688151,
+        "st_perimeter(shape)": 1527.55049295447
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1077,
+        "codigo": "0306",
+        "nombre": "El Pomar",
+        "identificacion": "0306",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 157919.229082178,
+        "st_perimeter(shape)": 1978.85521908373
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 993,
+        "codigo": "1507",
+        "nombre": "Campo Amor",
+        "identificacion": "1507",
+        "limitecomunacorregimientoid": "15",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1037003.45303502,
+        "st_perimeter(shape)": 4274.71173562843
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1154,
+        "codigo": "0314",
+        "nombre": "San José La Cima No.1",
+        "identificacion": "0314",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 155458.099417858,
+        "st_perimeter(shape)": 2157.814484682
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1132,
+        "codigo": "7004",
+        "nombre": "San Pablo",
+        "identificacion": "7004",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3249070.3397287,
+        "st_perimeter(shape)": 11437.764445769
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1126,
+        "codigo": "0111",
+        "nombre": "La Avanzada",
+        "identificacion": "0111",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 276572.142290483,
+        "st_perimeter(shape)": 2890.95079416448
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1161,
+        "codigo": "0603",
+        "nombre": "Doce de Octubre No.2",
+        "identificacion": "0603",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 398215.631080296,
+        "st_perimeter(shape)": 3344.32353847743
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1162,
+        "codigo": "0104",
+        "nombre": "Granizal",
+        "identificacion": "0104",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 244807.997235964,
+        "st_perimeter(shape)": 2885.79179408141
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1141,
+        "codigo": "1301",
+        "nombre": "El Pesebre",
+        "identificacion": "1301",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 221773.345713622,
+        "st_perimeter(shape)": 3519.72404188577
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1172,
+        "codigo": "7005",
+        "nombre": "Altavista Sector Central",
+        "identificacion": "7005",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2925428.39151824,
+        "st_perimeter(shape)": 12918.3922238383
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1174,
+        "codigo": "9001",
+        "nombre": "Las Palmas",
+        "identificacion": "9001",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 15896248.7203259,
+        "st_perimeter(shape)": 29076.3863507978
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1176,
+        "codigo": "7006",
+        "nombre": "La Esperanza",
+        "identificacion": "7006",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2040774.40292083,
+        "st_perimeter(shape)": 7248.63996308903
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1177,
+        "codigo": "9009",
+        "nombre": "El Plan",
+        "identificacion": "9009",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 6174575.63678926,
+        "st_perimeter(shape)": 12555.7555589627
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1272,
+        "codigo": "1117",
+        "nombre": "Florida Nueva",
+        "identificacion": "1117",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 249101.253239859,
+        "st_perimeter(shape)": 2134.0498146087
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 997,
+        "codigo": "0102",
+        "nombre": "Santo Domingo Savio No.2",
+        "identificacion": "0102",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 264718.825913043,
+        "st_perimeter(shape)": 2943.53161057995
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1092,
+        "codigo": "1416",
+        "nombre": "Alejandría",
+        "identificacion": "1416",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 432120.552468283,
+        "st_perimeter(shape)": 2774.60394074058
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 998,
+        "codigo": "0302",
+        "nombre": "Las Granjas",
+        "identificacion": "0302",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 641281.14100285,
+        "st_perimeter(shape)": 3964.49053720922
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1194,
+        "codigo": "1316",
+        "nombre": "El Salado",
+        "identificacion": "1316",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 438640.9836486,
+        "st_perimeter(shape)": 4139.41665888606
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1167,
+        "codigo": "0519",
+        "nombre": "El Progreso",
+        "identificacion": "0519",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 407578.058278825,
+        "st_perimeter(shape)": 2705.65985210331
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1198,
+        "codigo": "1411",
+        "nombre": "Los Balsos No.1",
+        "identificacion": "1411",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1403505.50989173,
+        "st_perimeter(shape)": 5917.50434309203
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1205,
+        "codigo": "0819",
+        "nombre": "Villa Lilliam",
+        "identificacion": "0819",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 155153.780920654,
+        "st_perimeter(shape)": 2872.28581251261
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1180,
+        "codigo": "8007",
+        "nombre": "La Verde",
+        "identificacion": "8007",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 6694925.74818354,
+        "st_perimeter(shape)": 13128.5854641978
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1181,
+        "codigo": "9007",
+        "nombre": "El Cerro",
+        "identificacion": "9007",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1836243.69399926,
+        "st_perimeter(shape)": 6489.72409557072
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 990,
+        "codigo": "1602",
+        "nombre": "Rosales",
+        "identificacion": "1602",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 605048.379127842,
+        "st_perimeter(shape)": 3271.84372669033
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1069,
+        "codigo": "Inst_11",
+        "nombre": "Universidad de Antioquia",
+        "identificacion": "Inst_11",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 312345.641609287,
+        "st_perimeter(shape)": 2254.54001011132
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1020,
+        "codigo": "0604",
+        "nombre": "Pedregal",
+        "identificacion": "0604",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 581018.025373021,
+        "st_perimeter(shape)": 3625.31996916393
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1155,
+        "codigo": "0305",
+        "nombre": "El Raizal",
+        "identificacion": "0305",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 297927.860788778,
+        "st_perimeter(shape)": 2917.26159106405
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1156,
+        "codigo": "0106",
+        "nombre": "Villa Guadalupe",
+        "identificacion": "0106",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 238586.187753648,
+        "st_perimeter(shape)": 2488.38537247258
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1112,
+        "codigo": "0510",
+        "nombre": "Tricentenario",
+        "identificacion": "0510",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 420605.472107014,
+        "st_perimeter(shape)": 2897.19265197649
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1187,
+        "codigo": "6006",
+        "nombre": "Boquerón",
+        "identificacion": "6006",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 5584400.59053761,
+        "st_perimeter(shape)": 11140.5177275738
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1189,
+        "codigo": "AE4",
+        "nombre": "Área de Expansión El Noral",
+        "identificacion": "7098",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 142770.865363668,
+        "st_perimeter(shape)": 2520.62086709891
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1190,
+        "codigo": "1616",
+        "nombre": "Las Violetas",
+        "identificacion": "1616",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 598536.671009881,
+        "st_perimeter(shape)": 5681.70200536681
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1192,
+        "codigo": "1306",
+        "nombre": "La Pradera",
+        "identificacion": "1306",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 350931.27710299,
+        "st_perimeter(shape)": 3089.06903349682
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1196,
+        "codigo": "1018",
+        "nombre": "Villa Nueva",
+        "identificacion": "1018",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 300218.468008674,
+        "st_perimeter(shape)": 2340.9591887412
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1199,
+        "codigo": "1403",
+        "nombre": "Villa Carlota",
+        "identificacion": "1403",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 935143.006269121,
+        "st_perimeter(shape)": 3942.41316097269
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1200,
+        "codigo": "0108",
+        "nombre": "El Compromiso",
+        "identificacion": "0108",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 71898.0037025546,
+        "st_perimeter(shape)": 1175.42369791198
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1212,
+        "codigo": "0702",
+        "nombre": "B. Cerro El Volador",
+        "identificacion": "0702",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 117611.480944545,
+        "st_perimeter(shape)": 2536.05989905667
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1213,
+        "codigo": "0720",
+        "nombre": "Santa Margarita",
+        "identificacion": "0720",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 508745.25605732,
+        "st_perimeter(shape)": 4179.28319942949
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1234,
+        "codigo": "0813",
+        "nombre": "Villatina",
+        "identificacion": "0813",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 406576.926181953,
+        "st_perimeter(shape)": 5335.78633460209
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1201,
+        "codigo": "0723",
+        "nombre": "Pajarito",
+        "identificacion": "0723",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 290308.906913936,
+        "st_perimeter(shape)": 4232.72946441148
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1202,
+        "codigo": "0812",
+        "nombre": "La Libertad",
+        "identificacion": "0812",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 312350.650716622,
+        "st_perimeter(shape)": 2850.92517332461
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1208,
+        "codigo": "0107",
+        "nombre": "San Pablo",
+        "identificacion": "0107",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 210298.315556606,
+        "st_perimeter(shape)": 2396.74888837726
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1228,
+        "codigo": "1114",
+        "nombre": "Los Colores",
+        "identificacion": "1114",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 554647.034484804,
+        "st_perimeter(shape)": 3938.64435404716
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1239,
+        "codigo": "1318",
+        "nombre": "Antonio Nariño",
+        "identificacion": "1318",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 393842.915236016,
+        "st_perimeter(shape)": 3595.55297174196
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1165,
+        "codigo": "0407",
+        "nombre": "Sevilla",
+        "identificacion": "0407",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 270233.791828733,
+        "st_perimeter(shape)": 2044.01665615326
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1188,
+        "codigo": "6010",
+        "nombre": "El Carmelo",
+        "identificacion": "6010",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1035384.19033239,
+        "st_perimeter(shape)": 4757.20084241333
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1214,
+        "codigo": "1102",
+        "nombre": "Suramericana",
+        "identificacion": "1102",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 487978.352262355,
+        "st_perimeter(shape)": 3190.28266532344
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1236,
+        "codigo": "Inst_10",
+        "nombre": "Jardín Botánico",
+        "identificacion": "Inst_10",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 159697.553095406,
+        "st_perimeter(shape)": 1635.0314457202
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1110,
+        "codigo": "Inst_12",
+        "nombre": "Hospital San Vicente de Paúl",
+        "identificacion": "Inst_12",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 86554.8791325044,
+        "st_perimeter(shape)": 1228.63803282998
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1021,
+        "codigo": "1001",
+        "nombre": "Prado",
+        "identificacion": "1001",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 624387.100340554,
+        "st_perimeter(shape)": 3460.92071091702
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1030,
+        "codigo": "1502",
+        "nombre": "Tenche",
+        "identificacion": "1502",
+        "limitecomunacorregimientoid": "15",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 230550.78316954,
+        "st_perimeter(shape)": 2099.09111227122
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1223,
+        "codigo": "0611",
+        "nombre": "Progreso No.2",
+        "identificacion": "0611",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 115313.905759197,
+        "st_perimeter(shape)": 1646.56855646635
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 985,
+        "codigo": "1408",
+        "nombre": "Altos del Poblado",
+        "identificacion": "1408",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 910859.904056997,
+        "st_perimeter(shape)": 5263.33363078743
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1115,
+        "codigo": "1303",
+        "nombre": "Santa Rosa de Lima",
+        "identificacion": "1303",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 139968.852329157,
+        "st_perimeter(shape)": 2158.93835805022
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1246,
+        "codigo": "0712",
+        "nombre": "Aures No.2",
+        "identificacion": "0712",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 647641.463658817,
+        "st_perimeter(shape)": 4419.77131194024
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1247,
+        "codigo": "1302",
+        "nombre": "Blanquizal",
+        "identificacion": "1302",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 121928.071434901,
+        "st_perimeter(shape)": 2239.58499433553
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1248,
+        "codigo": "0804",
+        "nombre": "La Ladera",
+        "identificacion": "0804",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 542904.132043707,
+        "st_perimeter(shape)": 4409.30842110443
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1254,
+        "codigo": "8002",
+        "nombre": "Potrerito",
+        "identificacion": "8002",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 4283724.57578446,
+        "st_perimeter(shape)": 13412.090188491
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1255,
+        "codigo": "AE1",
+        "nombre": "Área de Expansión Pajarito",
+        "identificacion": "6098",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2369941.59019566,
+        "st_perimeter(shape)": 9806.97954582334
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1256,
+        "codigo": "AE7",
+        "nombre": "Área de Expansión San Antonio de Prado",
+        "identificacion": "8098",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 867200.810987061,
+        "st_perimeter(shape)": 7322.41432471534
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1257,
+        "codigo": "6014",
+        "nombre": "La Loma",
+        "identificacion": "6014",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 6576451.22654247,
+        "st_perimeter(shape)": 17180.538799629
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1258,
+        "codigo": "8004",
+        "nombre": "Yarumalito",
+        "identificacion": "8004",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 17673070.2625473,
+        "st_perimeter(shape)": 28172.6324082837
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1265,
+        "codigo": "6011",
+        "nombre": "El Picacho",
+        "identificacion": "6011",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1803990.25998004,
+        "st_perimeter(shape)": 7777.59860813041
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1283,
+        "codigo": "1613",
+        "nombre": "Altavista",
+        "identificacion": "1613",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 403430.92276085,
+        "st_perimeter(shape)": 4755.82448587928
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1284,
+        "codigo": "5002",
+        "nombre": "La Sucia",
+        "identificacion": "5002",
+        "limitecomunacorregimientoid": "50",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2622962.81083095,
+        "st_perimeter(shape)": 10315.3540543487
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1287,
+        "codigo": "5005",
+        "nombre": "Volcana Guayabal",
+        "identificacion": "5005",
+        "limitecomunacorregimientoid": "50",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 10894482.2407176,
+        "st_perimeter(shape)": 21452.1510767589
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1001,
+        "codigo": "1008",
+        "nombre": "Corazón de Jesús",
+        "identificacion": "1008",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 330219.570240141,
+        "st_perimeter(shape)": 2394.13223809886
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1233,
+        "codigo": "0805",
+        "nombre": "Batallón Girardot",
+        "identificacion": "0805",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 323947.772254441,
+        "st_perimeter(shape)": 3848.46594073672
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1295,
+        "codigo": "6013",
+        "nombre": "Pedregal Alto",
+        "identificacion": "6013",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3071038.64392927,
+        "st_perimeter(shape)": 9797.54617420038
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 981,
+        "codigo": "0815",
+        "nombre": "Las Estancias",
+        "identificacion": "0815",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 301972.967607324,
+        "st_perimeter(shape)": 5063.76047782119
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1002,
+        "codigo": "0907",
+        "nombre": "Buenos Aires",
+        "identificacion": "0907",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 293136.948830864,
+        "st_perimeter(shape)": 2357.8528694401
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1166,
+        "codigo": "0304",
+        "nombre": "Santa Inés",
+        "identificacion": "0304",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 348261.966085046,
+        "st_perimeter(shape)": 2601.61935695701
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 983,
+        "codigo": "Inst_7",
+        "nombre": "Ecoparque Cerro El Volador",
+        "identificacion": "Inst_7",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 911166.307352532,
+        "st_perimeter(shape)": 5306.77725471441
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1281,
+        "codigo": "0705",
+        "nombre": "Facultad de Minas U. Nacional",
+        "identificacion": "0705",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 28464.3436138449,
+        "st_perimeter(shape)": 750.570165201275
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1100,
+        "codigo": "0112",
+        "nombre": "Carpinelo",
+        "identificacion": "0112",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 361902.745070295,
+        "st_perimeter(shape)": 2952.14546158906
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1101,
+        "codigo": "0206",
+        "nombre": "Andalucía",
+        "identificacion": "0206",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 228190.964081839,
+        "st_perimeter(shape)": 2407.08010094843
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1128,
+        "codigo": "1412",
+        "nombre": "San Lucas",
+        "identificacion": "1412",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1228248.27565863,
+        "st_perimeter(shape)": 5107.65261893452
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1129,
+        "codigo": "9002",
+        "nombre": "Media Luna",
+        "identificacion": "9002",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 9443070.03139291,
+        "st_perimeter(shape)": 17114.3319963139
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1300,
+        "codigo": "AE5",
+        "nombre": "Área de Expansión Altavista",
+        "identificacion": "7096",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 187810.010932449,
+        "st_perimeter(shape)": 2796.34077065574
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1301,
+        "codigo": "AE6",
+        "nombre": "Área de Expansión Belén Rincón",
+        "identificacion": "7097",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 332739.278999126,
+        "st_perimeter(shape)": 4196.63554017928
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1169,
+        "codigo": "0508",
+        "nombre": "Belalcázar",
+        "identificacion": "0508",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 166508.181010588,
+        "st_perimeter(shape)": 1888.35900597762
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1018,
+        "codigo": "0308",
+        "nombre": "Manrique Oriental",
+        "identificacion": "0308",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 373252.574476423,
+        "st_perimeter(shape)": 3003.94028323379
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1024,
+        "codigo": "0207",
+        "nombre": "Villa del Socorro",
+        "identificacion": "0207",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 229605.340354241,
+        "st_perimeter(shape)": 2550.29122698207
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1025,
+        "codigo": "0811",
+        "nombre": "Trece de Noviembre",
+        "identificacion": "0811",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 173881.874780789,
+        "st_perimeter(shape)": 2474.72568806034
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1026,
+        "codigo": "0602",
+        "nombre": "Doce de Octubre No.1",
+        "identificacion": "0602",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 436257.162769463,
+        "st_perimeter(shape)": 3074.22050713232
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1027,
+        "codigo": "1611",
+        "nombre": "La Loma de Los Bernal",
+        "identificacion": "1611",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 485024.113537419,
+        "st_perimeter(shape)": 3986.61865482795
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1028,
+        "codigo": "0901",
+        "nombre": "Juan Pablo II",
+        "identificacion": "0901",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 75037.106500245,
+        "st_perimeter(shape)": 2018.18167692249
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1035,
+        "codigo": "0801",
+        "nombre": "Villa Hermosa",
+        "identificacion": "0801",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 393427.430191016,
+        "st_perimeter(shape)": 3286.13209866363
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1040,
+        "codigo": "1504",
+        "nombre": "Santa Fé",
+        "identificacion": "1504",
+        "limitecomunacorregimientoid": "15",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1025029.10739425,
+        "st_perimeter(shape)": 5658.72687387816
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1043,
+        "codigo": "0211",
+        "nombre": "La Rosa",
+        "identificacion": "0211",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 166166.610551482,
+        "st_perimeter(shape)": 2327.91031721805
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1044,
+        "codigo": "1409",
+        "nombre": "El Tesoro",
+        "identificacion": "1409",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1174741.98717186,
+        "st_perimeter(shape)": 5857.69717617702
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1045,
+        "codigo": "0724",
+        "nombre": "Monteclaro",
+        "identificacion": "0724",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 429493.522020301,
+        "st_perimeter(shape)": 3476.8174131358
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1051,
+        "codigo": "0514",
+        "nombre": "Alfonso López",
+        "identificacion": "0514",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 354303.829351079,
+        "st_perimeter(shape)": 3119.1107455903
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1052,
+        "codigo": "0722",
+        "nombre": "Olaya Herrera",
+        "identificacion": "0722",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 421510.980690494,
+        "st_perimeter(shape)": 4299.25303415617
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1082,
+        "codigo": "0706",
+        "nombre": "La Pilarica",
+        "identificacion": "0706",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 304164.568798096,
+        "st_perimeter(shape)": 3153.63428167673
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1083,
+        "codigo": "1313",
+        "nombre": "El Corazón",
+        "identificacion": "1313",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 203075.763189916,
+        "st_perimeter(shape)": 3266.46503142295
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1096,
+        "codigo": "1410",
+        "nombre": "Los Naranjos",
+        "identificacion": "1410",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 965285.118062687,
+        "st_perimeter(shape)": 5219.37407906674
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1097,
+        "codigo": "0713",
+        "nombre": "Aures No.1",
+        "identificacion": "0713",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 761928.407470257,
+        "st_perimeter(shape)": 4268.49360833409
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1098,
+        "codigo": "0909",
+        "nombre": "Cataluña",
+        "identificacion": "0909",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 472232.360946847,
+        "st_perimeter(shape)": 4580.26724762338
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1099,
+        "codigo": "SN02",
+        "nombre": "Sin Nombre",
+        "identificacion": "SN02",
+        "limitecomunacorregimientoid": "SN02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 132768.364147298,
+        "st_perimeter(shape)": 7602.9998418107
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 994,
+        "codigo": "1422",
+        "nombre": "La Aguacatala",
+        "identificacion": "1422",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 622052.859658899,
+        "st_perimeter(shape)": 3302.55940038479
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 999,
+        "codigo": "0902",
+        "nombre": "Barrios de Jesús",
+        "identificacion": "0902",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 442181.023767283,
+        "st_perimeter(shape)": 3754.3916163102
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1184,
+        "codigo": "8001",
+        "nombre": "La Florida",
+        "identificacion": "8001",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2819270.42320964,
+        "st_perimeter(shape)": 8572.08875238644
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1102,
+        "codigo": "1110",
+        "nombre": "La Castellana",
+        "identificacion": "1110",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 696653.842693812,
+        "st_perimeter(shape)": 4395.63409200816
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1133,
+        "codigo": "1213",
+        "nombre": "Calasanz Parte Alta",
+        "identificacion": "1213",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 414252.910373753,
+        "st_perimeter(shape)": 4129.75403145894
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1121,
+        "codigo": "0905",
+        "nombre": "Alejandro Echavarría",
+        "identificacion": "0905",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 365377.713246258,
+        "st_perimeter(shape)": 3883.95081508838
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1122,
+        "codigo": "0608",
+        "nombre": "Picacho",
+        "identificacion": "0608",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 416225.952287239,
+        "st_perimeter(shape)": 3816.7889117944
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1123,
+        "codigo": "0105",
+        "nombre": "Moscú No.2",
+        "identificacion": "0105",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 282138.717228896,
+        "st_perimeter(shape)": 2420.32610890963
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1135,
+        "codigo": "0202",
+        "nombre": "Playón de Los Comuneros",
+        "identificacion": "0202",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 205358.310758207,
+        "st_perimeter(shape)": 3535.73938965656
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1146,
+        "codigo": "0209",
+        "nombre": "Moscú No.1",
+        "identificacion": "0209",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 190802.313536398,
+        "st_perimeter(shape)": 2237.11977945232
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1147,
+        "codigo": "0707",
+        "nombre": "Bosques de San Pablo",
+        "identificacion": "0707",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 263133.206500222,
+        "st_perimeter(shape)": 2952.02857880497
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1000,
+        "codigo": "Inst_16",
+        "nombre": "La Alpujarra",
+        "identificacion": "Inst_16",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 316439.618338819,
+        "st_perimeter(shape)": 2524.11675221524
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1183,
+        "codigo": "AUC2",
+        "nombre": "San Antonio de Prado",
+        "identificacion": "8000",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3780031.80373587,
+        "st_perimeter(shape)": 16559.3151947962
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1185,
+        "codigo": "8008",
+        "nombre": "San José",
+        "identificacion": "8008",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 381465.26592842,
+        "st_perimeter(shape)": 3431.13874215688
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1186,
+        "codigo": "5004",
+        "nombre": "Palmitas Sector Central",
+        "identificacion": "5004",
+        "limitecomunacorregimientoid": "50",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 9517868.48926593,
+        "st_perimeter(shape)": 16191.5271189776
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1235,
+        "codigo": "1013",
+        "nombre": "Barrio Colón",
+        "identificacion": "1013",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 358161.449804038,
+        "st_perimeter(shape)": 3426.23019151628
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1170,
+        "codigo": "1007",
+        "nombre": "Guayaquil",
+        "identificacion": "1007",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 318179.723214236,
+        "st_perimeter(shape)": 2553.7087136649
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1288,
+        "codigo": "5001",
+        "nombre": "La Suiza",
+        "identificacion": "5001",
+        "limitecomunacorregimientoid": "50",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 13163358.8293306,
+        "st_perimeter(shape)": 21688.8783817423
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1289,
+        "codigo": "6007",
+        "nombre": "San José de La Montaña",
+        "identificacion": "6007",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3829459.45146846,
+        "st_perimeter(shape)": 9239.32505283378
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1222,
+        "codigo": "0703",
+        "nombre": "San Germán",
+        "identificacion": "0703",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 569346.146061975,
+        "st_perimeter(shape)": 4557.99556788448
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1249,
+        "codigo": "0915",
+        "nombre": "Asomadera No.2",
+        "identificacion": "0915",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 657236.252004172,
+        "st_perimeter(shape)": 4249.99716277065
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 984,
+        "codigo": "0309",
+        "nombre": "Versalles No.1",
+        "identificacion": "0309",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 369592.696246067,
+        "st_perimeter(shape)": 2827.9970639687
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 991,
+        "codigo": "5003",
+        "nombre": "Urquitá",
+        "identificacion": "5003",
+        "limitecomunacorregimientoid": "50",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 5549990.29068017,
+        "st_perimeter(shape)": 16594.5975456708
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1010,
+        "codigo": "0806",
+        "nombre": "Llanaditas",
+        "identificacion": "0806",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 320519.415595287,
+        "st_perimeter(shape)": 3611.12239695146
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1031,
+        "codigo": "1601",
+        "nombre": "Fátima",
+        "identificacion": "1601",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 434632.560932432,
+        "st_perimeter(shape)": 2687.39203455659
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1023,
+        "codigo": "1618",
+        "nombre": "Nueva Villa del Aburrá",
+        "identificacion": "1618",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 188595.84704917,
+        "st_perimeter(shape)": 2250.64988741712
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1041,
+        "codigo": "Inst_4",
+        "nombre": "Terminal de Transporte",
+        "identificacion": "Inst_4",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 215834.097230934,
+        "st_perimeter(shape)": 2005.65025355883
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1068,
+        "codigo": "0718",
+        "nombre": "Cucaracho",
+        "identificacion": "0718",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 625646.485009527,
+        "st_perimeter(shape)": 5068.0822603836
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1078,
+        "codigo": "0312",
+        "nombre": "Oriente",
+        "identificacion": "0312",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 412201.116910193,
+        "st_perimeter(shape)": 3219.01387023255
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1079,
+        "codigo": "0201",
+        "nombre": "La Isla",
+        "identificacion": "0201",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 213071.456520484,
+        "st_perimeter(shape)": 3166.9533985376
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1080,
+        "codigo": "0817",
+        "nombre": "La Sierra",
+        "identificacion": "0817",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 212233.479639591,
+        "st_perimeter(shape)": 2442.18948918424
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1081,
+        "codigo": "0313",
+        "nombre": "María Cano-Carambolas",
+        "identificacion": "0313",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 352877.361485301,
+        "st_perimeter(shape)": 2993.40354862835
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1124,
+        "codigo": "0101",
+        "nombre": "Santo Domingo Savio No.1",
+        "identificacion": "0101",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 561184.284723117,
+        "st_perimeter(shape)": 3596.49728367932
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1130,
+        "codigo": "9004",
+        "nombre": "Barro Blanco",
+        "identificacion": "9004",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3117326.87681356,
+        "st_perimeter(shape)": 9730.51129959903
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1148,
+        "codigo": "0807",
+        "nombre": "Los Mangos",
+        "identificacion": "0807",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 467204.830863235,
+        "st_perimeter(shape)": 3384.89507651948
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1220,
+        "codigo": "0103",
+        "nombre": "Popular",
+        "identificacion": "0103",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 446847.703439349,
+        "st_perimeter(shape)": 4313.16025042131
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1221,
+        "codigo": "0311",
+        "nombre": "La Cruz",
+        "identificacion": "0311",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 600473.073440917,
+        "st_perimeter(shape)": 4190.02279312216
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1305,
+        "codigo": "9006",
+        "nombre": "Santa Elena Sector Central",
+        "identificacion": "9006",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3228432.9761683,
+        "st_perimeter(shape)": 9165.23326312197
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1291,
+        "codigo": "9003",
+        "nombre": "Piedras Blancas - Matasano",
+        "identificacion": "9003",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 22232457.1967522,
+        "st_perimeter(shape)": 34082.5245830859
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1292,
+        "codigo": "6012",
+        "nombre": "Pajarito",
+        "identificacion": "6012",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1029452.64880664,
+        "st_perimeter(shape)": 7084.68605927694
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1014,
+        "codigo": "0609",
+        "nombre": "Picachito",
+        "identificacion": "0609",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 123724.738182331,
+        "st_perimeter(shape)": 1958.44596835991
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1227,
+        "codigo": "1415",
+        "nombre": "Los Balsos No.2",
+        "identificacion": "1415",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 486325.219293449,
+        "st_perimeter(shape)": 2946.42981213077
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 975,
+        "codigo": "Inst_18",
+        "nombre": "Cerro Nutibara",
+        "identificacion": "Inst_18",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 399158.946696838,
+        "st_perimeter(shape)": 2840.27536879376
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1280,
+        "codigo": "1615",
+        "nombre": "Los Alpes",
+        "identificacion": "1615",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 279882.454249043,
+        "st_perimeter(shape)": 2386.50434421776
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1207,
+        "codigo": "1606",
+        "nombre": "Las Playas",
+        "identificacion": "1606",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 354684.094463574,
+        "st_perimeter(shape)": 2622.9950192747
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1259,
+        "codigo": "9011",
+        "nombre": "Mazo",
+        "identificacion": "9011",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 5011353.47111522,
+        "st_perimeter(shape)": 11002.4378604605
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1210,
+        "codigo": "0803",
+        "nombre": "San Miguel",
+        "identificacion": "0803",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 371530.84664328,
+        "st_perimeter(shape)": 2940.03763521668
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 992,
+        "codigo": "5008",
+        "nombre": "Potrera Miserenga",
+        "identificacion": "5008",
+        "limitecomunacorregimientoid": "50",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 5267970.54081108,
+        "st_perimeter(shape)": 12915.7542773768
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1106,
+        "codigo": "0717",
+        "nombre": "Robledo",
+        "identificacion": "0717",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 446957.233405799,
+        "st_perimeter(shape)": 4188.42916481435
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1107,
+        "codigo": "1307",
+        "nombre": "Juan XXIII La Quiebra",
+        "identificacion": "1307",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 224936.494415347,
+        "st_perimeter(shape)": 2893.34627959652
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1017,
+        "codigo": "1421",
+        "nombre": "Patio Bonito",
+        "identificacion": "1421",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 729010.123199034,
+        "st_perimeter(shape)": 4102.00358341803
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1152,
+        "codigo": "0910",
+        "nombre": "La Milagrosa",
+        "identificacion": "0910",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 199668.836236014,
+        "st_perimeter(shape)": 2240.50389413992
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1302,
+        "codigo": "AUC1",
+        "nombre": "Cabecera Urbana Corregimiento San Cristóbal",
+        "identificacion": "6000",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 760623.655988839,
+        "st_perimeter(shape)": 6870.67666472976
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1303,
+        "codigo": "7007",
+        "nombre": "San José del Manzanillo",
+        "identificacion": "7007",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2072590.82897288,
+        "st_perimeter(shape)": 11999.3228337148
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1108,
+        "codigo": "1310",
+        "nombre": "Veinte de Julio",
+        "identificacion": "1310",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 381834.34081296,
+        "st_perimeter(shape)": 3851.28895026935
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 977,
+        "codigo": "1620",
+        "nombre": "El Nogal-Los Almendros",
+        "identificacion": "1620",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 248370.770989526,
+        "st_perimeter(shape)": 3072.10112604053
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 980,
+        "codigo": "0605",
+        "nombre": "La Esperanza",
+        "identificacion": "0605",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 405357.644330141,
+        "st_perimeter(shape)": 2711.14921499964
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1013,
+        "codigo": "0913",
+        "nombre": "Loreto",
+        "identificacion": "0913",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 666935.797811238,
+        "st_perimeter(shape)": 3816.00154412383
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1038,
+        "codigo": "1312",
+        "nombre": "Betania",
+        "identificacion": "1312",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 349075.891187823,
+        "st_perimeter(shape)": 4352.13149866196
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1039,
+        "codigo": "0607",
+        "nombre": "Kennedy",
+        "identificacion": "0607",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 490917.018474808,
+        "st_perimeter(shape)": 2975.96059918204
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1084,
+        "codigo": "1011",
+        "nombre": "Calle Nueva",
+        "identificacion": "1011",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 229156.682566267,
+        "st_perimeter(shape)": 2297.5024120282
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1282,
+        "codigo": "1208",
+        "nombre": "Campo Alegre",
+        "identificacion": "1208",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 342589.215738267,
+        "st_perimeter(shape)": 3301.78001015744
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1160,
+        "codigo": "1103",
+        "nombre": "Naranjal",
+        "identificacion": "1103",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 446329.677802883,
+        "st_perimeter(shape)": 2931.9042649673
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1197,
+        "codigo": "Inst_13",
+        "nombre": "Batallón Cuarta Brigada",
+        "identificacion": "Inst_13",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 88171.3208761742,
+        "st_perimeter(shape)": 1233.02518674338
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1158,
+        "codigo": "1503",
+        "nombre": "Trinidad",
+        "identificacion": "1503",
+        "limitecomunacorregimientoid": "15",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 679672.686602837,
+        "st_perimeter(shape)": 4372.55874090385
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1029,
+        "codigo": "0715",
+        "nombre": "Villa Flora",
+        "identificacion": "0715",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 250769.107765945,
+        "st_perimeter(shape)": 2151.60778969868
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 982,
+        "codigo": "0203",
+        "nombre": "Pablo VI",
+        "identificacion": "0203",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 77731.7318346958,
+        "st_perimeter(shape)": 1405.96372637812
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 976,
+        "codigo": "0610",
+        "nombre": "Mirador del Doce",
+        "identificacion": "0610",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 64822.3788582783,
+        "st_perimeter(shape)": 1336.34740218202
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1012,
+        "codigo": "1204",
+        "nombre": "La América",
+        "identificacion": "1204",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 358434.466695184,
+        "st_perimeter(shape)": 3311.62841960223
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1293,
+        "codigo": "6003",
+        "nombre": "El Uvito",
+        "identificacion": "6003",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1743296.84278398,
+        "st_perimeter(shape)": 7387.61707779619
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 986,
+        "codigo": "Inst_8",
+        "nombre": "Universidad Nacional",
+        "identificacion": "Inst_8",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 482949.166442577,
+        "st_perimeter(shape)": 2865.09476265239
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 987,
+        "codigo": "0711",
+        "nombre": "El Diamante",
+        "identificacion": "0711",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 375468.496279707,
+        "st_perimeter(shape)": 2711.36501980722
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 989,
+        "codigo": "1401",
+        "nombre": "Barrio Colombia",
+        "identificacion": "1401",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 401653.913969681,
+        "st_perimeter(shape)": 2849.56867865538
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1003,
+        "codigo": "0501",
+        "nombre": "Toscana",
+        "identificacion": "0501",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 290027.768476766,
+        "st_perimeter(shape)": 2573.88818911681
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1004,
+        "codigo": "1203",
+        "nombre": "Los Pinos",
+        "identificacion": "1203",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 232991.226386716,
+        "st_perimeter(shape)": 2018.86912434332
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1138,
+        "codigo": "1105",
+        "nombre": "Los Conquistadores",
+        "identificacion": "1105",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 683225.266497836,
+        "st_perimeter(shape)": 3824.44180571835
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1007,
+        "codigo": "0513",
+        "nombre": "Francisco Antonio Zea",
+        "identificacion": "0513",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 233049.27624035,
+        "st_perimeter(shape)": 2256.93539740016
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1016,
+        "codigo": "Inst_14",
+        "nombre": "U.D. Atanasio Girardot",
+        "identificacion": "Inst_14",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 417779.474439477,
+        "st_perimeter(shape)": 3340.11692060543
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1008,
+        "codigo": "1608",
+        "nombre": "La Mota",
+        "identificacion": "1608",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 508226.450463865,
+        "st_perimeter(shape)": 4351.60676577499
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1015,
+        "codigo": "0415",
+        "nombre": "Miranda",
+        "identificacion": "0415",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 230359.0106084,
+        "st_perimeter(shape)": 2359.84068924704
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1011,
+        "codigo": "1315",
+        "nombre": "Nuevos Conquistadores",
+        "identificacion": "1315",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 224241.489068195,
+        "st_perimeter(shape)": 2539.41923644145
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1019,
+        "codigo": "0110",
+        "nombre": "La Esperanza No.2",
+        "identificacion": "0110",
+        "limitecomunacorregimientoid": "01",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 67330.4308525274,
+        "st_perimeter(shape)": 1299.59853316797
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1022,
+        "codigo": "1413",
+        "nombre": "El Diamante No.2",
+        "identificacion": "1413",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 660991.639225072,
+        "st_perimeter(shape)": 3742.1689504607
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1033,
+        "codigo": "0505",
+        "nombre": "Boyacá",
+        "identificacion": "0505",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 256378.252328662,
+        "st_perimeter(shape)": 2595.86657914291
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1032,
+        "codigo": "Inst_2",
+        "nombre": "Oleoducto",
+        "identificacion": "Inst_2",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 288155.366634163,
+        "st_perimeter(shape)": 2502.8558440267
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1074,
+        "codigo": "1112",
+        "nombre": "El Velódromo",
+        "identificacion": "1112",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 367616.653916875,
+        "st_perimeter(shape)": 2969.33261581263
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1036,
+        "codigo": "1406",
+        "nombre": "Las Lomas No.1",
+        "identificacion": "1406",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 486104.18066541,
+        "st_perimeter(shape)": 2988.80911010276
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1049,
+        "codigo": "1304",
+        "nombre": "Los Alcázares",
+        "identificacion": "1304",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 272540.867552728,
+        "st_perimeter(shape)": 2938.82689148086
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1037,
+        "codigo": "0210",
+        "nombre": "Santa Cruz",
+        "identificacion": "0210",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 237197.139065774,
+        "st_perimeter(shape)": 2134.20035795446
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1191,
+        "codigo": "1423",
+        "nombre": "Santa María de Los Ángeles",
+        "identificacion": "1423",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 558344.112406649,
+        "st_perimeter(shape)": 3307.15413930226
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1042,
+        "codigo": "Inst_5",
+        "nombre": "Facultad de Minas",
+        "identificacion": "Inst_5",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 243874.923136298,
+        "st_perimeter(shape)": 2780.98701828584
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1050,
+        "codigo": "0410",
+        "nombre": "Campo Valdés No.1",
+        "identificacion": "0410",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 372145.97017601,
+        "st_perimeter(shape)": 2667.19802889291
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1046,
+        "codigo": "0802",
+        "nombre": "La Mansión",
+        "identificacion": "0802",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 246580.381104099,
+        "st_perimeter(shape)": 2202.03582973294
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1055,
+        "codigo": "0517",
+        "nombre": "Caribe",
+        "identificacion": "0517",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 601342.038294598,
+        "st_perimeter(shape)": 3499.16151349663
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1047,
+        "codigo": "1417",
+        "nombre": "La Florida",
+        "identificacion": "1417",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 767606.056487756,
+        "st_perimeter(shape)": 4065.07622656524
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1048,
+        "codigo": "1607",
+        "nombre": "Diego Echavarría",
+        "identificacion": "1607",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 317822.365666627,
+        "st_perimeter(shape)": 2937.6794401868
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1053,
+        "codigo": "Inst_6",
+        "nombre": "Facultad Veterinaria y Zootecnia U.de.A.",
+        "identificacion": "Inst_6",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 110122.940218627,
+        "st_perimeter(shape)": 1754.72346861575
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1054,
+        "codigo": "1420",
+        "nombre": "Astorga",
+        "identificacion": "1420",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 222201.677994461,
+        "st_perimeter(shape)": 2005.4155709287
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1250,
+        "codigo": "Inst_9",
+        "nombre": "Parque Norte",
+        "identificacion": "Inst_9",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 284585.166749477,
+        "st_perimeter(shape)": 2210.46539387694
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1251,
+        "codigo": "0809",
+        "nombre": "Sucre",
+        "identificacion": "0809",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 340162.183056707,
+        "st_perimeter(shape)": 2623.53832785828
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1252,
+        "codigo": "6001",
+        "nombre": "La Palma",
+        "identificacion": "6001",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 7144207.6978443,
+        "st_perimeter(shape)": 13915.0679960657
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1056,
+        "codigo": "0413",
+        "nombre": "Aranjuez",
+        "identificacion": "0413",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 361107.248686755,
+        "st_perimeter(shape)": 2556.97289167131
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1061,
+        "codigo": "1202",
+        "nombre": "Calasanz",
+        "identificacion": "1202",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 313235.62438738,
+        "st_perimeter(shape)": 2335.3438354305
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1057,
+        "codigo": "0307",
+        "nombre": "Manrique Central No.2",
+        "identificacion": "0307",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 240879.93391242,
+        "st_perimeter(shape)": 2619.32949644302
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1062,
+        "codigo": "0404",
+        "nombre": "Bermejal-Los Álamos",
+        "identificacion": "0404",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 159797.44491516,
+        "st_perimeter(shape)": 1943.94772645039
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1063,
+        "codigo": "1003",
+        "nombre": "Jesús Nazareno",
+        "identificacion": "1003",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 305164.324715709,
+        "st_perimeter(shape)": 2627.50110543568
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1066,
+        "codigo": "1621",
+        "nombre": "Cerro Nutibara",
+        "identificacion": "1621",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 135101.50963857,
+        "st_perimeter(shape)": 1995.52140241387
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1067,
+        "codigo": "1211",
+        "nombre": "Simón Bolívar",
+        "identificacion": "1211",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 291443.347535352,
+        "st_perimeter(shape)": 2391.50653122283
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1276,
+        "codigo": "1015",
+        "nombre": "Bomboná No.1",
+        "identificacion": "1015",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 207271.377599679,
+        "st_perimeter(shape)": 1990.57802344546
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1065,
+        "codigo": "1311",
+        "nombre": "Belencito",
+        "identificacion": "1311",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 368037.284215707,
+        "st_perimeter(shape)": 3321.4755005798
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1070,
+        "codigo": "1308",
+        "nombre": "San Javier No.2",
+        "identificacion": "1308",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 151082.431830323,
+        "st_perimeter(shape)": 1766.85977761866
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1087,
+        "codigo": "1111",
+        "nombre": "Lorena",
+        "identificacion": "1111",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 410850.058355774,
+        "st_perimeter(shape)": 3340.46986394218
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1088,
+        "codigo": "0205",
+        "nombre": "La Francia",
+        "identificacion": "0205",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 341775.054262708,
+        "st_perimeter(shape)": 2982.14698380281
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1071,
+        "codigo": "0414",
+        "nombre": "Brasilia",
+        "identificacion": "0414",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 327295.585411467,
+        "st_perimeter(shape)": 2680.5342596
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1072,
+        "codigo": "1107",
+        "nombre": "Bolivariana",
+        "identificacion": "1107",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 320987.092499259,
+        "st_perimeter(shape)": 2798.29819790275
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1143,
+        "codigo": "0409",
+        "nombre": "Manrique Central No.1",
+        "identificacion": "0409",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 355547.556401478,
+        "st_perimeter(shape)": 2690.7020032818
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1073,
+        "codigo": "0401",
+        "nombre": "Berlín",
+        "identificacion": "0401",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 300166.644288669,
+        "st_perimeter(shape)": 2339.43999118542
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1277,
+        "codigo": "Inst_17",
+        "nombre": "Centro Administrativo",
+        "identificacion": "Inst_17",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 136981.426762681,
+        "st_perimeter(shape)": 1504.08810857045
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1075,
+        "codigo": "1209",
+        "nombre": "Santa Mónica",
+        "identificacion": "1209",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 355858.412359007,
+        "st_perimeter(shape)": 2837.75365331315
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1076,
+        "codigo": "1603",
+        "nombre": "Belén",
+        "identificacion": "1603",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 534918.547489364,
+        "st_perimeter(shape)": 4322.85951664712
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1085,
+        "codigo": "0204",
+        "nombre": "La Frontera",
+        "identificacion": "0204",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 162561.354513187,
+        "st_perimeter(shape)": 1843.38011432967
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 974,
+        "codigo": "Inst_15",
+        "nombre": "U.P.B",
+        "identificacion": "Inst_15",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 216519.300817554,
+        "st_perimeter(shape)": 1872.11057884899
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1109,
+        "codigo": "0708",
+        "nombre": "Altamira",
+        "identificacion": "0708",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 367244.754032101,
+        "st_perimeter(shape)": 2884.3517284424
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1086,
+        "codigo": "0504",
+        "nombre": "Tejelo",
+        "identificacion": "0504",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 423005.84947604,
+        "st_perimeter(shape)": 3434.67429946624
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1090,
+        "codigo": "0908",
+        "nombre": "Miraflores",
+        "identificacion": "0908",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 291079.271147017,
+        "st_perimeter(shape)": 2496.5775519015
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1089,
+        "codigo": "Inst_1",
+        "nombre": "Plaza de Ferias",
+        "identificacion": "Inst_1",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 339251.06036749,
+        "st_perimeter(shape)": 2625.41356980316
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1296,
+        "codigo": "6002",
+        "nombre": "El Patio",
+        "identificacion": "6002",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3064104.0890935,
+        "st_perimeter(shape)": 10542.3548981058
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1095,
+        "codigo": "1109",
+        "nombre": "Las Acacias",
+        "identificacion": "1109",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 341230.938463775,
+        "st_perimeter(shape)": 2663.52251688477
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1117,
+        "codigo": "1205",
+        "nombre": "La Floresta",
+        "identificacion": "1205",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 422562.159866128,
+        "st_perimeter(shape)": 2734.19301320938
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1093,
+        "codigo": "1305",
+        "nombre": "Metropolitano",
+        "identificacion": "1305",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 106981.214713578,
+        "st_perimeter(shape)": 1586.90907938889
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1285,
+        "codigo": "5007",
+        "nombre": "La Aldea",
+        "identificacion": "5007",
+        "limitecomunacorregimientoid": "50",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1968150.25409241,
+        "st_perimeter(shape)": 6192.68858809358
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1094,
+        "codigo": "1115",
+        "nombre": "Cuarta Brigada",
+        "identificacion": "1115",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 272430.036377801,
+        "st_perimeter(shape)": 2458.74935582766
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1153,
+        "codigo": "1414",
+        "nombre": "El Castillo",
+        "identificacion": "1414",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 722704.805134748,
+        "st_perimeter(shape)": 3760.4228436791
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1103,
+        "codigo": "0405",
+        "nombre": "Moravia",
+        "identificacion": "0405",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 482497.968684407,
+        "st_perimeter(shape)": 3857.69533047245
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1104,
+        "codigo": "1006",
+        "nombre": "San Benito",
+        "identificacion": "1006",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 493317.595438368,
+        "st_perimeter(shape)": 3294.35879935908
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1105,
+        "codigo": "1101",
+        "nombre": "Carlos E. Restrepo",
+        "identificacion": "1101",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 449869.796583624,
+        "st_perimeter(shape)": 3377.86310331447
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1116,
+        "codigo": "1206",
+        "nombre": "Santa Lucía",
+        "identificacion": "1206",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 275909.777114042,
+        "st_perimeter(shape)": 3048.6804727647
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1111,
+        "codigo": "1407",
+        "nombre": "Las Lomas No.2",
+        "identificacion": "1407",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 335722.741074911,
+        "st_perimeter(shape)": 2760.58616093005
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1137,
+        "codigo": "1509",
+        "nombre": "Cristo Rey",
+        "identificacion": "1509",
+        "limitecomunacorregimientoid": "15",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 759484.930699035,
+        "st_perimeter(shape)": 4174.2939267771
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1113,
+        "codigo": "0208",
+        "nombre": "Villa Niza",
+        "identificacion": "0208",
+        "limitecomunacorregimientoid": "02",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 143202.352982952,
+        "st_perimeter(shape)": 1697.22599474095
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1114,
+        "codigo": "1108",
+        "nombre": "Laureles",
+        "identificacion": "1108",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 706991.510653935,
+        "st_perimeter(shape)": 3847.04831019759
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1118,
+        "codigo": "1617",
+        "nombre": "Las Mercedes",
+        "identificacion": "1617",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 376392.061623765,
+        "st_perimeter(shape)": 3346.61800071904
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1119,
+        "codigo": "1016",
+        "nombre": "Boston",
+        "identificacion": "1016",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 535658.036172847,
+        "st_perimeter(shape)": 3120.1413870305
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1120,
+        "codigo": "0725",
+        "nombre": "Nueva Villa de La Iguaná",
+        "identificacion": "0725",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 65023.1884633489,
+        "st_perimeter(shape)": 1838.69065115773
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1125,
+        "codigo": "1207",
+        "nombre": "El Danubio",
+        "identificacion": "1207",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 212059.655242162,
+        "st_perimeter(shape)": 2331.7850146286
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1127,
+        "codigo": "1012",
+        "nombre": "Perpetuo Socorro",
+        "identificacion": "1012",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 640163.134882338,
+        "st_perimeter(shape)": 3711.51516270121
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1131,
+        "codigo": "9010",
+        "nombre": "Piedra Gorda",
+        "identificacion": "9010",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3015523.35654098,
+        "st_perimeter(shape)": 9813.31603856633
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1134,
+        "codigo": "7002",
+        "nombre": "Aguas Frías",
+        "identificacion": "7002",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3360052.57377538,
+        "st_perimeter(shape)": 8115.03461927802
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1136,
+        "codigo": "1004",
+        "nombre": "El Chagualo",
+        "identificacion": "1004",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 366453.229637615,
+        "st_perimeter(shape)": 2514.56959960861
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1139,
+        "codigo": "0916",
+        "nombre": "Asomadera No.3",
+        "identificacion": "0916",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 170914.557129593,
+        "st_perimeter(shape)": 2396.36934815651
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1159,
+        "codigo": "1614",
+        "nombre": "La Palma",
+        "identificacion": "1614",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 334161.391677148,
+        "st_perimeter(shape)": 2476.98667286895
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1140,
+        "codigo": "1612",
+        "nombre": "La Gloria",
+        "identificacion": "1612",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 611225.675529554,
+        "st_perimeter(shape)": 3863.25779424328
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1142,
+        "codigo": "1405",
+        "nombre": "Lalinde",
+        "identificacion": "1405",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 230041.832015049,
+        "st_perimeter(shape)": 2274.12257689523
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1297,
+        "codigo": "6015",
+        "nombre": "Las Playas",
+        "identificacion": "6015",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1354378.81506938,
+        "st_perimeter(shape)": 6725.87292557817
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1298,
+        "codigo": "AE2",
+        "nombre": "Área de Expansión San Cristóbal",
+        "identificacion": "6097",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 721784.490314046,
+        "st_perimeter(shape)": 5067.95484796948
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1299,
+        "codigo": "AE3",
+        "nombre": "Eduardo Santos",
+        "identificacion": "AE3",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 50998.9224042769,
+        "st_perimeter(shape)": 1867.14199105082
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1144,
+        "codigo": "1314",
+        "nombre": "Las Independencias",
+        "identificacion": "1314",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 254176.126154137,
+        "st_perimeter(shape)": 2308.35986844502
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1145,
+        "codigo": "Inst_19",
+        "nombre": "Parque Juan Pablo II",
+        "identificacion": "Inst_19",
+        "limitecomunacorregimientoid": "15",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1390606.69473028,
+        "st_perimeter(shape)": 6686.32773753315
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1149,
+        "codigo": "0904",
+        "nombre": "Los Cerros El Vergel",
+        "identificacion": "0904",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 316904.414184727,
+        "st_perimeter(shape)": 2764.02545510696
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1151,
+        "codigo": "Inst_20",
+        "nombre": "El Rodeo",
+        "identificacion": "Inst_20",
+        "limitecomunacorregimientoid": "15",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 741077.747586038,
+        "st_perimeter(shape)": 3786.15801285273
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1304,
+        "codigo": "1510",
+        "nombre": "Guayabal",
+        "identificacion": "1510",
+        "limitecomunacorregimientoid": "15",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 747161.535608295,
+        "st_perimeter(shape)": 4132.4201609795
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1157,
+        "codigo": "1418",
+        "nombre": "El Poblado",
+        "identificacion": "1418",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 261412.892263228,
+        "st_perimeter(shape)": 2739.34096399745
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1163,
+        "codigo": "1605",
+        "nombre": "San Bernardo",
+        "identificacion": "1605",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 567839.832402905,
+        "st_perimeter(shape)": 3599.90995738118
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1168,
+        "codigo": "1404",
+        "nombre": "Castropol",
+        "identificacion": "1404",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 606126.18558606,
+        "st_perimeter(shape)": 3958.10696097313
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1164,
+        "codigo": "0912",
+        "nombre": "El Salvador",
+        "identificacion": "0912",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 354765.455924935,
+        "st_perimeter(shape)": 3334.50139703756
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1173,
+        "codigo": "8006",
+        "nombre": "El Salado",
+        "identificacion": "8006",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 7327080.49902434,
+        "st_perimeter(shape)": 17684.0297572056
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1171,
+        "codigo": "9005",
+        "nombre": "El Placer",
+        "identificacion": "9005",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2041322.75807914,
+        "st_perimeter(shape)": 6435.59770238502
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1175,
+        "codigo": "7001",
+        "nombre": "Buga Patio Bonito",
+        "identificacion": "7001",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 4146406.75330349,
+        "st_perimeter(shape)": 8293.71087383827
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1179,
+        "codigo": "9008",
+        "nombre": "El Llano SE",
+        "identificacion": "9008",
+        "limitecomunacorregimientoid": "90",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2117598.21655963,
+        "st_perimeter(shape)": 6608.82928819413
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1178,
+        "codigo": "7008",
+        "nombre": "El Jardín",
+        "identificacion": "7008",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2907846.99140307,
+        "st_perimeter(shape)": 8351.77687548982
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1182,
+        "codigo": "8003",
+        "nombre": "Montañita",
+        "identificacion": "8003",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2332652.65645776,
+        "st_perimeter(shape)": 10391.3594412369
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1195,
+        "codigo": "0714",
+        "nombre": "Bello Horizonte",
+        "identificacion": "0714",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 186837.415475158,
+        "st_perimeter(shape)": 2089.72121431147
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1193,
+        "codigo": "1020",
+        "nombre": "San Diego",
+        "identificacion": "1020",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 708265.843451366,
+        "st_perimeter(shape)": 4818.01363817363
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1203,
+        "codigo": "0606",
+        "nombre": "San Martín de Porres",
+        "identificacion": "0606",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 286848.612667654,
+        "st_perimeter(shape)": 2534.34787648864
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1243,
+        "codigo": "1005",
+        "nombre": "Estación Villa",
+        "identificacion": "1005",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 195039.603274271,
+        "st_perimeter(shape)": 1965.11626670637
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1204,
+        "codigo": "0502",
+        "nombre": "Las Brisas",
+        "identificacion": "0502",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 375204.750743466,
+        "st_perimeter(shape)": 2963.40566949796
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1005,
+        "codigo": "0911",
+        "nombre": "Gerona",
+        "identificacion": "0911",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 249102.584151524,
+        "st_perimeter(shape)": 2257.9942912613
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1253,
+        "codigo": "8005",
+        "nombre": "El Astillero",
+        "identificacion": "8005",
+        "limitecomunacorregimientoid": "80",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 14312476.8617233,
+        "st_perimeter(shape)": 19798.7197537865
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1206,
+        "codigo": "0601",
+        "nombre": "Santander",
+        "identificacion": "0601",
+        "limitecomunacorregimientoid": "06",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 414041.619980873,
+        "st_perimeter(shape)": 3281.819020467
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1209,
+        "codigo": "0411",
+        "nombre": "Las Esmeraldas",
+        "identificacion": "0411",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 152816.038920885,
+        "st_perimeter(shape)": 1948.31880118947
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1260,
+        "codigo": "7003",
+        "nombre": "El Corazón El Morro",
+        "identificacion": "7003",
+        "limitecomunacorregimientoid": "70",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 7360292.62732603,
+        "st_perimeter(shape)": 16644.5378598945
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1261,
+        "codigo": "0301",
+        "nombre": "La Salle",
+        "identificacion": "0301",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 367674.923162048,
+        "st_perimeter(shape)": 3437.10974973738
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1215,
+        "codigo": "0408",
+        "nombre": "San Pedro",
+        "identificacion": "0408",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 245821.788846387,
+        "st_perimeter(shape)": 2238.8737066343
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1216,
+        "codigo": "0816",
+        "nombre": "Villa Turbay",
+        "identificacion": "0816",
+        "limitecomunacorregimientoid": "08",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 247806.918433714,
+        "st_perimeter(shape)": 2429.1206501097
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1217,
+        "codigo": "1317",
+        "nombre": "Eduardo Santos",
+        "identificacion": "1317",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 236245.119495296,
+        "st_perimeter(shape)": 2845.51865753677
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1218,
+        "codigo": "0914",
+        "nombre": "Asomadera No.1",
+        "identificacion": "0914",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 570296.576034665,
+        "st_perimeter(shape)": 3704.33729610701
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1219,
+        "codigo": "0903",
+        "nombre": "Bomboná No.2",
+        "identificacion": "0903",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 659575.031459936,
+        "st_perimeter(shape)": 4633.60110637389
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1226,
+        "codigo": "0509",
+        "nombre": "Girardot",
+        "identificacion": "0509",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 512848.15717745,
+        "st_perimeter(shape)": 3556.98944994065
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1232,
+        "codigo": "1419",
+        "nombre": "Manila",
+        "identificacion": "1419",
+        "limitecomunacorregimientoid": "14",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 274120.383035119,
+        "st_perimeter(shape)": 2454.6661423455
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1240,
+        "codigo": "1201",
+        "nombre": "Ferrini",
+        "identificacion": "1201",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 199961.805014497,
+        "st_perimeter(shape)": 2012.27054978527
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1211,
+        "codigo": "0906",
+        "nombre": "Barrio Caicedo",
+        "identificacion": "0906",
+        "limitecomunacorregimientoid": "09",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 210162.865530751,
+        "st_perimeter(shape)": 2471.58936715006
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1224,
+        "codigo": "1014",
+        "nombre": "Las Palmas",
+        "identificacion": "1014",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 322915.929178089,
+        "st_perimeter(shape)": 3057.84846303519
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1225,
+        "codigo": "1210",
+        "nombre": "Barrio Cristóbal",
+        "identificacion": "1210",
+        "limitecomunacorregimientoid": "12",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 236351.354273748,
+        "st_perimeter(shape)": 2188.16228835867
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1229,
+        "codigo": "0403",
+        "nombre": "Palermo",
+        "identificacion": "0403",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 219510.171873838,
+        "st_perimeter(shape)": 2724.18619698388
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1230,
+        "codigo": "1104",
+        "nombre": "San Joaquín",
+        "identificacion": "1104",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 328378.718161045,
+        "st_perimeter(shape)": 2448.0113415754
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1231,
+        "codigo": "1019",
+        "nombre": "La Candelaria",
+        "identificacion": "1019",
+        "limitecomunacorregimientoid": "10",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 649178.348616496,
+        "st_perimeter(shape)": 3613.38810571364
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1278,
+        "codigo": "0303",
+        "nombre": "Campo Valdés No.2",
+        "identificacion": "0303",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 388769.919378463,
+        "st_perimeter(shape)": 2838.85032478037
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1237,
+        "codigo": "0402",
+        "nombre": "San Isidro",
+        "identificacion": "0402",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 432154.691643289,
+        "st_perimeter(shape)": 2904.95878709687
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1238,
+        "codigo": "0315",
+        "nombre": "San José La Cima No.2",
+        "identificacion": "0315",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 141598.898267743,
+        "st_perimeter(shape)": 1641.18275310364
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1279,
+        "codigo": "1604",
+        "nombre": "Granada",
+        "identificacion": "1604",
+        "limitecomunacorregimientoid": "16",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 184334.840808627,
+        "st_perimeter(shape)": 1873.94538139159
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1241,
+        "codigo": "6008",
+        "nombre": "La Ilusión",
+        "identificacion": "6008",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3069654.16429994,
+        "st_perimeter(shape)": 9419.63033062381
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1267,
+        "codigo": "6017",
+        "nombre": "El Llano",
+        "identificacion": "6017",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1174209.6781936,
+        "st_perimeter(shape)": 4716.96454909062
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1242,
+        "codigo": "0709",
+        "nombre": "Córdoba",
+        "identificacion": "0709",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 234855.771275977,
+        "st_perimeter(shape)": 2699.8045453136
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1290,
+        "codigo": "6005",
+        "nombre": "Naranjal",
+        "identificacion": "6005",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1971934.9212218,
+        "st_perimeter(shape)": 7217.10237434578
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1263,
+        "codigo": "0710",
+        "nombre": "López de  Mesa",
+        "identificacion": "0710",
+        "limitecomunacorregimientoid": "07",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 199905.537871303,
+        "st_perimeter(shape)": 2326.81542357066
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1266,
+        "codigo": "6004",
+        "nombre": "La Cuchilla",
+        "identificacion": "6004",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1991031.79048026,
+        "st_perimeter(shape)": 7534.52146727669
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1244,
+        "codigo": "0503",
+        "nombre": "Florencia",
+        "identificacion": "0503",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 292966.409575029,
+        "st_perimeter(shape)": 2452.89731474146
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1245,
+        "codigo": "Inst_3",
+        "nombre": "Cementerio Universal",
+        "identificacion": "Inst_3",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 94184.8676832286,
+        "st_perimeter(shape)": 1486.14591125058
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1262,
+        "codigo": "0412",
+        "nombre": "La Piñuela",
+        "identificacion": "0412",
+        "limitecomunacorregimientoid": "04",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 217231.866381933,
+        "st_perimeter(shape)": 2174.0032235248
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1271,
+        "codigo": "0511",
+        "nombre": "Castilla",
+        "identificacion": "0511",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 552563.564647816,
+        "st_perimeter(shape)": 2971.0372272965
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1286,
+        "codigo": "5006",
+        "nombre": "La Frisola",
+        "identificacion": "5006",
+        "limitecomunacorregimientoid": "50",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 8814418.99636752,
+        "st_perimeter(shape)": 19240.0732630645
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1264,
+        "codigo": "6009",
+        "nombre": "Yolombo",
+        "identificacion": "6009",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 4183231.79600132,
+        "st_perimeter(shape)": 9412.53888739638
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1294,
+        "codigo": "6016",
+        "nombre": "Travesías",
+        "identificacion": "6016",
+        "limitecomunacorregimientoid": "60",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 1533625.68854953,
+        "st_perimeter(shape)": 6351.18123550477
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1268,
+        "codigo": "1511",
+        "nombre": "La Colina",
+        "identificacion": "1511",
+        "limitecomunacorregimientoid": "15",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 677833.749912209,
+        "st_perimeter(shape)": 4897.13444087783
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1269,
+        "codigo": "1309",
+        "nombre": "San Javier No.1",
+        "identificacion": "1309",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 227533.502735703,
+        "st_perimeter(shape)": 2338.2026894527
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1273,
+        "codigo": "1113",
+        "nombre": "Estadio",
+        "identificacion": "1113",
+        "limitecomunacorregimientoid": "11",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 363908.978854957,
+        "st_perimeter(shape)": 2637.0398184396
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1274,
+        "codigo": "1319",
+        "nombre": "El Socorro",
+        "identificacion": "1319",
+        "limitecomunacorregimientoid": "13",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 182432.898774598,
+        "st_perimeter(shape)": 2794.80868003346
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1275,
+        "codigo": "0310",
+        "nombre": "Versalles No.2",
+        "identificacion": "0310",
+        "limitecomunacorregimientoid": "03",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 248013.338339225,
+        "st_perimeter(shape)": 2943.31920038831
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 1270,
+        "codigo": "0507",
+        "nombre": "Héctor Abad Gómez",
+        "identificacion": "0507",
+        "limitecomunacorregimientoid": "05",
+        "limitemunicipioid": "001",
+        "subtipo_barriovereda": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 240108.625324391,
+        "st_perimeter(shape)": 2703.98419666534
+      }
+    }
+  ]
+}

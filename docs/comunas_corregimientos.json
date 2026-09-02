@@ -1,0 +1,367 @@
+{
+  "displayFieldName": "CODIGO",
+  "fieldAliases": {
+    "objectid": "OBJECTID",
+    "codigo": "CODIGO",
+    "nombre": "NOMBRE",
+    "identificacion": "IDENTIFICACION",
+    "limitemunicipioid": "LIMITEMUNICIPIOID",
+    "subtipo_comunacorregimiento": "SubTipo_ComunaCorregimiento",
+    "fecha_actualizacion": "fecha_actualizacion",
+    "st_area(shape)": "st_area(shape)",
+    "st_perimeter(shape)": "st_perimeter(shape)"
+  },
+  "fields": [
+    {
+      "name": "objectid",
+      "type": "esriFieldTypeOID",
+      "alias": "OBJECTID"
+    },
+    {
+      "name": "codigo",
+      "type": "esriFieldTypeString",
+      "alias": "CODIGO",
+      "length": 20
+    },
+    {
+      "name": "nombre",
+      "type": "esriFieldTypeString",
+      "alias": "NOMBRE",
+      "length": 200
+    },
+    {
+      "name": "identificacion",
+      "type": "esriFieldTypeString",
+      "alias": "IDENTIFICACION",
+      "length": 100
+    },
+    {
+      "name": "limitemunicipioid",
+      "type": "esriFieldTypeString",
+      "alias": "LIMITEMUNICIPIOID",
+      "length": 20
+    },
+    {
+      "name": "subtipo_comunacorregimiento",
+      "type": "esriFieldTypeInteger",
+      "alias": "SubTipo_ComunaCorregimiento"
+    },
+    {
+      "name": "fecha_actualizacion",
+      "type": "esriFieldTypeDate",
+      "alias": "fecha_actualizacion",
+      "length": 8
+    },
+    {
+      "name": "st_area(shape)",
+      "type": "esriFieldTypeDouble",
+      "alias": "st_area(shape)"
+    },
+    {
+      "name": "st_perimeter(shape)",
+      "type": "esriFieldTypeDouble",
+      "alias": "st_perimeter(shape)"
+    }
+  ],
+  "features": [
+    {
+      "attributes": {
+        "objectid": 344,
+        "codigo": "01",
+        "nombre": "Popular",
+        "identificacion": "Comuna 1",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3097940.82773176,
+        "st_perimeter(shape)": 9604.44748356746
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 345,
+        "codigo": "02",
+        "nombre": "Santa Cruz",
+        "identificacion": "Comuna 2",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 2195662.62846197,
+        "st_perimeter(shape)": 8597.29365150346
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 346,
+        "codigo": "03",
+        "nombre": "Manrique",
+        "identificacion": "Comuna 3",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 5096182.13199551,
+        "st_perimeter(shape)": 12077.5587080051
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 347,
+        "codigo": "04",
+        "nombre": "Aranjuez",
+        "identificacion": "Comuna 4",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 4883314.14012091,
+        "st_perimeter(shape)": 9642.6765219618
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 348,
+        "codigo": "05",
+        "nombre": "Castilla",
+        "identificacion": "Comuna 5",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 6063915.62479253,
+        "st_perimeter(shape)": 16098.0316664962
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 349,
+        "codigo": "06",
+        "nombre": "Doce de Octubre",
+        "identificacion": "Comuna 6",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3849811.99633747,
+        "st_perimeter(shape)": 10709.8465141085
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 350,
+        "codigo": "07",
+        "nombre": "Robledo",
+        "identificacion": "Comuna 7",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 9462007.78777417,
+        "st_perimeter(shape)": 23265.2323573478
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 351,
+        "codigo": "08",
+        "nombre": "Villa Hermosa",
+        "identificacion": "Comuna 8",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 5716967.87970168,
+        "st_perimeter(shape)": 16392.8586366818
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 352,
+        "codigo": "09",
+        "nombre": "Buenos Aires",
+        "identificacion": "Comuna 9",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 6052668.24957488,
+        "st_perimeter(shape)": 18364.9012339017
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 353,
+        "codigo": "10",
+        "nombre": "La Candelaria",
+        "identificacion": "Comuna 10",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 7360811.122946,
+        "st_perimeter(shape)": 13632.7017419244
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 354,
+        "codigo": "11",
+        "nombre": "Laureles Estadio",
+        "identificacion": "Comuna 11",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 7402669.3069818,
+        "st_perimeter(shape)": 16365.1754019215
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 355,
+        "codigo": "12",
+        "nombre": "La América",
+        "identificacion": "Comuna 12",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 3973306.8918096,
+        "st_perimeter(shape)": 15425.4960362264
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 356,
+        "codigo": "13",
+        "nombre": "San Javier",
+        "identificacion": "Comuna 13",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 4849278.8696116,
+        "st_perimeter(shape)": 26384.2224240604
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 357,
+        "codigo": "14",
+        "nombre": "El Poblado",
+        "identificacion": "Comuna 14",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 14414322.9747604,
+        "st_perimeter(shape)": 19965.6882241056
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 358,
+        "codigo": "16",
+        "nombre": "Belén",
+        "identificacion": "Comuna 16",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 8856231.99599611,
+        "st_perimeter(shape)": 25695.0157169546
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 359,
+        "codigo": "50",
+        "nombre": "Corregimiento de San Sebastián de Palmitas",
+        "identificacion": "Corregimiento 50",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 57799202.4520963,
+        "st_perimeter(shape)": 38399.211255151
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 360,
+        "codigo": "60",
+        "nombre": "Corregimiento de San Cristóbal",
+        "identificacion": "Corregimiento 60",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 54112792.2836949,
+        "st_perimeter(shape)": 51162.6163431618
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 361,
+        "codigo": "70",
+        "nombre": "Corregimiento de Altavista",
+        "identificacion": "Corregimiento 70",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 28725783.2283576,
+        "st_perimeter(shape)": 35012.5831975963
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 362,
+        "codigo": "90",
+        "nombre": "Corregimiento de Santa Elena",
+        "identificacion": "Corregimiento 90",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 74114152.9345409,
+        "st_perimeter(shape)": 66527.0544868119
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 363,
+        "codigo": "SN02",
+        "nombre": null,
+        "identificacion": null,
+        "limitemunicipioid": null,
+        "subtipo_comunacorregimiento": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 74283.6362939974,
+        "st_perimeter(shape)": 3897.79118971782
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 364,
+        "codigo": "80",
+        "nombre": "Corregimiento de San Antonio de Prado",
+        "identificacion": "Corregimiento 80",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 2,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 60567771.5489425,
+        "st_perimeter(shape)": 40472.2832482241
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 365,
+        "codigo": "SN01",
+        "nombre": null,
+        "identificacion": null,
+        "limitemunicipioid": null,
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 439144.717952926,
+        "st_perimeter(shape)": 10025.5977866893
+      }
+    },
+    {
+      "attributes": {
+        "objectid": 366,
+        "codigo": "15",
+        "nombre": "Guayabal",
+        "identificacion": "Comuna 15",
+        "limitemunicipioid": "001",
+        "subtipo_comunacorregimiento": 1,
+        "fecha_actualizacion": 1418774400000,
+        "st_area(shape)": 7288420.65370805,
+        "st_perimeter(shape)": 13279.2419525495
+      }
+    }
+  ]
+}

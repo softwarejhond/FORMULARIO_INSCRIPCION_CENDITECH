@@ -222,7 +222,51 @@
 
 <!-- Cargar jQuery antes de tu archivo JS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Reemplaza los iconos por defecto de SweetAlert2 por Bootstrap Icons (naranja)
+    (function () {
+        if (typeof Swal === 'undefined') {
+            return;
+        }
+
+        var ICONS = {
+            success: 'bi-check-circle-fill',
+            error: 'bi-x-circle-fill',
+            warning: 'bi-exclamation-triangle-fill',
+            info: 'bi-info-circle-fill',
+            question: 'bi-question-circle-fill'
+        };
+
+        function iconHtmlFor(type) {
+            var cls = ICONS[type];
+            return cls ? '<i class="bi ' + cls + '" aria-hidden="true"></i>' : '';
+        }
+
+        var originalFire = Swal.fire.bind(Swal);
+
+        Swal.fire = function () {
+            var args = Array.prototype.slice.call(arguments);
+
+            // Swal.fire(opciones)
+            if (args.length === 1 && typeof args[0] === 'object' && args[0] !== null) {
+                if (args[0].icon && ICONS[args[0].icon] && !args[0].iconHtml) {
+                    args[0].iconHtml = iconHtmlFor(args[0].icon);
+                }
+            } else if (args.length >= 3) {
+                // Swal.fire(title, text, icon)
+                var iconArg = args[2];
+                if (typeof iconArg === 'string' && ICONS[iconArg]) {
+                    args[2] = { icon: iconArg, iconHtml: iconHtmlFor(iconArg) };
+                }
+            }
+
+            return originalFire.apply(Swal, args);
+        };
+    })();
+</script>
 <script>
         document.addEventListener('DOMContentLoaded', function () {
             const apiUrl = 'https://www.datos.gov.co/resource/gdxc-w37w.json';

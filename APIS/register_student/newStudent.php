@@ -28,11 +28,21 @@ $selectedMode = 'Virtual';
 
 // Cargar todos los departamentos
 $departamentos = [];
-$queryDepartamentos = "SELECT id_departamento, departamento FROM departamentos ORDER BY departamento";
+$queryDepartamentos = "SELECT id_departamento, departamento FROM departamentos WHERE id_departamento = 5 ORDER BY departamento";
 $resultDepartamentos = $conn->query($queryDepartamentos);
 if ($resultDepartamentos && $resultDepartamentos->num_rows > 0) {
     while ($row = $resultDepartamentos->fetch_assoc()) {
         $departamentos[] = $row;
+    }
+}
+
+// Cargar todas las comunas/corregimientos
+$comunas = [];
+$queryComunas = "SELECT codigo, nombre FROM comunas_corregimientos WHERE nombre IS NOT NULL AND nombre <> '' ORDER BY codigo";
+$resultComunas = $conn->query($queryComunas);
+if ($resultComunas && $resultComunas->num_rows > 0) {
+    while ($row = $resultComunas->fetch_assoc()) {
+        $comunas[] = $row;
     }
 }
 
@@ -98,6 +108,8 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
         $address = $_POST['address'] ?? '';
         $latitud = $_POST['latitud'] ?? '';
         $longitud = $_POST['longitud'] ?? '';
+        $comuna_corregimiento = $_POST['comuna_corregimiento'] ?? '';
+        $barrio = $_POST['barrio'] ?? '';
         $people_charge = $_POST['people_charge'] ?? '';
         $vulnerable_population = $_POST['vulnerable_population'] ?? '';
         $vulnerable_type = $_POST['vulnerable_type'] ?? '';
@@ -111,14 +123,14 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
         $motivations_belong_program = $_POST['motivations_belong_program'] ?? '';
         $current_situation = $_POST['current_situation'] ?? '';
         $impediment_complete_course = $_POST['impediment_complete_course'] ?? '';
-        $availability = $_POST['availability'] ?? '';
+        $availability = '';
         $mode = $_POST['mode'] ?? '';
         $headquarters = $_POST['headquarters'] ?? '';
         $program = $_POST['program'] ?? '';
         $schedules = $_POST['schedules'] ?? '';
         $schedules_alternative = $_POST['schedules_alternative'] ?? '';
-        $prior_knowledge = $_POST['prior_knowledge'] ?? '';
-        $level = $_POST['level'] ?? '';
+        $prior_knowledge = '';
+        $level = '';
         $languages = $_POST['languages'] ?? '';
         $languages_level = $_POST['languages_level'] ?? '';
         $medical_condition = $_POST['medical_condition'] ?? '';
@@ -191,7 +203,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
             $queryInsert = "INSERT INTO user_register (
                 typeID, number_id, number_id_very, first_name, second_name, first_last, second_last, birthdate, expedition_date, gender, marital_status, email, 
                 email_very, first_phone, second_phone, token, email_verified, emergency_contact_name, emergency_contact_number, nationality, department, 
-                municipality, address, latitud, longitud, people_charge, vulnerable_population, vulnerable_type, ethnic_group, stratum, 
+                municipality, address, latitud, longitud, comuna_corregimiento, barrio, people_charge, vulnerable_population, vulnerable_type, ethnic_group, stratum, 
                 residence_area, country_person, lote, directed_base, training_level, occupation, time_obligations, motivations_belong_program, current_situation, 
                 impediment_complete_course, availability, mode, headquarters, institution, program, schedules, schedules_alternative, prior_knowledge,level, languages, languages_level, 
                 medical_condition, disability, type_disability, pregnancy, technologies, internet, knowledge_program, accept_requirements, accepts_tech_talent, 
@@ -199,7 +211,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
             ) VALUES (
                 '$typeID', '$number_id', '$number_id_very', '$first_name', '$second_name', '$first_last', '$second_last', '$birthdate', '$expedition_date', 
                 '$gender', '$marital_status', '$email', '$email_very', '$first_phone', '$second_phone', '$token', 0, '$emergency_contact_name', 
-                '$country_code3 $emergency_contact_number', '$nationality', '$department', '$municipality', '$address', '$latitud', '$longitud', '$people_charge', 
+                '$country_code3 $emergency_contact_number', '$nationality', '$department', '$municipality', '$address', '$latitud', '$longitud', '$comuna_corregimiento', '$barrio', '$people_charge', 
                 '$vulnerable_population', '$vulnerable_type', '$ethnic_group', '$stratum', '$residence_area', '$country_person', 0, 0, '$training_level', '$occupation', 
                 '$time_obligations', '$motivations_belong_program', '$current_situation', '$impediment_complete_course', '$availability', 
                 '$mode', '$headquarters', '$institution', '$program', '$schedules', '$schedules_alternative', '$prior_knowledge', '$level','$languages', '$languages_level', '$medical_condition', '$disability','$type_disability',
@@ -439,7 +451,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
             function generateField($fieldName)
             {
-                global $formConfig, $selectedHeadquarter, $selectedMode, $institucion_param, $departamentos;
+                global $formConfig, $selectedHeadquarter, $selectedMode, $institucion_param, $departamentos, $comunas;
                 $field = $formConfig[$fieldName] ?? [];
                 $type = $field['type'] ?? 'text';
                 $label = $field['label'] ?? ucfirst($fieldName);
@@ -447,7 +459,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                 echo "<div class='form-group'>";
                 if (!in_array($fieldName, ['mode', 'headquarters'])) {
-                    echo "<label class='bold-label'>$label</label>";
+                    echo "<label class='bold-label label-$fieldName'>$label</label>";
                 }
 
                 if ($fieldName === 'birthdate') {
@@ -517,6 +529,18 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 } else if ($fieldName == 'municipality') {
                     echo "<select name='municipality' id='municipios' class='form-control' data-populated='true' required>";
                     echo "<option value=''>Seleccione un departamento primero</option>";
+                    echo "</select>";
+                } else if ($fieldName == 'comuna_corregimiento') {
+                    echo "<select class='form-control' name='comuna_corregimiento' id='comuna_corregimiento' required>";
+                    echo "<option value=''>Seleccione una comuna/corregimiento</option>";
+                    foreach ($comunas as $c) {
+                        $label = $c['codigo'] . ' - ' . $c['nombre'];
+                        echo "<option value='" . htmlspecialchars($label) . "' data-codigo='" . htmlspecialchars($c['codigo']) . "'>" . htmlspecialchars($label) . "</option>";
+                    }
+                    echo "</select>";
+                } else if ($fieldName == 'barrio') {
+                    echo "<select name='barrio' id='barrio' class='form-control' required>";
+                    echo "<option value=''>Seleccione primero una comuna</option>";
                     echo "</select>";
                 } elseif ($type === 'select') {
                     $options = $field['options'] ?? [];
@@ -715,7 +739,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                     echo "<label class='form-check-label' for='accept_requirements'>Acepta los requisitos establecidos por la presente convocatoria</label>";
                     echo "</div>";
                     // Enlace con los requisitos
-                    echo "<p><a href='https://www.mintic.gov.co/portal/inicio/Secciones-auxiliares/Politicas/2627:Politicas-de-Privacidad-y-Condiciones-de-Uso' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
+                    echo "<p><a href='' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
                     echo "</div>";
                 } elseif ($fieldName == 'accepts_tech_talent') {
                     echo "<div class='form-group'>";
@@ -725,7 +749,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                     echo "<label class='form-check-label' for='accepts_tech_talent'>Acepta la carta de compromiso de talento Tech</label>";
                     echo "</div>";
                     // Enlace con los requisitos
-                    echo "<p><a href='https://talentotech.utinnova.co/acta-de-compromiso/' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
+                    echo "<p><a href='' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
                     echo "</div>";
                 } elseif ($fieldName == 'accept_data_policies') {
                     echo "<div class='form-group'>";
@@ -735,7 +759,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                     echo "<label class='form-check-label' for='Accept_data_policies'>Confirmo que he leído y acepto las políticas de tratamiento de datos personales</label>";
                     echo "</div>";
                     // Enlace con los requisitos
-                    echo "<p><a href='https://talentotech.utinnova.co/politica-de-tratamiento-de-datos/' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
+                    echo "<p><a href='' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
                     echo "</div>";
                 } else {
                     echo "<input type='$type' $attributes>";
@@ -945,47 +969,11 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
     <script>
         // Referencias a los elementos
-        const priorKnowledgeSelect = document.getElementById('prior_knowledge');
-        const levelSelect = document.getElementById('level');
-        levelSelect.innerHTML = `
-                <option value="">No has contestado a la pregunta anterior</option>
-            `;
-        levelSelect.removeAttribute('readonly'); // Quitar readonly
-
-        // Función para actualizar las opciones del campo nivel
-        function updateLevelOptions() {
-            const selectedKnowledge = priorKnowledgeSelect.value;
-
-            if (selectedKnowledge === 'Sí') {
-                // Restaurar todas las opciones y habilitar el campo
-                levelSelect.innerHTML = `
-                <option value="">Seleccionar</option>
-                <option value="Explorador">Explorador (Conocimientos básicos)</option>
-                <option value="Integrador">Integrador (Conocimientos intermedios)</option>
-                <option value="Innovador">Innovador (Conocimientos avanzados)</option>
-            `;
-                levelSelect.removeAttribute('readonly'); // Quitar readonly
-            } else if (selectedKnowledge === 'No') {
-                // Establecer el nivel por defecto en "Explorador" y hacerlo solo lectura
-                levelSelect.innerHTML = `
-                <option value="Explorador" selected>Explorador (Conocimientos básicos)</option>
-            `;
-                levelSelect.setAttribute('readonly', true); // Añadir readonly
-            }
-        }
-
-        // Evento al cambiar la selección de conocimientos previos
-
-        priorKnowledgeSelect.addEventListener('change', updateLevelOptions);
-    </script>
-    <script>
-        // Referencias a los elementos
         const disabilitySelect = document.getElementById('disability');
         const typeDisabilitySelect = document.getElementById('type_disability');
         typeDisabilitySelect.innerHTML = `
                 <option value="">No has contestado a la pregunta anterior</option>
             `;
-        levelSelect.removeAttribute('readonly'); // Quitar readonly
         // Función para manejar la visibilidad y estado del campo de tipo de discapacidad
         function handleDisabilityChange() {
             const selectedDisability = disabilitySelect.value;
@@ -1076,6 +1064,8 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 'nationality': document.querySelector('[name="nationality"]'),
                 'department': document.querySelector('[name="department"]'),
                 'municipality': document.querySelector('[name="municipality"]'),
+                'comuna_corregimiento': document.querySelector('[name="comuna_corregimiento"]'),
+                'barrio': document.querySelector('[name="barrio"]'),
                 'address': document.querySelector('[name="address"]'),
                 'people_charge': document.querySelector('[name="people_charge"]'),
                 'vulnerable_population': document.querySelector('[name="vulnerable_population"]'),
@@ -1090,12 +1080,9 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 'motivations_belong_program': document.querySelector('[name="motivations_belong_program"]'),
                 'current_situation': document.querySelector('[name="current_situation"]'),
                 'impediment_complete_course': document.querySelector('[name="impediment_complete_course"]'),
-                'availability': document.querySelector('[name="availability"]'),
                 'mode': document.querySelector('[name="mode"]'),
                 'headquarters': document.querySelector('[name="headquarters"]'),
                 'program': document.querySelector('[name="program"]'),
-                'prior_knowledge': document.querySelector('[name="prior_knowledge"]'),
-                'level': document.querySelector('[name="level"]'),
                 'languages': document.querySelector('[name="languages"]'),
                 'languages_level': document.querySelector('[name="languages_level"]'),
                 'medical_condition': document.querySelector('[name="medical_condition"]'),
@@ -1137,6 +1124,8 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 'nationality': 'Nacionalidad',
                 'department': 'Departamento',
                 'municipality': 'Municipio',
+                'comuna_corregimiento': 'Comuna / Corregimiento',
+                'barrio': 'Barrio',
                 'address': 'Dirección',
                 'people_charge': 'Personas a cargo',
                 'vulnerable_population': 'que pregunta si usted pertenence a un grupo poblacional reconocido por sus necesidades especiales o de atención prioritaria',
@@ -1151,12 +1140,9 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 'motivations_belong_program': 'Motivación para pertenecer al programa',
                 'current_situation': 'Situación actual',
                 'impediment_complete_course': 'que indica que Impedimento para completar el curso',
-                'availability': 'que indica la Disponibilidad horaria ',
                 'mode': 'de modalidad de estudio',
                 'headquarters': 'Sede',
                 'program': 'Programa',
-                'prior_knowledge': 'Conocimientos previos',
-                'level': 'Nivel',
                 'languages': 'que inidica si habla otro idioma',
                 'languages_level': 'Nivel de idiomas',
                 'medical_condition': 'Condición médica',
@@ -1259,6 +1245,88 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const comunaSelect = document.getElementById('comuna_corregimiento');
+            const barrioSelect = document.getElementById('barrio');
+            if (!comunaSelect || !barrioSelect) return;
+
+            const hasSelect2 = typeof jQuery !== 'undefined' && typeof jQuery.fn.select2 === 'function';
+
+            function renderBarrios(data) {
+                if (hasSelect2) {
+                    jQuery(barrioSelect).select2('destroy');
+                }
+                barrioSelect.innerHTML = '<option value="">Seleccione un barrio</option>';
+                (data || []).forEach(function(nombre) {
+                    const option = document.createElement('option');
+                    option.value = nombre;
+                    option.textContent = nombre;
+                    barrioSelect.appendChild(option);
+                });
+                if (hasSelect2) {
+                    jQuery(barrioSelect).select2({
+                        placeholder: 'Seleccione un barrio',
+                        width: '100%',
+                        allowClear: true
+                    });
+                }
+            }
+
+            function cargarBarrios(codComuna) {
+                if (!codComuna) {
+                    renderBarrios([]);
+                    return;
+                }
+                if (hasSelect2) {
+                    jQuery(barrioSelect).select2('destroy');
+                }
+                barrioSelect.innerHTML = '<option value="">Cargando...</option>';
+                if (hasSelect2) {
+                    jQuery(barrioSelect).select2({
+                        placeholder: 'Cargando...',
+                        width: '100%',
+                        allowClear: true
+                    });
+                }
+                fetch('APIS/register_student/get_barrios.php?comuna=' + encodeURIComponent(codComuna))
+                    .then(function(response) { return response.json(); })
+                    .then(function(data) {
+                        renderBarrios(data);
+                    })
+                    .catch(function() {
+                        renderBarrios([]);
+                    });
+            }
+
+            if (hasSelect2) {
+                jQuery(comunaSelect).select2({
+                    placeholder: 'Seleccione una comuna/corregimiento',
+                    width: '100%',
+                    allowClear: true
+                });
+                jQuery(barrioSelect).select2({
+                    placeholder: 'Seleccione primero una comuna',
+                    width: '100%',
+                    allowClear: true
+                });
+                // Select2 dispara el cambio vía jQuery; escuchar con .on() garantiza el cascado.
+                jQuery(comunaSelect).on('change', function() {
+                    const val = jQuery(comunaSelect).val() || '';
+                    const codComuna = val.indexOf(' - ') !== -1 ? val.split(' - ')[0] : val;
+                    cargarBarrios(codComuna);
+                });
+            } else {
+                comunaSelect.addEventListener('change', function() {
+                    const val = comunaSelect.value || '';
+                    const codComuna = val.indexOf(' - ') !== -1 ? val.split(' - ')[0] : val;
+                    cargarBarrios(codComuna);
+                });
+            }
+        });
+    </script>
+
 
     <style>
         /* Estilos para la preview de archivos */
