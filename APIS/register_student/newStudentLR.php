@@ -333,7 +333,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                             'inteligencia artificial' => 'https://dashboard.utinnova.co/preKnowIntelligence.php',
                             'programación' => 'https://dashboard.utinnova.co/preKnowPrograming.php',
                             'blockchain' => 'https://dashboard.utinnova.co/preKnowBlockchain.php',
-                            'arquitectura en la nube' => 'https://dashboard.utinnova.co/preKnowArchitecture.php'
+                            'Computración en la nube' => 'https://dashboard.utinnova.co/preKnowArchitecture.php'
                         ];
                         $programUrl = isset($programUrls[$programKey]) ? $programUrls[$programKey] : '#';
 

@@ -237,7 +237,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 </script>";
 
                 // Define la consulta que quieres ejecutar
-                $query = "SELECT * FROM smtpConfig WHERE id=1"; // Asegúrate de que esta consulta tenga sentido en tu lógica
+                $query = "SELECT * FROM smtpConfig WHERE id=4"; // Asegúrate de que esta consulta tenga sentido en tu lógica
 
                 if (mysqli_query($conn, $query)) {
                     // Continúa con el envío de correo...
@@ -256,8 +256,8 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                         $mail->SMTPAuth = true; // Habilita la autenticación SMTP
                         $mail->Username = $emailSmtp; // Usuario SMTP
                         $mail->Password = $password; // Contraseña SMTP
-                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL implícito (puerto 465)
-                        $mail->Port = $port; // Puerto SSL
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // STARTTLS (puerto 587)
+                        $mail->Port = $port; // Puerto desde la BD (587 para Brevo)
 
                         $mail->SMTPOptions = array(
                             'ssl' => array(
@@ -267,7 +267,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                             )
                         );
 
-                        $mail->setFrom('noreply@utinnova.co', 'Servicio al cliente'); // Remitente del correo                            
+                        $mail->setFrom('noreply@cenditech.com.co', 'Servicio al cliente'); // Remitente del correo                            
                         $mail->CharSet = 'UTF-8';  // Establece la codificación en UTF-8
                         $mail->addAddress($email);
 

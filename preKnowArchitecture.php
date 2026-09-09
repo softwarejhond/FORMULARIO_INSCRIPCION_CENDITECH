@@ -11,10 +11,10 @@ include("controller/conexion.php"); ?>
 <html lang="en">
 <?php include("controller/head.php"); ?>
 <body>
-<img src="img/banner_pruebas_arquitectura.png" alt="banner top" class="w-100">
+<img src="img/banner_pruebas_Computración.png" alt="banner top" class="w-100">
 <div class="container">
 
-<?php include("APIS/preknowledge/arquitectura.php"); ?>
+<?php include("APIS/preknowledge/Computración.php"); ?>
 
 </div>
 <img src="img/Banner-inferior.png" alt="banner bottom" class="w-100">

@@ -667,7 +667,7 @@ return [
             'Inteligencia Artificial' => 'Inteligencia Artificial',
             'Programación' => 'Programación',
             'BlockChain' => 'BlockChain',
-            'Arquitectura en la nube' => 'Arquitectura en la nube'
+            'Computración en la nube' => 'Computración en la nube'
         ],
         'attributes' => [
             'class' => 'form-control mb-3',

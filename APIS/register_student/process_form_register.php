@@ -688,7 +688,7 @@ return [
             'Inteligencia Artificial' => 'Inteligencia Artificial',
             'Programación' => 'Programación',
             'BlockChain' => 'BlockChain',
-            'Arquitectura en la nube' => 'Arquitectura en la nube',
+            'Computración en la nube' => 'Computración en la nube',
             'Robótica y automatización' => 'Robótica y automatización',
             'Internet de las cosas - IoT' => 'Internet de las cosas - IoT'
         ],

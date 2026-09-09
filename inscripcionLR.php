@@ -66,7 +66,7 @@ include("controller/conexion.php");
                 <option value="Inteligencia Artificial">Inteligencia Artificial</option>
                 <option value="Programación">Programación</option>
                 <option value="BlockChain">BlockChain</option>
-                <option value="Arquitectura en la nube">Arquitectura en la nube</option>
+                <option value="Computración en la nube">Computración en la nube</option>
                 <option value="Otro">Otro</option>
               </select>
             </div>

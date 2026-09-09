@@ -135,8 +135,8 @@ if (!isset($_GET['sede']) && !isset($_GET['institucion'])) {
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     Swal.fire({
-      title: 'Aviso importante',
-      text: 'La inscripción se debe realizar con un correo vigente, válido y activo. Recomendamos no inscribirse con correos temporales o de prueba, ya que durante los cursos pueden estar recibiendo información.',
+      title: '¡Estudiante!',
+      text: 'Por favor, verifique su nombre completo, número de documento, correo electrónico y demás datos personales en su perfil.\n\nEl certificado de este curso será emitido exactamente con esta misma información.\n\nEn caso de ser requerida una actualización de datos, deberá hacerla antes de terminar el curso para ajustar la información en nuestras bases de datos. Es su responsabilidad.',
       icon: 'info',
       confirmButtonText: 'Entendido',
       allowOutsideClick: false,
