@@ -146,6 +146,10 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
         $accept_data_policies = $_POST['accept_data_policies'] ?? '';
         $file_front_id = $_POST['file_front_id'] ?? '';
         $file_back_id = $_POST['file_back_id'] ?? '';
+        $guardian_full_name = $_POST['guardian_full_name'] ?? '';
+        $guardian_document = $_POST['guardian_document'] ?? '';
+        $guardian_phone = $_POST['guardian_phone'] ?? '';
+        $guardian_email = $_POST['guardian_email'] ?? '';
 
         date_default_timezone_set('America/Bogota'); // Ajusta según tu zona horaria
         $fechaHoraActual = date("Y-m-d H:i:s");
@@ -224,6 +228,19 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 $registro_exitoso = true;
                 // Debug: ver qué valores están llegando en el POST
                 error_log("POST recibido: " . print_r($_POST, true));
+
+                // Registrar los datos del acudiente si la persona es menor de edad
+                if (!empty($guardian_full_name) || !empty($guardian_document) || !empty($guardian_phone)) {
+                    $guardian_full_name_safe = $conn->real_escape_string(normalizarTexto($guardian_full_name));
+                    $guardian_document_safe = $conn->real_escape_string($guardian_document);
+                    $guardian_phone_safe = $conn->real_escape_string($guardian_phone);
+                    $guardian_email_safe = $conn->real_escape_string($guardian_email);
+                    $number_id_safe = $conn->real_escape_string($number_id);
+
+                    $queryGuardian = "INSERT INTO acudientes (number_id, guardian_full_name, guardian_document, guardian_phone, guardian_email)
+                        VALUES ('$number_id_safe', '$guardian_full_name_safe', '$guardian_document_safe', '$guardian_phone_safe', '$guardian_email_safe')";
+                    $conn->query($queryGuardian);
+                }
 
                 // Continuar con el flujo normal (envío de correo, etc.)
                 echo "<script>
@@ -374,7 +391,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                             <body>
                                 <div class='container'>
                                     <div class='header'>
-                                        <img src='cid:logo_blanco' alt='CENDITECH' width='150' height='100' style='display:block;margin:0 auto;width:150px;height:100px;'>
+                                        <img src='cid:logo_blanco' alt='CENDITECH' width='180' height='105' style='display:block;margin:0 auto;width:180px;height:105px;'>
                                     </div>
                                     <div class='content'>
                                         <h1>¡Bienvenido al Bootcamp de $program!</h1>
@@ -401,7 +418,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                                         <p>Gracias por confiar en nosotros y ser parte de esta gran comunidad. ¡Nos vemos pronto futuro campista! 🚀</p>
                                     </div>
                                     <div class='footer'>
-                                        <img src='cid:logo' alt='CENDITECH' width='180' height='80' style='display:block;margin:0 auto 8px;width:180px;height:80px;'>
+                                        <img src='cid:logo' alt='CENDITECH' width='150' height='88' style='display:block;margin:0 auto 8px;width:150px;height:88px;'>
                                         <p>Equipo CENDI Tech</p>
                                     </div>
                                 </div>
@@ -409,8 +426,8 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                             </html>";
 
                         $mail->Body = $mensaje;
-                        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_tech_blanco.png', 'logo_blanco');
-                        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_tech_logo_recortado.png', 'logo');
+                        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_logo_blanco.png', 'logo_blanco');
+                        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_logo_color.png', 'logo');
 
                         $mail->send();
                     } catch (Exception $e) {
@@ -763,7 +780,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                     // Campo de aceptación de requisitos
                     echo "<div class='form-check form-check'>";
                     echo "<input type='checkbox' class='form-check-input custom-checkbox' name='accepts_tech_talent' id='accepts_tech_talent' value='Sí' required>";
-                    echo "<label class='form-check-label' for='accepts_tech_talent'>Acepta la carta de compromiso de talento Tech</label>";
+                    echo "<label class='form-check-label' for='accepts_tech_talent'>Acepta la carta de compromiso </label>";
                     echo "</div>";
                     // Enlace con los requisitos
                     echo "<p><a href='' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
@@ -790,6 +807,10 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
             <input type="hidden" id="has_certification" name="has_certification">
             <input type="hidden" id="program_certified" name="program_certified">
             <input type="hidden" id="anio_certificacion" name="anio_certificacion">
+            <input type="hidden" id="guardian_full_name" name="guardian_full_name">
+            <input type="hidden" id="guardian_document" name="guardian_document">
+            <input type="hidden" id="guardian_phone" name="guardian_phone">
+            <input type="hidden" id="guardian_email" name="guardian_email">
             <div class="form-navigation mt-3 d-flex justify-content-center">
                 <button type="button" id="prevBtn" class="btn prevBtn m-2" style="display:none;"><i class="bi bi-chevron-double-left"></i> Anterior</button>
                 <button type="button" id="nextBtn" class="btn nextBtn m-2">Siguiente</button>

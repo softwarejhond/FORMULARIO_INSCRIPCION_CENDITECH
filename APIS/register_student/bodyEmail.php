@@ -78,7 +78,7 @@
         </div>
         <div class='content'>
             <p>Hola <b>$first_name</b>,</p>
-            <p>¡Felicitaciones! 🎉 Nos emociona darte la bienvenida al <b>Bootcamp de $program</b> de Talento Tech del MINTIC.</p>
+            <p>¡Felicitaciones! 🎉 Nos emociona darte la bienvenida al <b>Bootcamp de $program</b> Cenditech.</p>
             <p>Este Bootcamp es el primer paso hacia un futuro lleno de posibilidades en una de las áreas más demandadas del mercado. Aprenderás habilidades clave, trabajarás en proyectos prácticos y te prepararás para enfrentar los desafíos del mundo digital.</p>
             <h3>Próximos Pasos:</h3>
             <ol>
@@ -95,7 +95,7 @@
             <p>Gracias por confiar en nosotros y ser parte de esta gran comunidad. ¡Nos vemos pronto futuro campista! 🚀</p>
         </div>
         <div class='footer'>
-            <p>Equipo Talento Tech – MINTIC</p>
+            <p>Cenditech</p>
         </div>
     </div>
 </body>

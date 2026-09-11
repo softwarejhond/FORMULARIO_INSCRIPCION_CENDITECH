@@ -65,22 +65,9 @@ function nombreTecnicoDeCodigo($codigo) {
 }
 
 /**
- * Genera el correo institucional:
- * {iniciales de nombres}{últimos 4 de cédula}{iniciales de apellidos}@cenditech.com.co
- */
-function generarCorreoInstitucional($first_name, $second_name, $number_id, $first_last, $second_last) {
-    $ini1  = strtolower(substr(trim($first_name), 0, 1));
-    $ini2  = strtolower(substr(trim($second_name), 0, 1));
-    $last4 = substr((string)$number_id, -4);
-    $iniA1 = strtolower(substr(trim($first_last), 0, 1));
-    $iniA2 = strtolower(substr(trim($second_last), 0, 1));
-    return $ini1 . $ini2 . $last4 . $iniA1 . $iniA2 . '@cenditech.com.co';
-}
-
-/**
  * Envía el correo de credenciales al correo personal del estudiante.
  */
-function enviarCorreoMatricula($conn, $destino, $nombre, $programa, $username, $correoInstitucional, $password) {
+function enviarCorreoMatricula($conn, $destino, $nombre, $programa, $username, $password) {
     $querySMTP = mysqli_query($conn, "SELECT * FROM smtpConfig WHERE id = " . (int)SMTP_CONFIG_ID);
     if (!$querySMTP || !($smtp = mysqli_fetch_assoc($querySMTP))) {
         return ['ok' => false, 'mensaje' => 'No se encontró la configuración SMTP.'];
@@ -117,7 +104,7 @@ function enviarCorreoMatricula($conn, $destino, $nombre, $programa, $username, $
         <body style="font-family:Arial,Helvetica,sans-serif;background:#f4f4f9;margin:0;padding:20px;color:#333;">
             <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
                 <div style="background:#181E93;color:#ffffff;padding:28px 24px;text-align:center;">
-                    <img src="cid:logo_blanco" alt="CENDITECH" width="150" height="100" style="display:block;margin:0 auto;width:150px;height:100px;">
+                    <img src="cid:logo_blanco" alt="CENDITECH" width="180" height="105" style="display:block;margin:0 auto;width:180px;height:105px;">
                     <h1 style="margin:16px 0 0;font-size:20px;">¡Estás matriculado en ' . htmlspecialchars($programa) . '!</h1>
                 </div>
                 <div style="padding:28px 24px;line-height:1.6;">
@@ -125,7 +112,6 @@ function enviarCorreoMatricula($conn, $destino, $nombre, $programa, $username, $
                     <p>Tu cuenta en la plataforma ha sido creada exitosamente. Estos son tus datos de acceso:</p>
                     <div style="background:#f8f9ff;border:2px solid #181E93;border-radius:10px;padding:18px;margin:18px 0;">
                         <p style="margin:8px 0;"><b>Usuario:</b> ' . htmlspecialchars($username) . '</p>
-                        <p style="margin:8px 0;"><b>Correo institucional:</b> ' . htmlspecialchars($correoInstitucional) . '</p>
                         <p style="margin:8px 0;"><b>Contraseña inicial:</b> ' . htmlspecialchars($password) . '</p>
                     </div>
                     <p style="margin:6px 0;">Por seguridad, al ingresar por primera vez el sistema te pedirá cambiar la contraseña.</p>
@@ -135,15 +121,15 @@ function enviarCorreoMatricula($conn, $destino, $nombre, $programa, $username, $
                     <p>Si tienes dudas, contáctanos. ¡Nos vemos pronto futuro campista! 🚀</p>
                 </div>
                 <div style="text-align:center;padding:20px 24px;color:#777;font-size:12px;background:#f4f4f9;">
-                    <img src="cid:logo" alt="CENDITECH" width="180" height="80" style="display:block;margin:0 auto 8px;width:180px;height:80px;">
+                    <img src="cid:logo" alt="CENDITECH" width="150" height="88" style="display:block;margin:0 auto 8px;width:150px;height:88px;">
                     <p style="margin:0;">Equipo CENDI Tech</p>
                 </div>
             </div>
         </body>
         </html>';
 
-        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_tech_blanco.png', 'logo_blanco');
-        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_tech_logo_recortado.png', 'logo');
+        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_logo_blanco.png', 'logo_blanco');
+        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_logo_color.png', 'logo');
 
         $mail->send();
         return ['ok' => true];
@@ -196,13 +182,6 @@ function matricularEstudiante($conn, $numberId) {
 
     // 4. Datos para Moodle
     $username = (string)$est['number_id'];
-    $correoInstitucional = generarCorreoInstitucional(
-        $est['first_name'],
-        $est['second_name'],
-        $est['number_id'],
-        $est['first_last'],
-        $est['second_last']
-    );
     $password  = PASSWORD_INICIAL;
     $firstname = normalizarMoodle(trim($est['first_name'] . ' ' . $est['second_name']));
     $lastname  = normalizarMoodle(trim($est['first_last'] . ' ' . $est['second_last']));
@@ -222,7 +201,7 @@ function matricularEstudiante($conn, $numberId) {
             'password'  => $password,
             'firstname' => $firstname,
             'lastname'  => $lastname,
-            'email'     => $correoInstitucional,
+            'email'     => $est['email'],
         ]);
 
         if (!isset($creado[0]['id'])) {
@@ -261,7 +240,7 @@ function matricularEstudiante($conn, $numberId) {
         $est['number_id'],
         $fullName,
         $est['email'],
-        $correoInstitucional,
+        $est['email'],
         $username,
         $password,
         $codigo,
@@ -276,14 +255,13 @@ function matricularEstudiante($conn, $numberId) {
     $stmt->close();
 
     // 8. Enviar correo de credenciales al correo personal
-    $correo = enviarCorreoMatricula($conn, $est['email'], $fullName, $programName, $username, $correoInstitucional, $password);
+    $correo = enviarCorreoMatricula($conn, $est['email'], $fullName, $programName, $username, $password);
 
     $resultado = [
-        'ok'                   => true,
-        'mensaje'              => 'Matrícula realizada en ' . $programName . ' (set serie ' . $set['serie'] . ').',
-        'moodle_user_id'       => $moodleUserId,
-        'correo_institucional' => $correoInstitucional,
-        'correo_enviado'       => $correo['ok'],
+        'ok'             => true,
+        'mensaje'        => 'Matrícula realizada en ' . $programName . ' (set serie ' . $set['serie'] . ').',
+        'moodle_user_id' => $moodleUserId,
+        'correo_enviado' => $correo['ok'],
     ];
 
     if (!empty($errores)) {

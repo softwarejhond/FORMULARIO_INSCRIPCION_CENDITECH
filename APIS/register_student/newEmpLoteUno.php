@@ -60,7 +60,7 @@
                         <option value="Análisis de datos">Análisis de datos</option>
                         <option value="Inteligencia artificial">Inteligencia artificial</option>
                         <option value="Blockchain">Blockchain</option>
-                        <option value="Computración en la nube">Computración en la nube</option>
+                        <option value="Computación en la nube">Computación en la nube</option>
                     </select>
                 </div>
             </div><br>

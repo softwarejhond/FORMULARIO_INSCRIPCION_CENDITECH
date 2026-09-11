@@ -276,7 +276,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                             'inteligencia artificial' => 'https://dashboard.utinnova.co/preKnowIntelligence.php',
                             'programación' => 'https://dashboard.utinnova.co/preKnowPrograming.php',
                             'blockchain' => 'https://dashboard.utinnova.co/preKnowBlockchain.php',
-                            'Computración en la nube' => 'https://dashboard.utinnova.co/preKnowArchitecture.php'
+                            'Computación en la nube' => 'https://dashboard.utinnova.co/preKnowArchitecture.php'
                         ];
                         $programUrl = isset($programUrls[$programKey]) ? $programUrls[$programKey] : '#';
 
@@ -498,7 +498,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                             'inteligencia artificial' => 'https://dashboard.utinnova.co/preKnowIntelligence.php',
                             'programación' => 'https://dashboard.utinnova.co/preKnowPrograming.php',
                             'blockchain' => 'https://dashboard.utinnova.co/preKnowBlockchain.php',
-                            'Computración en la nube' => 'https://dashboard.utinnova.co/preKnowArchitecture.php'
+                            'Computación en la nube' => 'https://dashboard.utinnova.co/preKnowArchitecture.php'
                         ];
                         $programUrl = isset($programUrls[$programKey]) ? $programUrls[$programKey] : '#';
                         // Aquí va tu mensaje HTML
@@ -1003,7 +1003,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                     // Campo de aceptación de requisitos
                     echo "<div class='form-check form-check'>";
                     echo "<input type='checkbox' class='form-check-input custom-checkbox' name='accepts_tech_talent' id='accepts_tech_talent' value='Sí' required>";
-                    echo "<label class='form-check-label' for='accepts_tech_talent'>Acepta la carta de compromiso de talento Tech</label>";
+                    echo "<label class='form-check-label' for='accepts_tech_talent'>Acepta la carta de compromiso  de talento Tech</label>";
                     echo "</div>";
                     // Enlace con los requisitos
                     echo "<p><a href='https://talentotech.utinnova.co/acta-de-compromiso/' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";

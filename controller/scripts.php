@@ -341,43 +341,225 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const yearField = document.getElementById('anio_nacimiento');
-            const birthdateMessage = document.getElementById('birthdateMessage'); // Asegúrate de tener este elemento en tu HTML
+            const diaField = document.getElementById('dia_nacimiento');
+            const mesField = document.getElementById('mes_nacimiento');
+            const typeSelect = document.querySelector('[name="typeID"]');
 
-            function validateBirthYear() {
-                const currentYear = new Date().getFullYear();
-                const birthYear = parseInt(yearField.value, 10);
+            function calcularEdad(dia, mes, anio) {
+                const hoy = new Date();
+                const nacimiento = new Date(anio, mes - 1, dia);
+                let edad = hoy.getFullYear() - nacimiento.getFullYear();
+                const m = hoy.getMonth() - nacimiento.getMonth();
+                if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) {
+                    edad--;
+                }
+                return edad;
+            }
 
-                if (!isNaN(birthYear)) {
-                    const age = currentYear - birthYear;
+            function limpiarFechaNacimiento() {
+                if (diaField) diaField.value = '';
+                if (mesField) mesField.value = '';
+                if (yearField) yearField.value = '';
+                const hiddenField = document.getElementById('birthdate_hidden');
+                if (hiddenField) hiddenField.value = '';
+                limpiarCamposAcudiente();
+            }
 
-                    if (age < 18) {
-                        // Borrar lo seleccionado para evitar que siga avanzando
-                        const diaField = document.getElementById('dia_nacimiento');
-                        const mesField = document.getElementById('mes_nacimiento');
-                        const hiddenField = document.getElementById('birthdate_hidden');
-                        yearField.value = '';
-                        if (diaField) diaField.value = '';
-                        if (mesField) mesField.value = '';
-                        if (hiddenField) hiddenField.value = '';
+            function limpiarCamposAcudiente() {
+                ['guardian_full_name', 'guardian_document', 'guardian_phone', 'guardian_email'].forEach(function(id) {
+                    const el = document.getElementById(id);
+                    if (el) el.value = '';
+                });
+            }
 
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Edad no válida',
-                            text: 'Debes ser mayor de 18 años.',
-                            confirmButtonText: 'Entendido'
-                        });
+            function abrirModalAcudiente() {
+                Swal.fire({
+                    title: 'Datos del acudiente',
+                    text: 'Por ser menor de edad, necesitamos la información de tu acudiente.',
+                    customClass: {
+                        popup: 'swal-acudiente-popup',
+                        confirmButton: 'swal-acudiente-confirm',
+                        cancelButton: 'swal-acudiente-cancel'
+                    },
+                    html: `
+                        <style>
+                            .swal-acudiente-popup {
+                                background: rgba(255, 255, 255, 0.45);
+                                backdrop-filter: blur(12px);
+                                -webkit-backdrop-filter: blur(12px);
+                                border: 2px solid rgba(25, 58, 112, 0.18);
+                                border-radius: 16px;
+                                color: #193A70;
+                            }
+                            .swal-acudiente-popup .swal2-title {
+                                color: #193A70;
+                            }
+                            .swal-acudiente-popup .swal2-html-container {
+                                color: #193A70;
+                                margin: 0.5em 1.6em 0.8em;
+                            }
+                            .swal-acudiente-form {
+                                text-align: left;
+                                width: 100%;
+                            }
+                            .swal-acudiente-form label {
+                                display: block;
+                                color: #193A70;
+                                font-weight: 600;
+                                font-size: 14px;
+                                margin: 10px 0 2px;
+                            }
+                            .swal-acudiente-form input {
+                                display: block;
+                                width: 100%;
+                                box-sizing: border-box;
+                                background: rgba(255, 255, 255, 0.9);
+                                border: 1px solid rgba(25, 58, 112, 0.25);
+                                color: #1a1a1a;
+                                border-radius: 8px;
+                                padding: 10px 12px;
+                                font-size: 14px;
+                                transition: border-color .15s ease, box-shadow .15s ease;
+                            }
+                            .swal-acudiente-form input::placeholder {
+                                color: rgba(26, 26, 26, 0.45);
+                            }
+                            .swal-acudiente-form input:focus {
+                                outline: none;
+                                background: #ffffff;
+                                border-color: #193A70;
+                                box-shadow: 0 0 0 0.2rem rgba(25, 58, 112, 0.2);
+                            }
+                            .swal-acudiente-confirm {
+                                background: #193A70;
+                                color: #F9B233;
+                            }
+                            .swal-acudiente-cancel {
+                                background: transparent;
+                                border: 1px solid rgba(25, 58, 112, 0.4);
+                                color: #193A70;
+                            }
+                        </style>
+                        <div class="swal-acudiente-form">
+                            <label for="swal_guardian_name">Nombre completo del acudiente <span class="text-danger">*</span></label>
+                            <input id="swal_guardian_name" placeholder="Nombre completo" autocomplete="off">
+
+                            <label for="swal_guardian_document">Número de documento del acudiente <span class="text-danger">*</span></label>
+                            <input id="swal_guardian_document" placeholder="Número de documento" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+                            <label for="swal_guardian_phone">Teléfono del acudiente <span class="text-danger">*</span></label>
+                            <input id="swal_guardian_phone" placeholder="321 1234567" inputmode="numeric" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+                            <label for="swal_guardian_email">Correo electrónico del acudiente (opcional)</label>
+                            <input id="swal_guardian_email" placeholder="correo@ejemplo.com">
+                        </div>`,
+                    focusConfirm: false,
+                    showCancelButton: true,
+                    confirmButtonText: 'Guardar acudiente',
+                    cancelButtonText: 'Cambiar fecha',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    preConfirm: function() {
+                        const nombre = document.getElementById('swal_guardian_name').value.trim();
+                        const documento = document.getElementById('swal_guardian_document').value.trim();
+                        const telefono = document.getElementById('swal_guardian_phone').value.trim();
+                        const correo = document.getElementById('swal_guardian_email').value.trim();
+
+                        if (!nombre) {
+                            Swal.showValidationMessage('Ingresa el nombre completo del acudiente');
+                            return;
+                        }
+                        if (!documento) {
+                            Swal.showValidationMessage('Ingresa el número de documento del acudiente');
+                            return;
+                        }
+                        if (telefono.length !== 10) {
+                            Swal.showValidationMessage('El teléfono debe tener 10 dígitos');
+                            return;
+                        }
+                        if (correo && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+                            Swal.showValidationMessage('Ingresa un correo válido o déjalo vacío');
+                            return;
+                        }
+                        return { nombre: nombre, documento: documento, telefono: telefono, correo: correo };
                     }
-                } else {
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        document.getElementById('guardian_full_name').value = result.value.nombre;
+                        document.getElementById('guardian_document').value = result.value.documento;
+                        document.getElementById('guardian_phone').value = result.value.telefono;
+                        document.getElementById('guardian_email').value = result.value.correo;
+                    } else {
+                        limpiarFechaNacimiento();
+                    }
+                });
+            }
+
+            function validarEdadTipo() {
+                if (!yearField || !yearField.value) return;
+
+                const anio = parseInt(yearField.value, 10);
+                if (isNaN(anio)) {
                     Swal.fire({
                         icon: 'warning',
                         title: 'Año inválido',
                         text: 'Por favor, ingresa un año válido.',
                         confirmButtonText: 'Entendido'
                     });
+                    return;
+                }
+
+                let edad;
+                if (diaField && diaField.value && mesField && mesField.value) {
+                    edad = calcularEdad(parseInt(diaField.value, 10), parseInt(mesField.value, 10), anio);
+                } else {
+                    edad = new Date().getFullYear() - anio;
+                }
+
+                const tipo = typeSelect ? typeSelect.value : '';
+
+                if (edad < 7) {
+                    limpiarFechaNacimiento();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Edad no válida',
+                        text: 'Debes tener al menos 7 años para inscribirte.',
+                        confirmButtonText: 'Entendido'
+                    });
+                    return;
+                }
+
+                if ((tipo === 'CC' || tipo === 'CE') && edad < 18) {
+                    limpiarFechaNacimiento();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Tipo de documento no válido',
+                        text: 'Para C.C o C.E debes ser mayor de 18 años.',
+                        confirmButtonText: 'Entendido'
+                    });
+                    return;
+                }
+
+                if (tipo === 'TI' && edad >= 18) {
+                    limpiarFechaNacimiento();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Tipo de documento no válido',
+                        text: 'Para T.I debes ser menor de 18 años.',
+                        confirmButtonText: 'Entendido'
+                    });
+                    return;
+                }
+
+                if (edad < 18 && (tipo === 'TI' || tipo === 'PPT')) {
+                    abrirModalAcudiente();
+                } else {
+                    limpiarCamposAcudiente();
                 }
             }
 
-            yearField.addEventListener('input', validateBirthYear);
+            if (yearField) yearField.addEventListener('change', validarEdadTipo);
+            if (typeSelect) typeSelect.addEventListener('change', validarEdadTipo);
         });
     </script>
 
@@ -387,19 +569,37 @@
         const birthdateField = document.getElementById('birthdate_hidden');
 
         function validateExpeditionYear() {
-            const currentYear = new Date().getFullYear();
             const expeditionYear = parseInt(expeditionYearField.value, 10);
-            const birthdate = new Date(birthdateField.value);
+            const birthdateValue = birthdateField.value;
+            const birthdate = new Date(birthdateValue);
 
-            if (!isNaN(expeditionYear) && birthdate instanceof Date && !isNaN(birthdate)) {
+            if (!isNaN(expeditionYear) && birthdateValue && birthdate instanceof Date && !isNaN(birthdate)) {
                 const birthYear = birthdate.getFullYear();
                 const ageAtExpedition = expeditionYear - birthYear;
 
-                if (ageAtExpedition < 18) {
+                const hoy = new Date();
+                let edad = hoy.getFullYear() - birthdate.getFullYear();
+                const m = hoy.getMonth() - birthdate.getMonth();
+                if (m < 0 || (m === 0 && hoy.getDate() < birthdate.getDate())) {
+                    edad--;
+                }
+                const esMenor = edad < 18;
+                const minimo = esMenor ? 7 : 18;
+
+                if (ageAtExpedition < 0) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Fecha de expedición no válida',
-                        text: 'La fecha de expedición indica que no tienes al menos 18 años desde tu fecha de nacimiento.',
+                        text: 'La fecha de expedición no puede ser anterior a tu fecha de nacimiento.',
+                        confirmButtonText: 'Entendido'
+                    });
+                } else if (ageAtExpedition < minimo) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Fecha de expedición no válida',
+                        text: esMenor
+                            ? 'Para menores de edad, la fecha de expedición debe ser al menos 7 años después del nacimiento.'
+                            : 'Para mayores de edad, la fecha de expedición debe ser al menos 18 años después del nacimiento.',
                         confirmButtonText: 'Entendido'
                     });
                 }

@@ -541,7 +541,7 @@ return [
             'Estudiante' => 'Estudiante',
             'Ama de casa' => 'Ama de casa',
             'Pensionado' => 'Pensionado',
-            'Desemplado' => 'Desemplado',
+            'Desempleado' => 'Desempleado',
 
         ],
         'attributes' => [
@@ -667,7 +667,7 @@ return [
             'Inteligencia Artificial' => 'Inteligencia Artificial',
             'Programación' => 'Programación',
             'BlockChain' => 'BlockChain',
-            'Computración en la nube' => 'Computración en la nube'
+            'Computación en la nube' => 'Computación en la nube'
         ],
         'attributes' => [
             'class' => 'form-control mb-3',
@@ -880,7 +880,6 @@ return [
             '' => 'Seleccione',  // Opción por defecto
             'Familiares y amigos' => 'Familiares y amigos',
             'Redes sociales' => 'Redes sociales',
-            'Mintic' => 'Mintic',
             'Radio' => 'Radio',
             'Prensa' => 'Prensa',
             'Otro' => 'Otro'
@@ -907,7 +906,7 @@ return [
         'type' => 'checkbox',
         'label' => '',
         'options' => [
-            'Sí' => 'Acepta la carta de compromiso de talento Tech',
+            'Sí' => 'Acepta la carta de compromiso  de talento Tech',
         ],
         'attributes' => [
             'class' => 'form-check-input mb-3',
