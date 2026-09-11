@@ -351,6 +351,15 @@
                     const age = currentYear - birthYear;
 
                     if (age < 18) {
+                        // Borrar lo seleccionado para evitar que siga avanzando
+                        const diaField = document.getElementById('dia_nacimiento');
+                        const mesField = document.getElementById('mes_nacimiento');
+                        const hiddenField = document.getElementById('birthdate_hidden');
+                        yearField.value = '';
+                        if (diaField) diaField.value = '';
+                        if (mesField) mesField.value = '';
+                        if (hiddenField) hiddenField.value = '';
+
                         Swal.fire({
                             icon: 'error',
                             title: 'Edad no válida',

@@ -132,6 +132,7 @@ if (!isset($_GET['sede']) && !isset($_GET['institucion'])) {
 </body>
 <?php include("controller/scripts.php"); ?>
 
+<?php if (empty($registro_exitoso)): ?>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     Swal.fire({
@@ -144,5 +145,6 @@ if (!isset($_GET['sede']) && !isset($_GET['institucion'])) {
     });
   });
 </script>
+<?php endif; ?>
 
 </html>

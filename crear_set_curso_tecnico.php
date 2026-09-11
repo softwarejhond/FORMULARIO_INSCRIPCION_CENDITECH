@@ -288,25 +288,27 @@ function crearSetCursoTecnicoB($codigoTecnico) {
 }
 
 // ==========================================================
-// EJEMPLO DE USO
+// EJECUCIÓN: crea un set para TODOS los técnicos
 // ==========================================================
 
-// Antes de correr esto, llena los 'template_courseid' en los arrays
-// $CATEGORIAS_TECNICAS y $CATEGORIAS_OBLIGATORIAS.
-
-$respuesta = crearSetCursoTecnicoB('CIBER'); // <-- cambia el código técnico aquí
+$codigos = array_keys($CATEGORIAS_TECNICAS);
 
 echo "<pre>";
-print_r($respuesta);
-echo "</pre>";
+foreach ($codigos as $codigo) {
+    $respuesta = crearSetCursoTecnicoB($codigo);
 
-if (isset($respuesta['error'])) {
-    echo "ERROR: {$respuesta['error']}\n";
-} elseif (isset($respuesta['detenido_en'])) {
-    echo "El proceso se detuvo al intentar crear: {$respuesta['detenido_en']}\n";
-} else {
-    echo "Set creado correctamente (serie {$respuesta['serie']}):\n";
-    foreach ($respuesta['cursos'] as $clave => $c) {
-        echo " - {$clave}: {$c['fullname']} ({$c['shortname']}) -> courseid={$c['courseid']}\n";
+    if (isset($respuesta['error'])) {
+        echo "== {$codigo} ==\nERROR: {$respuesta['error']}\n\n";
+    } elseif (isset($respuesta['detenido_en'])) {
+        echo "== {$codigo} ==\nEl proceso se detuvo al intentar crear: {$respuesta['detenido_en']}\n";
+        print_r($respuesta['cursos']);
+        echo "\n";
+    } else {
+        echo "== {$codigo} ==\nSet creado (serie {$respuesta['serie']}):\n";
+        foreach ($respuesta['cursos'] as $clave => $c) {
+            echo "   - {$clave}: {$c['fullname']} ({$c['shortname']}) -> courseid={$c['courseid']} [bd: " . ($c['bd']['ok'] ? 'ok' : 'error') . "]\n";
+        }
+        echo "   set_bd: " . ($respuesta['set_bd']['ok'] ? 'ok' : 'error: ' . ($respuesta['set_bd']['error'] ?? '?')) . "\n\n";
     }
 }
+echo "</pre>";

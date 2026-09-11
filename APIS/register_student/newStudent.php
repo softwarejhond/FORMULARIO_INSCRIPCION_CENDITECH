@@ -82,6 +82,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 <div class=" p-3">
 
     <?php
+    $registro_exitoso = false;
     if (isset($_POST['submit'])) {
         // Variables del formulario
         $typeID = $_POST['typeID'] ?? '';
@@ -220,6 +221,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
             )";
 
             if ($conn->query($queryInsert) === TRUE) {
+                $registro_exitoso = true;
                 // Debug: ver qué valores están llegando en el POST
                 error_log("POST recibido: " . print_r($_POST, true));
 
@@ -227,11 +229,15 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                 echo "<script>
                     document.addEventListener('DOMContentLoaded', function() {
                         Swal.fire({
-                            title: '¡Exitoso!',
-                            text: 'Datos registrados con éxito, recuerda revisar tu correo electrónico',
+                            title: '¡Registro exitoso!',
+                            html: 'Revisa tu correo electrónico para confirmar tu registro.<br><br>Si no ves el correo en tu bandeja de entrada, revisa la carpeta de <b>spam</b> o <b>correo no deseado</b>.',
                             icon: 'success',
-                            showConfirmButton: false,
-                            timer: 2000,
+                            confirmButtonText: 'Entendido',
+                            allowOutsideClick: false
+                        }).then(function(result) {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
                         });
                     });
                 </script>";
@@ -257,7 +263,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                         $mail->Username = $emailSmtp; // Usuario SMTP
                         $mail->Password = $password; // Contraseña SMTP
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // STARTTLS (puerto 587)
-                        $mail->Port = $port; // Puerto desde la BD (587 para Brevo)
+                        $mail->Port = $port; // Puerto desde smtpConfig
 
                         $mail->SMTPOptions = array(
                             'ssl' => array(
@@ -267,7 +273,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                             )
                         );
 
-                        $mail->setFrom('noreply@cenditech.com.co', 'Servicio al cliente'); // Remitente del correo                            
+                        $mail->setFrom('no-reply@cenditech.com.co', 'CENDI Tech'); // Remitente del correo
                         $mail->CharSet = 'UTF-8';  // Establece la codificación en UTF-8
                         $mail->addAddress($email);
 
@@ -278,9 +284,10 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                             <!DOCTYPE html>
                             <html>
                             <head>
+                                <meta charset='UTF-8'>
                                 <style>
                                     body {
-                                        font-family: Arial, sans-serif;
+                                        font-family: Arial, Helvetica, sans-serif;
                                         margin: 0;
                                         padding: 0;
                                         background-color: #f4f4f9;
@@ -290,37 +297,39 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                                         max-width: 600px;
                                         margin: 20px auto;
                                         background: #ffffff;
-                                        border-radius: 10px;
-                                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                                        padding: 20px;
+                                        border-radius: 12px;
+                                        overflow: hidden;
+                                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
                                     }
                                     .header {
-                                        text-align: center;
                                         background: #181E93;
-                                        color: #fff;
-                                        padding: 20px;
-                                        border-top-left-radius: 10px;
-                                        border-top-right-radius: 10px;
-                                    }
-                                    .header h1 {
-                                        margin: 0;
-                                        font-size: 24px;
+                                        color: #ffffff;
+                                        padding: 28px 24px;
+                                        text-align: center;
                                     }
                                     .content {
+                                        padding: 28px 24px;
                                         line-height: 1.6;
                                     }
+                                    .content h1 {
+                                        font-size: 20px;
+                                        color: #181E93;
+                                        margin: 0 0 12px;
+                                        text-align: center;
+                                    }
                                     .content p {
-                                        margin: 10px 0;
+                                        margin: 12px 0;
+                                        color: #333;
                                     }
                                     a.button {
                                         display: inline-block;
                                         margin: 20px 0;
-                                        padding: 10px 20px;
+                                        padding: 14px 28px;
                                         background: #181E93;
                                         color: #F9B233;
                                         text-decoration: none;
                                         font-weight: bold;
-                                        border-radius: 5px;
+                                        border-radius: 8px;
                                         text-align: center;
                                     }
                                     a.button:hover,
@@ -328,46 +337,52 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                                         color: #F9B233;
                                         text-decoration: none;
                                     }
-                                    .footer {
+                                    .verification-box {
+                                        margin: 20px 0;
+                                        padding: 20px;
+                                        border: 2px solid #181E93;
+                                        border-radius: 10px;
+                                        background: #f8f9ff;
                                         text-align: center;
-                                        margin-top: 20px;
-                                        color: #777;
-                                        font-size: 12px;
+                                    }
+                                    .verification-box h2 {
+                                        margin: 0 0 8px;
+                                        color: #181E93;
+                                        font-size: 18px;
                                     }
                                     .link-fallback {
-                                        margin-top: 10px;
-                                        font-size: 14px;
-                                        color: #333;
+                                        margin-top: 12px;
+                                        font-size: 13px;
+                                        color: #555;
                                     }
                                     .link-fallback a {
                                         color: #181E93;
                                         word-break: break-all;
                                     }
-                                    .verification-box {
-                                        margin: 20px 0;
-                                        padding: 20px;
-                                        border: 2px solid #181E93;
-                                        border-radius: 8px;
-                                        background: #f8f9ff;
-                                        text-align: center;
+                                    .steps li {
+                                        margin-bottom: 8px;
                                     }
-                                    .verification-box h3 {
-                                        margin-top: 0;
-                                        color: #181E93;
+                                    .footer {
+                                        text-align: center;
+                                        padding: 20px 24px;
+                                        color: #777;
+                                        font-size: 12px;
+                                        background: #f4f4f9;
                                     }
                                 </style>
                             </head>
                             <body>
                                 <div class='container'>
                                     <div class='header'>
-                                        <h1>¡Bienvenido al Bootcamp de $program!</h1>
+                                        <img src='cid:logo_blanco' alt='CENDITECH' width='150' height='100' style='display:block;margin:0 auto;width:150px;height:100px;'>
                                     </div>
                                     <div class='content'>
+                                        <h1>¡Bienvenido al Bootcamp de $program!</h1>
                                         <p>Hola <b>$first_name</b>,</p>
                                         <p>¡Felicitaciones! Nos emociona darte la bienvenida al <b>Bootcamp de $program</b> de CENDI Tech.</p>
                                         <p>Este Bootcamp es el primer paso hacia un futuro lleno de posibilidades en una de las áreas más demandadas del mercado. Aprenderás habilidades clave, trabajarás en proyectos prácticos y te prepararás para enfrentar los desafíos del mundo digital.</p>
                                         <div class='verification-box'>
-                                            <h3>Verifica tu correo electrónico</h3>
+                                            <h2>Verifica tu correo electrónico</h2>
                                             <p>Para confirmar tu registro y activar tu cuenta, haz clic en el siguiente botón:</p>
                                             <a class='button' href='$verificationUrl' target='_blank'>Verificar mi correo</a>
                                             <div class='link-fallback'>
@@ -375,8 +390,8 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                                                 <a href='$verificationUrl' target='_blank'>$verificationUrl</a>
                                             </div>
                                         </div>
-                                        <h3>Próximos Pasos:</h3>
-                                        <ol>
+                                        <h2 style='font-size:16px;color:#181E93;margin-top:20px;'>Próximos pasos</h2>
+                                        <ol class='steps'>
                                             <li><b>Revisa tu correo:</b><br>
                                                 Te enviaremos toda la información necesaria para comenzar tu formación: horarios, plataforma y recursos.</li>
                                             <li><b>Prepárate para el inicio:</b><br>
@@ -386,6 +401,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                                         <p>Gracias por confiar en nosotros y ser parte de esta gran comunidad. ¡Nos vemos pronto futuro campista! 🚀</p>
                                     </div>
                                     <div class='footer'>
+                                        <img src='cid:logo' alt='CENDITECH' width='180' height='80' style='display:block;margin:0 auto 8px;width:180px;height:80px;'>
                                         <p>Equipo CENDI Tech</p>
                                     </div>
                                 </div>
@@ -393,7 +409,8 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                             </html>";
 
                         $mail->Body = $mensaje;
-                        //$mail->addEmbeddedImage($urlpicture, 'cuerpo');
+                        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_tech_blanco.png', 'logo_blanco');
+                        $mail->addEmbeddedImage(dirname(__DIR__, 2) . '/img/cendi_tech_logo_recortado.png', 'logo');
 
                         $mail->send();
                     } catch (Exception $e) {
@@ -1207,6 +1224,23 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
             // Habilitar temporalmente los campos deshabilitados para que se envíen
             if (countryPersonSelect.disabled) {
                 countryPersonSelect.disabled = false;
+            }
+        });
+    </script>
+    <script>
+        // Mostrar un SWAL de "Procesando" al enviar el formulario (solo si la validación pasó)
+        document.getElementById('multi-step-form').addEventListener('submit', function(event) {
+            if (!event.defaultPrevented) {
+                Swal.fire({
+                    title: 'Procesando...',
+                    html: 'Por favor espera mientras registramos tus datos.',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    showConfirmButton: false,
+                    didOpen: function() {
+                        Swal.showLoading();
+                    }
+                });
             }
         });
     </script>
