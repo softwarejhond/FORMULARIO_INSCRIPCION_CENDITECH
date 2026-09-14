@@ -565,6 +565,28 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const typeSelect = document.querySelector('[name="typeID"]');
+        const nationalitySelect = document.querySelector('[name="nationality"]');
+        if (!typeSelect || !nationalitySelect) return;
+
+        function updateNationality() {
+            const tipo = typeSelect.value;
+            if (tipo === 'CE' || tipo === 'PPT') {
+                nationalitySelect.innerHTML = '<option value="Venezolana" selected>Venezolana</option>';
+            } else {
+                nationalitySelect.innerHTML = `
+                    <option value="">Seleccione</option>
+                    <option value="Colombiana">Colombiana</option>
+                `;
+            }
+        }
+
+        typeSelect.addEventListener('change', updateNationality);
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
         const expeditionYearField = document.getElementById('expedition_year');
         const birthdateField = document.getElementById('birthdate_hidden');
 

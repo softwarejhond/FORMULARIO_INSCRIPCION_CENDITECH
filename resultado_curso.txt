@@ -1,0 +1,180 @@
+
+📂 Sección: General
+   - [forum] Avisos
+   - [url] Pagina para descargar Visual Code
+       📄 Pagina para descargar Visual Code -> https://code.visualstudio.com/
+   - [qbank] Banco de preguntas de curso PROGRAMACION Y DESARROLLO DE SOFTWARE
+   - [qbank] Ingles
+
+📂 Sección: Fundamentos de programación.
+   - [label] 1. HTML Y CSS
+   - [label] Video HTML y CSS
+   - [resource] HTML5 Y CSS3
+       📄 HTML5-CSS.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5610/mod_resource/content/1/HTML5-CSS.pdf?forcedownload=1
+   - [resource] Simulador de HTML y CSS
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5749/mod_resource/content/1/index.html?forcedownload=1
+   - [page] Atributos
+       📄 Attributes.PNG -> https://campus.cenditech.com.co/webservice/pluginfile.php/7167/mod_page/content/1/Attributes.PNG?forcedownload=1
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/7167/mod_page/content/index.html?forcedownload=1
+   - [page] Header, nav, main, footer
+       📄 Header.PNG -> https://campus.cenditech.com.co/webservice/pluginfile.php/7168/mod_page/content/1/Header.PNG?forcedownload=1
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/7168/mod_page/content/index.html?forcedownload=1
+   - [page] Input
+       📄 HTML.jpeg -> https://campus.cenditech.com.co/webservice/pluginfile.php/7169/mod_page/content/1/HTML.jpeg?forcedownload=1
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/7169/mod_page/content/index.html?forcedownload=1
+   - [label] 2. JAVASCRIPT básico
+   - [label] Video JAVASCRIPT
+   - [resource] Introducción a JavaScript
+       📄 Introduccion-a-JavaScript.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5662/mod_resource/content/1/Introduccion-a-JavaScript.pdf?forcedownload=1
+   - [resource] SIMULADOR DE JAVASCRIPT
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5750/mod_resource/content/1/index.html?forcedownload=1
+   - [label] 3. Formularios API forms
+   - [label] Video Formularios API forms
+   - [resource] Formularios API forms
+       📄 Formularios API forms (1).pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5665/mod_resource/content/1/Formularios%20API%20forms%20%281%29.pdf?forcedownload=1
+   - [resource] SIMULADOR DE AUDIO, VIDEO, FORMULARIOS, API FORM
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5751/mod_resource/content/1/index.html?forcedownload=1
+   - [label] Tutorial: Inserción de Vídeos y Audio en Formulari...
+   - [label] 4. Lienzo, API canvas
+   - [label] Video Lienzo, API canvas
+   - [resource] Lienzo, API canvas
+       📄 Lienzo-API-Canvas-y-Submodulos.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5668/mod_resource/content/1/Lienzo-API-Canvas-y-Submodulos.pdf?forcedownload=1
+   - [resource] SIMULADOR LIENZO, API CANVA
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5752/mod_resource/content/1/index.html?forcedownload=1
+   - [label] 5. API Drag Drop
+   - [label] Video API Drag Drop
+   - [resource] API Drag Drop
+       📄 Introduccion-a-la-API-Drag-Drop.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5672/mod_resource/content/1/Introduccion-a-la-API-Drag-Drop.pdf?forcedownload=1
+   - [resource] SIMULADOR API DRAG DROP
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5753/mod_resource/content/1/index.html?forcedownload=1
+
+📂 Sección: Desarrollo Web.
+   - [label] 6. API Drag Drop -  API Geolocation  - API Web Storage
+   - [label] Video API Drag Drop -  API Geolocation  - API Web Storage
+   - [page] Código del ejemplo anterior
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5657/mod_page/content/index.html?forcedownload=1
+   - [resource] API Drag Drop -  API Geolocation  - API Web Storage
+       📄 Introduccion-a-las-API-Geolocation-Web-Storage-y-IndexedDB.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5658/mod_resource/content/1/Introduccion-a-las-API-Geolocation-Web-Storage-y-IndexedDB.pdf?forcedownload=1
+   - [resource] SIMULADOR API GEOLOCATION, WEB STORAGE
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5754/mod_resource/content/1/index.html?forcedownload=1
+   - [label] 7. API File I
+   - [label] Video APU File I
+   - [label] La API File en JavaScript es una interfaz que perm...
+   - [resource] API File I
+       📄 API-File-I.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5681/mod_resource/content/1/API-File-I.pdf?forcedownload=1
+   - [page] Ejemplo
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5683/mod_page/content/index.html?forcedownload=1
+   - [resource] SIMULADOR API FILE
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5755/mod_resource/content/1/index.html?forcedownload=1
+   - [label] 8. API Communication
+   - [label] Video API Communication
+   - [label] API Communication: Enviando Datos: La API Communic...
+   - [resource] API Communication - API Web Worker I - API History - API Offline
+       📄 Introduccion-a-la-clase-API-Communication-API-Web-Worker-I-API-History-y-API-Offline.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5687/mod_resource/content/1/Introduccion-a-la-clase-API-Communication-API-Web-Worker-I-API-History-y-API-Offline.pdf?forcedownload=1
+   - [resource] SIMULADOR API COMUNICATION
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5756/mod_resource/content/1/index.html?forcedownload=1
+
+📂 Sección: Desarrollo Front-End.
+   - [label] 9. PHP inducción - PHP sintaxis básica - PHP Condicionales
+   - [label] Video PHP inducción - PHP sintaxis básica - PHP Condicionales
+   - [url] INSTALADOR DE XAMPP
+       📄 INSTALADOR DE XAMPP -> https://www.apachefriends.org/es/index.html
+   - [resource] SIMULADOR DE PHP
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5757/mod_resource/content/1/index.html?forcedownload=1
+   - [resource] PHP inducción - PHP sintaxis básica - PHP Condicionales
+       📄 Introduccion-a-PHP-sintaxis-basica-y-condicionales.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5692/mod_resource/content/1/Introduccion-a-PHP-sintaxis-basica-y-condicionales.pdf?forcedownload=1
+   - [label] 10. PHP ciclos - Funciones - Programación orientada a objetos POO
+   - [label] Video PHP ciclos - Funciones - Programación orientada a objetos POO
+   - [resource] Ciclos en PHP
+       📄 PHP ciclos-Funciones- POO.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5696/mod_resource/content/1/PHP%20ciclos-Funciones-%20POO.pdf?forcedownload=1
+   - [label] 11. Arreglos - MySql
+   - [label] Video Arreglos - MySql
+   - [resource] MySql
+       📄 Arreglos-y-MySQL.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5701/mod_resource/content/1/Arreglos-y-MySQL.pdf?forcedownload=1
+   - [label] 12. MySql insertar, eliminar, actualizar
+   - [label] Video MySql insertar, eliminar, actualizar
+   - [resource] MySql insertar, eliminar, actualizar
+       📄 MySQL-insertar-eliminar-actualizar.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5704/mod_resource/content/1/MySQL-insertar-eliminar-actualizar.pdf?forcedownload=1
+   - [resource] SIMULADOR DE MYSQL
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5758/mod_resource/content/2/index.html?forcedownload=1
+
+📂 Sección: Python y otros lenguajes de programación.
+   - [label] 13. Introducción Python
+   - [label] Video Introducción Python
+   - [resource] Introducción Python
+       📄 Introduccion-a-Python.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5616/mod_resource/content/1/Introduccion-a-Python.pdf?forcedownload=1
+   - [resource] SIMULADOR DE PHYTON
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5759/mod_resource/content/1/index.html?forcedownload=1
+   - [label] 14. Condicionales y ciclos
+   - [label] Video Condicionales y ciclos
+   - [resource] Condicionales y Ciclos
+       📄 Condicionales-y-Ciclos-en-Programacion.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5623/mod_resource/content/1/Condicionales-y-Ciclos-en-Programacion.pdf?forcedownload=1
+   - [page] Ejemplo de ciclos y condicionales
+       📄 index.html -> https://campus.cenditech.com.co/webservice/pluginfile.php/5625/mod_page/content/index.html?forcedownload=1
+   - [label] 15. Generadores y excepciones
+   - [label] Video Generadores y excepciones
+   - [label] Los generadores y las excepciones son dos concepto...
+   - [label] 16. Programación orientada a objetos
+   - [label] Video Programación orientada a objetos
+   - [resource] Programación orientada a objetos
+       📄 Introduccion-a-la-Programacion-Orientada-a-Objetos.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5635/mod_resource/content/1/Introduccion-a-la-Programacion-Orientada-a-Objetos.pdf?forcedownload=1
+   - [label] Programación Orientada a Objetos (POO) La Programa...
+   - [label] 17. Cadenas, módulos y paquetes
+   - [label] Video Cadenas, módulos y paquetes
+   - [resource] Cadenas, módulos y paquetes
+       📄 Cadenas, módulos y paquetes.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5641/mod_resource/content/1/Cadenas%2C%20mo%CC%81dulos%20y%20paquetes.pdf?forcedownload=1
+   - [label] Las cadenas son secuencias de caracteres, es decir...
+   - [label] 18. Archivos externos
+   - [label] Video Archivos externos
+   - [resource] Archivos externos
+       📄 Archivos externos.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5707/mod_resource/content/1/Archivos%20externos.pdf?forcedownload=1
+   - [label] Archivos Externos Los archivos externos son utiliz...
+
+📂 Sección: Desarrollo Back-End.
+   - [label] 19. Interfaces gráficas
+   - [label] Video Interfaces gráficas
+   - [resource] Interfaces gráficas
+       📄 Introduccion-a-las-Interfaces-Graficas- botones de radio.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5711/mod_resource/content/1/Introduccion-a-las-Interfaces-Graficas-%20botones%20de%20radio.pdf?forcedownload=1
+   - [label] Interfaces Gráficas con Tkinter Tkinter es una bib...
+   - [label] 20. Bases de datos
+   - [label] Video Bases de datos
+   - [resource] Bases de datos
+       📄 Bases-de-Datos-.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5715/mod_resource/content/1/Bases-de-Datos-.pdf?forcedownload=1
+   - [label] 21. Funciones especiales - Expresiones regulares
+   - [label] Video Funciones especiales - Expresiones regulares
+   - [resource] Funciones especiales - Expresiones regulares
+       📄 Funciones especiales y expresiones regulares.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5718/mod_resource/content/1/Funciones%20especiales%20y%20expresiones%20regulares.pdf?forcedownload=1
+   - [label] Funciones Especiales Las funciones especiales en P...
+   - [label] 22. Decoradores, documentación y prueba
+   - [label] Video Decoradores, documentación y prueba
+   - [label] Decoradores, Documentación y Pruebas en Python Dec...
+
+📂 Sección: Desarrollo Full Stack.
+   - [label] 23. Introducción a Django
+   - [label] Video Introducción a Django
+   - [label] Introducción a Django Django es un framework web d...
+   - [label] 24. Plantillas
+   - [label] Video Plantillas
+   - [resource] Plantillas
+       📄 Plantillas-en-Django.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5728/mod_resource/content/1/Plantillas-en-Django.pdf?forcedownload=1
+   - [label] Referencia del video público y libre sin ánimo de ...
+   - [label] 25. Gestión de plantillas
+   - [label] Video Gestión de plantillas
+   - [resource] Gestión de plantillas
+       📄 Gestión de plantillas.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5732/mod_resource/content/1/Gestio%CC%81n%20de%20plantillas.pdf?forcedownload=1
+   - [label] Condicionales, Filtros y Cargadores de Plantillas ...
+   - [label] 26. Bases de datos
+   - [label] Video Bases de datos
+   - [resource] Bases de datos
+       📄 bases-de-datos.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5736/mod_resource/content/1/bases-de-datos.pdf?forcedownload=1
+   - [label] Configuración de PostgreSQL en Django Instalaci...
+   - [label] 27. Panel de Administración
+   - [label] Video Panel de Administración
+   - [resource] Panel administrador
+       📄 Panel-de-Administracion.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5741/mod_resource/content/1/Panel-de-Administracion.pdf?forcedownload=1
+   - [label] Manejo de tablas: El Panel de Administración de Dj...
+   - [label] 28. Formularios
+   - [label] Video Formularios
+   - [resource] Formularios
+       📄 Formularios.pdf -> https://campus.cenditech.com.co/webservice/pluginfile.php/5745/mod_resource/content/1/Formularios.pdf?forcedownload=1
+   - [label] Formularios envían datos al servidor: Los formular...

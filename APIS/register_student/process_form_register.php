@@ -337,7 +337,8 @@ return [
         'label' => '<label class="form-label mt-3">Nacionalidad <span class="required">*</span></label>',
         'options' => [
             '' => 'Seleccione',
-            'Colombiana' => 'Colombiana'
+            'Colombiana' => 'Colombiana',
+            'Venezolana' => 'Venezolana'
         ],
         'attributes' => [
             'class' => 'form-control mb-3 form-select',

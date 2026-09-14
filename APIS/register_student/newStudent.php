@@ -646,6 +646,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                     // Campo de selección de país con banderas
                     echo "<div class='col-md-6'>";
+                    echo "<label class='d-block mb-1 small'>País</label>";
                     echo "<select name='country_code' class='form-control' id='country_code' required>";
                     echo "<option value='+57'  selected>Colombia</option>";
                     echo "</select>";
@@ -653,6 +654,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                     // Campo para el teléfono
                     echo "<div class='col-md-6'>";
+                    echo "<label class='d-block mb-1 small'>Número de teléfono</label>";
                     echo "<input type='tel' name='first_phone' id='first_phone' class='form-control' placeholder='321 1234567' required maxlength='10' minlength='10' pattern='^[0-9]{10}$' inputmode='numeric' oninput='this.value=this.value.replace(/[^0-9]/g, \"\")'>";
                     echo "</div>";
 
@@ -663,6 +665,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                     // Campo de selección de país con banderas
                     echo "<div class='col-md-6'>";
+                    echo "<label class='d-block mb-1 small'>País</label>";
                     echo "<select name='country_code2' class='form-control' id='country_code2' required>";
                     echo "<option value='+57'  selected>Colombia</option>";
                     echo "</select>";
@@ -670,6 +673,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                     // Campo para el teléfono
                     echo "<div class='col-md-6'>";
+                    echo "<label class='d-block mb-1 small'>Número de teléfono</label>";
                     echo "<input type='tel' name='second_phone' id='second_phone' class='form-control' placeholder='321 1234567' required maxlength='10' minlength='10' pattern='^[0-9]{10}$' inputmode='numeric' oninput='this.value=this.value.replace(/[^0-9]/g, \"\")'>";
                     echo "</div>";
 
@@ -697,6 +701,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                     // Campo de selección de país con banderas
                     echo "<div class='col-md-6'>";
+                    echo "<label class='d-block mb-1 small'>País</label>";
                     echo "<select name='country_code3' class='form-control' id='country_code3' required>";
                     echo "<option value='+57' selected>Colombia</option>";
                     echo "</select>";
@@ -704,6 +709,7 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
 
                     // Campo para el teléfono
                     echo "<div class='col-md-6'>";
+                    echo "<label class='d-block mb-1 small'>Número de teléfono</label>";
                     echo "<input type='tel' name='emergency_contact_number' id='emergency_contact_number' class='form-control' placeholder='321 1234567' required maxlength='10' minlength='10' pattern='^[0-9]{10}$' inputmode='numeric' oninput='this.value=this.value.replace(/[^0-9]/g, \"\")'>";
                     echo "</div>";
 

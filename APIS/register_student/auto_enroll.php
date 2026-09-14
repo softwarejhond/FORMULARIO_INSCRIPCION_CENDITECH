@@ -29,6 +29,220 @@ const PASSWORD_INICIAL = 'Cendi@2026';
 // ID del registro smtpConfig a usar para el envío del correo.
 const SMTP_CONFIG_ID = 4;
 
+// ==========================================================
+// CONFIGURACIÓN: cursos técnicos para crear sets por cupo
+// ==========================================================
+const CATEGORIAS_TECNICAS_SET = [
+    'IA'    => ['categoryid' => 16, 'nombre' => 'Inteligencia Artificial',      'template_courseid' => 32],
+    'PDS'   => ['categoryid' => 17, 'nombre' => 'Programación y Desarrollo',    'template_courseid' => 31],
+    'DT'    => ['categoryid' => 18, 'nombre' => 'Análisis de Datos',            'template_courseid' => 37],
+    'CIBER' => ['categoryid' => 19, 'nombre' => 'Ciberseguridad',               'template_courseid' => 36],
+    'CN'    => ['categoryid' => 20, 'nombre' => 'Computación en la Nube',       'template_courseid' => 38],
+    'BLO'   => ['categoryid' => 21, 'nombre' => 'Blockchain',                   'template_courseid' => 34],
+    'RA'    => ['categoryid' => 22, 'nombre' => 'Robótica y Automatización',    'template_courseid' => 35],
+    'IOT'   => ['categoryid' => 23, 'nombre' => 'Internet de las Cosas',        'template_courseid' => 33],
+];
+
+const CATEGORIAS_OBLIGATORIAS_SET = [
+    'ING' => ['categoryid' => 14, 'nombre' => 'Inglés',              'template_courseid' => 28],
+    'BH'  => ['categoryid' => 15, 'nombre' => 'Habilidades Blandas', 'template_courseid' => 29],
+];
+
+// Tope máximo de estudiantes por curso técnico.
+const CUPO_MAXIMO = 100;
+
+// Al llegar a este número de matriculados se crea el siguiente set en fila.
+const CUPO_CREAR_SIGUIENTE = 75;
+
+/**
+ * Obtiene los cursos de una categoría en Moodle.
+ */
+function getCursosCategoriaM($categoryId) {
+    $r = callMoodleAPIB('core_course_get_courses_by_field', [
+        'field' => 'category',
+        'value' => $categoryId,
+    ]);
+    return $r['courses'] ?? [];
+}
+
+/**
+ * Calcula el siguiente número de serie para un código en una categoría.
+ */
+function siguienteSerieM($categoryId, $codigo) {
+    $cursos = getCursosCategoriaM($categoryId);
+    $max = 0;
+    foreach ($cursos as $c) {
+        if (preg_match('/^' . preg_quote($codigo, '/') . '-(\d+)$/', $c['shortname'], $m)) {
+            $max = max($max, (int)$m[1]);
+        }
+    }
+    return $max + 1;
+}
+
+/**
+ * Duplica un curso plantilla en Moodle.
+ */
+function duplicarCursoM($templateId, $fullname, $shortname, $categoryId) {
+    return callMoodleAPIB('core_course_duplicate_course', [
+        'courseid'   => $templateId,
+        'fullname'   => $fullname,
+        'shortname'  => $shortname,
+        'categoryid' => $categoryId,
+        'visible'    => 1,
+        'options'    => [
+            ['name' => 'activities',       'value' => 1],
+            ['name' => 'blocks',           'value' => 1],
+            ['name' => 'filters',          'value' => 1],
+            ['name' => 'users',            'value' => 0],
+            ['name' => 'role_assignments', 'value' => 0],
+            ['name' => 'comments',         'value' => 0],
+            ['name' => 'userscompletion',  'value' => 0],
+            ['name' => 'logs',             'value' => 0],
+            ['name' => 'grade_histories',  'value' => 0],
+        ],
+    ]);
+}
+
+/**
+ * Registra un curso individual en la tabla `cursos`.
+ */
+function registrarCursoM($conn, $courseId, $code, $name) {
+    $stmt = $conn->prepare("INSERT INTO cursos (course_id, course_code, course_name) VALUES (?, ?, ?)");
+    $stmt->bind_param('iss', $courseId, $code, $name);
+    $ok = $stmt->execute();
+    $stmt->close();
+    return $ok;
+}
+
+/**
+ * Registra la tripleta en la tabla `sets_cursos`.
+ */
+function registrarSetM($conn, $codigo, $serie, $tecnicoId, $inglesId, $blandasId) {
+    $stmt = $conn->prepare("INSERT INTO sets_cursos (codigo_tecnico, serie, curso_tecnico_id, curso_ingles_id, curso_habilidades_id) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param('siiii', $codigo, $serie, $tecnicoId, $inglesId, $blandasId);
+    $ok = $stmt->execute();
+    $stmt->close();
+    return $ok;
+}
+
+/**
+ * Crea un set completo (técnico + inglés + habilidades) para un código.
+ * Devuelve el set con su `id`, `serie` y los ids de los 3 cursos, o null si falla.
+ */
+function crearSetCursoTecnicoM($conn, $codigo) {
+    $tecnicos = CATEGORIAS_TECNICAS_SET;
+    $oblig    = CATEGORIAS_OBLIGATORIAS_SET;
+
+    if (!isset($tecnicos[$codigo])) {
+        return null;
+    }
+
+    $tec = $tecnicos[$codigo];
+    $ing = $oblig['ING'];
+    $bh  = $oblig['BH'];
+
+    $serie   = siguienteSerieM($tec['categoryid'], $codigo);
+    $shortT  = "{$codigo}-{$serie}";
+    $shortI  = "ING-{$codigo}-{$serie}";
+    $shortB  = "BH-{$codigo}-{$serie}";
+    $fullT   = "{$tec['nombre']} {$shortT}";
+    $fullI   = "{$ing['nombre']} {$shortI}";
+    $fullB   = "{$bh['nombre']} {$shortB}";
+
+    $pasos = [
+        [$tec['template_courseid'], $fullT, $shortT, $tec['categoryid']],
+        [$ing['template_courseid'], $fullI, $shortI, $ing['categoryid']],
+        [$bh['template_courseid'],  $fullB, $shortB,  $bh['categoryid']],
+    ];
+
+    $ids = [];
+    foreach ($pasos as [$tid, $fn, $sn, $cid]) {
+        $r = duplicarCursoM($tid, $fn, $sn, $cid);
+        if (isset($r['error']) || isset($r['exception']) || !isset($r['id'])) {
+            return null;
+        }
+        $ids[] = $r['id'];
+        registrarCursoM($conn, $r['id'], $sn, $fn);
+    }
+
+    if (!registrarSetM($conn, $codigo, $serie, $ids[0], $ids[1], $ids[2])) {
+        return null;
+    }
+
+    return [
+        'id'                    => $conn->insert_id,
+        'serie'                 => $serie,
+        'curso_tecnico_id'      => $ids[0],
+        'curso_ingles_id'       => $ids[1],
+        'curso_habilidades_id'  => $ids[2],
+    ];
+}
+
+/**
+ * Cuenta los estudiantes matriculados en un curso técnico.
+ */
+function contarMatriculadosCursoM($conn, $courseTecnicoId) {
+    $stmt = $conn->prepare("SELECT COUNT(*) AS c FROM enrollments WHERE course_tecnico_id = ?");
+    $stmt->bind_param('i', $courseTecnicoId);
+    $stmt->execute();
+    $row = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+    return (int)($row['c'] ?? 0);
+}
+
+/**
+ * Obtiene el set con cupo disponible para un código.
+ * Recorre los sets en orden de serie (más antiguo primero) y devuelve el
+ * primero con menos de CUPO_MAXIMO matriculados. Si todos están llenos (o no
+ * hay ninguno), crea un nuevo set y lo devuelve.
+ */
+function obtenerSetConCupoM($conn, $codigo) {
+    $stmt = $conn->prepare("SELECT id, serie, curso_tecnico_id, curso_ingles_id, curso_habilidades_id
+                            FROM sets_cursos WHERE codigo_tecnico = ? ORDER BY serie ASC");
+    $stmt->bind_param('s', $codigo);
+    $stmt->execute();
+    $sets = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    $stmt->close();
+
+    foreach ($sets as $set) {
+        if (contarMatriculadosCursoM($conn, $set['curso_tecnico_id']) < CUPO_MAXIMO) {
+            return [$set, null];
+        }
+    }
+
+    // Todos llenos o no hay sets: crear uno nuevo
+    $nuevo = crearSetCursoTecnicoM($conn, $codigo);
+    if (!$nuevo) {
+        return [null, 'No se pudo crear un nuevo set de cursos para ' . $codigo . '.'];
+    }
+    return [$nuevo, null];
+}
+
+/**
+ * Adquiere un bloqueo con nombre (GET_LOCK) para serializar la decisión de
+ * cupo por código técnico y evitar condiciones de carrera.
+ */
+function adquirirLockMatricula($conn, $codigo, $timeout = 15) {
+    $lockName = 'matricula_' . $codigo;
+    $stmt = $conn->prepare("SELECT GET_LOCK(?, ?)");
+    $stmt->bind_param('si', $lockName, $timeout);
+    $stmt->execute();
+    $row = $stmt->get_result()->fetch_row();
+    $stmt->close();
+    return ($row !== null && (int)$row[0] === 1);
+}
+
+/**
+ * Libera el bloqueo con nombre previamente adquirido.
+ */
+function liberarLockMatricula($conn, $codigo) {
+    $lockName = 'matricula_' . $codigo;
+    $stmt = $conn->prepare("SELECT RELEASE_LOCK(?)");
+    $stmt->bind_param('s', $lockName);
+    $stmt->execute();
+    $stmt->close();
+}
+
 /**
  * Mapea el valor de `program` (user_register) a su código técnico.
  */
@@ -164,21 +378,21 @@ function matricularEstudiante($conn, $numberId) {
         return ['ok' => false, 'mensaje' => 'El programa "' . $est['program'] . '" no está asociado a un área técnica.'];
     }
 
-    // 3. Buscar el set más reciente para ese código
-    $stmt = $conn->prepare("SELECT id, serie, curso_tecnico_id, curso_ingles_id, curso_habilidades_id
-                            FROM sets_cursos WHERE codigo_tecnico = ? ORDER BY serie DESC LIMIT 1");
-    $stmt->bind_param('s', $codigo);
-    $stmt->execute();
-    $set = $stmt->get_result()->fetch_assoc();
-    $stmt->close();
-
-    if (!$set) {
-        return [
-            'ok'        => false,
-            'pendiente' => true,
-            'mensaje'   => 'Aún no hay un set de cursos disponible para ' . $codigo . '. La matrícula queda pendiente.',
-        ];
+    // 3. Bloquear la decisión de cupo para este código (evita condiciones de carrera)
+    if (!adquirirLockMatricula($conn, $codigo)) {
+        return ['ok' => false, 'mensaje' => 'No se pudo procesar la matrícula en este momento. Inténtalo de nuevo en unos segundos.'];
     }
+
+    try {
+        // 3.1. Obtener el set con cupo disponible (creando uno nuevo si está lleno)
+        [$set, $errorSet] = obtenerSetConCupoM($conn, $codigo);
+        if (!$set) {
+            return [
+                'ok'        => false,
+                'pendiente' => true,
+                'mensaje'   => $errorSet ?: 'No hay un set de cursos disponible para ' . $codigo . '.',
+            ];
+        }
 
     // 4. Datos para Moodle
     $username = (string)$est['number_id'];
@@ -253,6 +467,21 @@ function matricularEstudiante($conn, $numberId) {
     );
     $stmt->execute();
     $stmt->close();
+
+    // 7.5. Si este set alcanzó el umbral, crear el siguiente set en fila
+    if (contarMatriculadosCursoM($conn, $set['curso_tecnico_id']) >= CUPO_CREAR_SIGUIENTE) {
+        $stmt = $conn->prepare("SELECT id FROM sets_cursos WHERE codigo_tecnico = ? AND serie > ? LIMIT 1");
+        $stmt->bind_param('si', $codigo, $set['serie']);
+        $stmt->execute();
+        $existeSiguiente = $stmt->get_result()->fetch_assoc();
+        $stmt->close();
+        if (!$existeSiguiente) {
+            crearSetCursoTecnicoM($conn, $codigo);
+        }
+    }
+    } finally {
+        liberarLockMatricula($conn, $codigo);
+    }
 
     // 8. Enviar correo de credenciales al correo personal
     $correo = enviarCorreoMatricula($conn, $est['email'], $fullName, $programName, $username, $password);
