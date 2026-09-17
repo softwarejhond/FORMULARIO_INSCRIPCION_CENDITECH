@@ -1,53 +1,109 @@
+:root {
+    --indigo-dark: #193A70;
+    --indigo-ligth: #15305c;
+    --gray-ligth: #f4f6f7;
+    --black-ligth: #1a1a1a;
+}
 
-        :root {
-            --magenta-dark: #ec008c;
-            --magenta-ligth: rgb(240, 59, 168);
-            --indigo-dark: #30336b;
-            --indigo-ligth: rgb(69, 73, 153);
-            --gray-ligth: #f4f6f7;
-            --black-ligth: #1a1a1a;
-        }
+html {
+    font-family: Verdana, Geneva, sans-serif;
+}
 
-        .bg-indigo-dark {
-            background-color: var(--indigo-dark);
-            color: white;
-        }
+body {
+    background-color: #f4f6fb;
+}
 
-        .bg-indigo-dark:hover {
-            background-color: var(--indigo-ligth);
-            color: var(--gray-ligth);
-        }
+#vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
 
-        .subTitle {
-            color: var(--indigo-dark);
-        }
+/* Glass form - light theme */
+.glass-form {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(25, 58, 112, 0.15);
+    color: #193A70;
+}
 
-        /* Ajuste del formulario */
-        .container {
-            margin-top: 80px;
-            /* Separación para evitar que el header lo tape */
-            margin-bottom: 60px;
-            /* Separación para evitar que el footer lo tape */
-        }
+.glass-form label,
+.glass-form .subTitle,
+.glass-form small,
+.glass-form .form-check-label {
+    color: #193A70;
+}
 
-        /* Estilos para el header y footer */
-        .header {
-            width: 100%;
-            height: auto;
-            overflow: hidden;
-        }
+.glass-form .form-control {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(25, 58, 112, 0.25);
+    color: #1a1a1a;
+}
 
-        .header img,
-        .footer img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* Mantiene proporciones sin distorsionar */
-        }
+.glass-form .form-control::placeholder {
+    color: rgba(26, 26, 26, 0.45);
+}
 
-        .contenedor-sombra {
-            background: white;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-            border-radius: 8px;
-        }
+.glass-form .form-control:focus {
+    background: #ffffff;
+    border-color: #193A70;
+    box-shadow: 0 0 0 0.2rem rgba(25, 58, 112, 0.2);
+    color: #1a1a1a;
+}
+
+.glass-form .form-select {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(25, 58, 112, 0.25);
+    color: #1a1a1a;
+}
+
+.glass-form .form-select option {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+.glass-form a {
+    color: #193A70;
+}
+
+.subTitle {
+    color: var(--indigo-dark);
+}
+
+.bg-indigo-dark {
+    background-color: #193A70;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(25, 58, 112, 0.45);
+}
+
+.bg-indigo-dark:hover {
+    background-color: #15305c;
+    color: white;
+    box-shadow: 0 6px 16px rgba(25, 58, 112, 0.6);
+}
+
+/* Ajuste del formulario */
+.container {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* Estilos para el header y footer */
+.header {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.header img,
+.footer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Mantiene proporciones sin distorsionar */
+}

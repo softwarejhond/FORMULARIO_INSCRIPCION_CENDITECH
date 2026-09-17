@@ -13,13 +13,17 @@
 
 <body>
 
+    <div id="vanta-bg"></div>
+
     <!-- Header con imagen -->
     <header class="header">
-        <img src="assets/img/encabezado.jpg" alt="Header">
+        <div class="container">
+            <img src="../img/banner_pqrs.webp" alt="banner top pqrs" class="w-100 rounded mt-3">
+        </div>
     </header>
 
     <div class="container">
-        <div class="contenedor-sombra p-4 rounded">
+        <div class="glass-form p-4 rounded">
             <h2 class="subTitle">Crear PQRS</h2>
             <hr>
             <p>Por favor, llena el siguiente formulario para realizar una petición, queja, reclamo o sugerencia. <strong
@@ -57,7 +61,7 @@
                                 <input type="number" class="form-control" id="telefono1" name="telefono1"
                                     placeholder="Escribe tu teléfono principal" required>
                             </div>
-                       
+
 
                             <!-- Botón de envío en la primera columna -->
                             <button type="submit" class="btn bg-indigo-dark mt-3">Enviar PQRS</button>
@@ -66,11 +70,11 @@
 
                     <!-- Segunda columna -->
                     <div class="col-md-6">
-                    <div class="mb-3">
-                                <label for="telefono2" class="form-label">Teléfono secundario:</label>
-                                <input type="number" class="form-control" id="telefono2" name="telefono2"
-                                    placeholder="Escribe tu teléfono secundario" required>
-                            </div>
+                        <div class="mb-3">
+                            <label for="telefono2" class="form-label">Teléfono secundario:</label>
+                            <input type="number" class="form-control" id="telefono2" name="telefono2"
+                                placeholder="Escribe tu teléfono secundario" required>
+                        </div>
                         <div class="mb-3">
                             <label for="tipo" class="form-label">Tipo:</label>
                             <select class="form-select" id="tipo" name="tipo" required>
@@ -104,7 +108,9 @@
 
     <!-- Footer con imagen -->
     <footer class="footer">
-        <img src="assets/img/footer.webp" alt="Footer">
+        <div class="container">
+            <img src="../img/footer_pqrs.webp" alt="banner bottom pqrs" class="w-100 rounded mb-3">
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -128,7 +134,7 @@
         });
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const formulario = document.getElementById("formularioPQR");
             const urlProcesarPqr = 'procesar_pqr.php'; // URL para procesar el formulario
 
@@ -163,7 +169,10 @@
                     }
                 });
 
-                return { formularioValido, camposFaltantes };
+                return {
+                    formularioValido,
+                    camposFaltantes
+                };
             }
 
             // Función para validar formato de email
@@ -208,7 +217,7 @@
             }
 
             // Evento submit del formulario
-            formulario.addEventListener("submit", function (event) {
+            formulario.addEventListener("submit", function(event) {
                 event.preventDefault(); // Evita recargar la página
 
                 // Verificar si ya se está procesando una solicitud
@@ -218,7 +227,10 @@
 
                 // Validar campos
                 let campos = formulario.querySelectorAll("input, select, textarea");
-                let { formularioValido, camposFaltantes } = validarCamposVacios(campos);
+                let {
+                    formularioValido,
+                    camposFaltantes
+                } = validarCamposVacios(campos);
 
                 // Validar formato de email
                 let emailCampo = document.getElementById('email');
@@ -266,9 +278,9 @@
 
                 // Realizar la petición fetch
                 fetch(urlProcesarPqr, {
-                    method: 'POST',
-                    body: new FormData(formulario)
-                })
+                        method: 'POST',
+                        body: new FormData(formulario)
+                    })
                     .then(response => response.json())
                     .then(data => {
                         console.log("Datos procesados: ", data);
@@ -304,10 +316,10 @@
                     })
                     .catch(error => {
                         console.error('Error en la petición fetch:', error);
-                        
+
                         // Cerrar el loader en caso de error
                         Swal.close();
-                        
+
                         Swal.fire({
                             icon: 'error',
                             title: '¡Error!',
@@ -348,6 +360,23 @@
                     console.error('Error al copiar: ', err);
                 });
         }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script>
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x193a70,
+            backgroundColor: 0xf4f6fb
+        })
     </script>
 
 </body>

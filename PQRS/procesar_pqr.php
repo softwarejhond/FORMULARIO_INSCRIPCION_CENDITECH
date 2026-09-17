@@ -124,7 +124,7 @@ try {
                 mysqli_commit($conn);
                 
                 // Obtener configuración SMTP desde la base de datos
-                $query = "SELECT * FROM smtpConfig WHERE id=2";
+                $query = "SELECT * FROM smtpConfig WHERE id=4";
                 $querySMTP = mysqli_query($conn, $query);
                 $smtpConfig = mysqli_fetch_array($querySMTP);
 
@@ -150,28 +150,37 @@ try {
                     $mail->SMTPAuth = true;
                     $mail->Username = $emailSmtp;
                     $mail->Password = $password;
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                     $mail->Port = $port;
-                    $mail->setFrom($emailSmtp, 'Servicio al cliente');
+
+                    $mail->SMTPOptions = array(
+                        'ssl' => array(
+                            'verify_peer' => false,
+                            'verify_peer_name' => false,
+                            'allow_self_signed' => true
+                        )
+                    );
+
+                    $mail->setFrom('no-reply@cenditech.com.co', 'CENDI Tech');
                     $mail->CharSet = 'UTF-8';
                     $mail->addAddress($email);
 
                     // Incrustar imágenes
-                    $mail->addEmbeddedImage('assets/img/encabezado.jpg', 'encabezado');
-                    //$mail->addEmbeddedImage('assets/img/contenido.png', 'contenido');
-                    $mail->addEmbeddedImage('assets/img/pausa_pqr.png', 'pausa_navidad');
+                    $mail->addEmbeddedImage(dirname(__DIR__) . '/img/cendi_logo_blanco.png', 'logo_blanco');
+                    $mail->addEmbeddedImage(dirname(__DIR__) . '/img/cendi_logo_color.png', 'logo');
 
                     $mail->isHTML(true);
                     $mail->Subject = $subject;
 
-                    // Aquí va tu mensaje HTML (mantener el mismo)
+                    // Cuerpo del correo de confirmación (estilo inscripción)
                     $mensaje = "
                     <!DOCTYPE html>
                     <html>
                     <head>
+                        <meta charset='UTF-8'>
                         <style>
                             body {
-                                font-family: Arial, sans-serif;
+                                font-family: Arial, Helvetica, sans-serif;
                                 margin: 0;
                                 padding: 0;
                                 background-color: #f4f4f9;
@@ -181,60 +190,75 @@ try {
                                 max-width: 600px;
                                 margin: 20px auto;
                                 background: #ffffff;
-                                border-radius: 10px;
-                                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                                padding: 20px;
+                                border-radius: 12px;
+                                overflow: hidden;
+                                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
                             }
                             .header {
+                                background: #181E93;
+                                color: #ffffff;
+                                padding: 28px 24px;
                                 text-align: center;
-                                color: #fff;
-                                border-top-left-radius: 10px;
-                                border-top-right-radius: 10px;
                             }
-                
-                            .header h1 {
-                                margin: 0;
-                                font-size: 24px;
-                            }
-                
                             .content {
+                                padding: 28px 24px;
                                 line-height: 1.6;
                             }
-                
                             .content p {
-                                margin: 10px 0;
+                                margin: 12px 0;
+                                color: #333;
                             }
-                
+                            .radicado-box {
+                                margin: 20px 0;
+                                padding: 20px;
+                                border: 2px solid #181E93;
+                                border-radius: 10px;
+                                background: #f8f9ff;
+                                text-align: center;
+                            }
+                            .radicado-box h2 {
+                                margin: 0 0 8px;
+                                color: #181E93;
+                                font-size: 18px;
+                            }
+                            .radicado-box h3 {
+                                margin: 0;
+                                color: #F9B233;
+                                font-size: 24px;
+                                letter-spacing: 1px;
+                            }
                             .footer {
                                 text-align: center;
-                                margin-top: 20px;
+                                padding: 20px 24px;
                                 color: #777;
                                 font-size: 12px;
+                                background: #f4f4f9;
                             }
                         </style>
                     </head>
-                
                     <body>
                         <div class='container'>
                             <div class='header'>
-                                <img src='cid:encabezado' alt='Encabezado' style='max-width: 100%; height: auto;'>
+                                <img src='cid:logo_blanco' alt='CENDITECH' width='180' height='105' style='display:block;margin:0 auto;width:180px;height:105px;'>
+                                <h1 style='margin:16px 0 0;font-size:20px;'>¡PQRS recibida con éxito!</h1>
                             </div>
-                            <div class='content' style='text-align: center;'>
-                                <h2>Hola <b>" . strtoupper($nombre) . "</b>,</h2>
-                                <p>Tu PQRS ha sido recibida con éxito. El número de radicado es:</p>
-                                <h3 style='color: #066aab;'>$numero_radicado</h3>
-                            </div>
-                            <div style='text-align: center; margin: 20px 0;'>
-                                <img src='cid:pausa_navidad' alt='Tarjeta de Navidad' style='max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);'>
+                            <div class='content'>
+                                <p>Hola <b>" . strtoupper($nombre) . "</b>,</p>
+                                <p>Hemos recibido tu solicitud de tipo <b>$tipo</b> y quedó registrada en nuestro sistema. Tu número de radicado es:</p>
+                                <div class='radicado-box'>
+                                    <h2>Número de radicado</h2>
+                                    <h3>$numero_radicado</h3>
+                                </div>
+                                <p style='text-align:center;'>Guarda este número para consultar el estado de tu solicitud.</p>
+                                <p style='text-align:center;'>Si tienes alguna duda o necesitas más información, no dudes en contactarnos. ¡Estamos aquí para ayudarte!</p>
                             </div>
                             <div class='footer'>
-                                <p style='font-size: 14px; color: #555; font-style: italic; text-align: center; margin-top: 10px;'>
-                                    <strong>Nota:</strong> Este es un correo automático, por favor no responda.
-                                </p>
+                                <img src='cid:logo' alt='CENDITECH' width='150' height='88' style='display:block;margin:0 auto 8px;width:150px;height:88px;'>
+                                <p style='margin:0;'>Equipo CENDI Tech</p>
+                                <p style='margin:8px 0 0;'><strong>Nota:</strong> Este es un correo automático, por favor no responda.</p>
                             </div>
                         </div>
                     </body>
-                
                     </html>";
 
                     $mail->Body = $mensaje;
