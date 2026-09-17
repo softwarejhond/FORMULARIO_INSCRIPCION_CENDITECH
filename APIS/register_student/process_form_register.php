@@ -921,7 +921,7 @@ return [
         'type' => 'checkbox',
         'label' => '',
         'options' => [
-            'Sí' => 'Acepta los requisitos establecidos por la presente convocatoria',
+            'Sí' => 'Acepto la Política de Calidad de CENDI',
         ],
         'attributes' => [
             'class' => 'form-check-input mb-3',
@@ -933,7 +933,7 @@ return [
         'type' => 'checkbox',
         'label' => '',
         'options' => [
-            'Sí' => 'Acepta la carta de compromiso  de talento Tech',
+            'Sí' => 'Acepto la Autorización de Manejo de Datos Personales',
         ],
         'attributes' => [
             'class' => 'form-check-input mb-3',
@@ -945,7 +945,7 @@ return [
         'type' => 'checkbox',
         'label' => '',
         'options' => [
-            'Sí' => 'Confirmo que he leído y acepto las políticas de tratamiento de datos personales',
+            'Sí' => 'Acepto la Política de Tratamiento de Datos Personales',
         ],
         'attributes' => [
             'class' => 'form-check-input mb-3',

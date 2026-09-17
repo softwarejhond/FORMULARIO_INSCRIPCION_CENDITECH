@@ -18,10 +18,10 @@
 // mysqli_query($conn, "SET COLLATION_CONNECTION = 'utf8_general_ci'");        
 
 //datos del servidor
-$server = "localhost";
+$server = "db";
 $username = "root";
-$password = "";
-$bd = "utinnova";
+$password = "root";
+$bd = "cendi_tech";
 //creamos una conexión
 $conn = mysqli_connect($server, $username, $password, $bd);
 //Chequeamos la conexión

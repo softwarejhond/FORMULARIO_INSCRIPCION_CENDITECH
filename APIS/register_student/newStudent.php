@@ -776,30 +776,30 @@ $fieldsPerStep = 18; // 17 campos en total por paso (solo una columna)
                     // Campo de aceptación de requisitos
                     echo "<div class='form-check form-check'>";
                     echo "<input type='checkbox' class='form-check-input custom-checkbox' name='accept_requirements' id='accept_requirements' value='Sí' required>";
-                    echo "<label class='form-check-label' for='accept_requirements'>Acepta los requisitos establecidos por la presente convocatoria</label>";
+                    echo "<label class='form-check-label' for='accept_requirements'>Acepto la Política de Calidad de CENDI</label>";
                     echo "</div>";
-                    // Enlace con los requisitos
-                    echo "<p><a href='' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
+                    // Enlace con la política
+                    echo "<p><a href='docs/politica_calidad_cendi.pdf' target='_blank'>Puedes consultar la Política de Calidad de CENDI haciendo clic aquí</a></p>";
                     echo "</div>";
                 } elseif ($fieldName == 'accepts_tech_talent') {
                     echo "<div class='form-group'>";
                     // Campo de aceptación de requisitos
                     echo "<div class='form-check form-check'>";
                     echo "<input type='checkbox' class='form-check-input custom-checkbox' name='accepts_tech_talent' id='accepts_tech_talent' value='Sí' required>";
-                    echo "<label class='form-check-label' for='accepts_tech_talent'>Acepta la carta de compromiso </label>";
+                    echo "<label class='form-check-label' for='accepts_tech_talent'>Acepto la Autorización de Manejo de Datos Personales</label>";
                     echo "</div>";
-                    // Enlace con los requisitos
-                    echo "<p><a href='' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
+                    // Enlace con la autorización
+                    echo "<p><a href='docs/autorizacion_manejo_datos_personales.pdf' target='_blank'>Puedes consultar la Autorización de Manejo de Datos Personales haciendo clic aquí</a></p>";
                     echo "</div>";
                 } elseif ($fieldName == 'accept_data_policies') {
                     echo "<div class='form-group'>";
                     // Campo de aceptación de requisitos
                     echo "<div class='form-check form-check'>";
                     echo "<input type='checkbox' class='form-check-input custom-checkbox' name='accept_data_policies' id='accept_data_policies' value='Sí' required>";
-                    echo "<label class='form-check-label' for='Accept_data_policies'>Confirmo que he leído y acepto las políticas de tratamiento de datos personales</label>";
+                    echo "<label class='form-check-label' for='accept_data_policies'>Acepto la Política de Tratamiento de Datos Personales</label>";
                     echo "</div>";
-                    // Enlace con los requisitos
-                    echo "<p><a href='' target='_blank'>Puedes consultar los requisitos de la convocatoria haciendo click aquí</a></p>";
+                    // Enlace con la política
+                    echo "<p><a href='docs/politica_tratamiento_de_datos_cendi.pdf' target='_blank'>Puedes consultar la Política de Tratamiento de Datos Personales haciendo clic aquí</a></p>";
                     echo "</div>";
                 } else {
                     echo "<input type='$type' $attributes>";
